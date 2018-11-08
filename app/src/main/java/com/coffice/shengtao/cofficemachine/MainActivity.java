@@ -9,13 +9,14 @@ import com.coffice.shengtao.cofficemachine.activitys.AlipayIntegrationActivity;
 import com.coffice.shengtao.cofficemachine.activitys.BaseActivity;
 import com.coffice.shengtao.cofficemachine.activitys.GPSAddressActivity;
 import com.coffice.shengtao.cofficemachine.activitys.LitePalTestActivity;
+import com.coffice.shengtao.cofficemachine.activitys.NetChangeActivity;
 import com.coffice.shengtao.cofficemachine.activitys.ScanCodeActivity;
 import com.coffice.shengtao.cofficemachine.activitys.ApayStandboxActivity;
 import com.coffice.shengtao.cofficemachine.utils.LogUtils;
 import com.coffice.shengtao.cofficemachine.utils.ToastUtils;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener{
-    private Button button1, button2, button3, button4,gpsaddress;
+    private Button button1, button2, button3, button4,gpsaddress,netChangeRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +34,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         button3=findViewById(R.id.button3);
         button4=findViewById(R.id.button5);
         gpsaddress=findViewById(R.id.readaddress);
+        netChangeRequest=findViewById(R.id.changeNetRequest);
     }
 
     @Override
@@ -55,7 +57,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
             case R.id.button2:
                 break;
             case R.id.button3:
-
                 intent=new Intent(this,ScanCodeActivity.class);
                 break;
             case R.id.button5:
@@ -63,6 +64,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 break;
             case R.id.readaddress:
                 intent=new Intent(this,GPSAddressActivity.class);
+                break;
+            case R.id.changeNetRequest:
+                intent=new Intent(this,NetChangeActivity.class);
                 break;
             default:
                 break;

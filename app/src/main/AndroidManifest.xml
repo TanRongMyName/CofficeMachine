@@ -71,7 +71,8 @@
 
         <activity android:name=".activitys.GPSBaiDuActivity" />
         <activity android:name=".activitys.ApayRealActivity" />
-        <activity android:name=".activitys.AlipayIntegrationActivity"></activity>
+        <activity android:name=".activitys.AlipayIntegrationActivity" />
+        <activity android:name=".activitys.NetChangeActivity"></activity>
     </application>
 
 </manifest>

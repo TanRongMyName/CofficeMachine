@@ -19,6 +19,10 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.coffice.shengtao.cofficemachine.R;
+import com.coffice.shengtao.cofficemachine.data.GlobalData;
+import com.coffice.shengtao.cofficemachine.httprequest.IRequestCallback;
+import com.coffice.shengtao.cofficemachine.httprequest.IRequestManager;
+import com.coffice.shengtao.cofficemachine.httprequest.RequestFactory;
 import com.coffice.shengtao.cofficemachine.utils.LocationUtils;
 import com.coffice.shengtao.cofficemachine.utils.LogUtils;
 import com.coffice.shengtao.cofficemachine.utils.ToastUtils;
@@ -106,6 +110,7 @@ public class GPSAddressActivity extends BaseActivity {
             longitude[0] = location.getLongitude();
             LogUtils.e("维度：" + latitude[0] + "\n经度" + longitude[0]);
             tv.setText("本地获取维度：" + latitude[0] + "\n经度" + longitude[0]);
+            HttpRequest(latitude[0]+","+longitude[0]);
         }else{
             final LocationUtils locationUtils= LocationUtils.getInstance(this);
             locationUtils.startMonitor();
@@ -115,12 +120,35 @@ public class GPSAddressActivity extends BaseActivity {
                 longitude[0] = location.getLongitude();
                 LogUtils.e("维度：" + latitude[0] + "\n经度" + longitude[0]);
                 tv.setText("百度地图获取维度：" + latitude[0] + "\n经度" + longitude[0]);
+                HttpRequest(latitude[0]+","+longitude[0]);
             }else {
                 LogUtils.e("无法获取到位置信息");
             }
         }
 
     }
+
+    public void HttpRequest(String location) {
+        String url = GlobalData.BaiDuMap_Address_Url;
+        url=String.format(url,location);
+        //这里发起请求依赖的是IRequestManager接口
+        IRequestManager requestManager = RequestFactory.getRequestManager(RequestFactory.NetRequestType_OKHTTP);
+        requestManager.get(url, new IRequestCallback() {
+            @Override
+            public void onSuccess(String response) {
+               // Log.d(TAG, "onSuccess: " + response);
+                //修改UI试下
+                LogUtils.d(response);
+            }
+
+            @Override
+            public void onFailure(Throwable throwable) {
+                throwable.printStackTrace();
+            }
+        });
+    }
+
+
     public void ongetLocation(View view){
         showGPSContacts();
     }
@@ -142,9 +170,10 @@ public class GPSAddressActivity extends BaseActivity {
         }
         return true;
     }
+
     @Override
-    protected void onPause() {
-        super.onPause();
+    protected void onResume() {
+        super.onResume();
         if (checkDangerousPermissions(this, LOCATIONGPS)){
         }else {
             if (!hasRequestPermission){

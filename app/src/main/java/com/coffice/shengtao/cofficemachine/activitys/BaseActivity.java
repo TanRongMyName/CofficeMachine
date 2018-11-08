@@ -1,5 +1,7 @@
 package com.coffice.shengtao.cofficemachine.activitys;
 
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.support.annotation.NonNull;
@@ -50,6 +52,8 @@ public class BaseActivity extends AppCompatActivity {
     }
 
 
+
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         boolean granted = true;
@@ -71,5 +75,37 @@ public class BaseActivity extends AppCompatActivity {
     public boolean handlePermissionResult(int requestCode, boolean granted) {
         return false;
     }
+
+
+
+    /**
+     * 检查是否已被授权危险权限
+     * @param permissions
+     * @return
+     */
+    public boolean checkDangerousPermissions(Activity ac, String[] permissions) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            return true;
+        }
+        for (String permission : permissions) {
+            if (ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED ||
+                    ActivityCompat.shouldShowRequestPermissionRationale(ac, permission)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public  void showScanCodeTip(final String[] requestprimarys) {
+        ScanCodeTipDialog dialog = new ScanCodeTipDialog();
+        dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialog) {
+                requestDangerousPermissions(requestprimarys, REQUEST_CODE_CAMERA);
+            }
+        });
+        dialog.show(getSupportFragmentManager(), ApayStandboxActivity.class.getSimpleName());
+    }
+
 
 }

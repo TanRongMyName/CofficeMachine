@@ -66,7 +66,7 @@ public class ScanCodeActivity extends BaseActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode==1000){
+        if (requestCode==1000&&data!=null){
             String result = data.getStringExtra("result");
             if (result!=null) {
                 LogUtils.d(result);
@@ -92,10 +92,11 @@ public class ScanCodeActivity extends BaseActivity {
         }
         return true;
     }
+
     @Override
-    protected void onPause() {
-        super.onPause();
-         if (checkDangerousPermissions(this, cameraPermissions)){
+    protected void onResume() {
+        super.onResume();
+        if (checkDangerousPermissions(this, cameraPermissions)){
 
         }else {
             if (!hasRequestPermission){

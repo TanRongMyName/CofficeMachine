@@ -14,8 +14,10 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 
+import com.alipay.sdk.app.EnvUtils;
 import com.alipay.sdk.app.PayTask;
 import com.coffice.shengtao.cofficemachine.R;
+import com.coffice.shengtao.cofficemachine.data.GlobalData;
 import com.coffice.shengtao.cofficemachine.utils.LogUtils;
 import com.coffice.shengtao.cofficemachine.utils.ToastUtils;
 import com.coffice.shengtao.cofficemachine.utils.aplayutils.OrderInfoUtil2_0;
@@ -31,11 +33,10 @@ public class ApayStandboxActivity extends BaseActivity {
             Manifest.permission.WRITE_EXTERNAL_STORAGE
     };
     private boolean hasRequestPermission=false;
-    private Button onpayStandbox;
     private static final int SDK_PAY_FLAG = 1001;
     //Globaldate 中
-    private String RSA2_PRIVATE = null;
-    public  String APPID = null;
+    private String RSA2_PRIVATE = GlobalData.Sand_RSA2;
+    public  String APPID = GlobalData.Sand_APayId;
 
     //用来接收回调信息
     private Handler mHandler = new Handler() {
@@ -63,16 +64,12 @@ public class ApayStandboxActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        EnvUtils.setEnv(EnvUtils.EnvEnum.SANDBOX);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_apay);
-        initView();
     }
 
-    @Override
-    public void initView() {
-        super.initView();
-        onpayStandbox=findViewById(R.id.onpaystandbox);
-    }
+
     public void onStandPay(View view){
         //秘钥验证的类型 true:RSA2 false:RSA
         boolean rsa = true;

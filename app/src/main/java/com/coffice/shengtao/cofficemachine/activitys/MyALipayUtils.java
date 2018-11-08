@@ -7,6 +7,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.alipay.sdk.app.PayTask;
+import com.coffice.shengtao.cofficemachine.utils.LogUtils;
 import com.coffice.shengtao.cofficemachine.utils.aplayutils.Base64;
 import com.coffice.shengtao.cofficemachine.utils.aplayutils.PayResult;
 
@@ -21,7 +22,9 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+import java.util.Random;
 
 public class MyALipayUtils {
     private static final int SDK_PAY_FLAG = 1;
@@ -167,6 +170,16 @@ public class MyALipayUtils {
 
         return keyValues;
     }
+    public String getOutTradeNo() {
+        SimpleDateFormat format = new SimpleDateFormat("MMddHHmmss", Locale.getDefault());
+        Date date = new Date();
+        String key = format.format(date);
+
+        Random r = new Random();
+        key = key + r.nextInt();
+        key = key.substring(0, 15);
+        return key;
+    }
 
     /**
      * 构造支付订单参数信息
@@ -180,7 +193,8 @@ public class MyALipayUtils {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < keys.size() - 1; i++) {
             String key = keys.get(i);
-            String value = map.get(key);
+            String value = map.get(key);//
+
             sb.append(buildKeyValue(key, value, true));
             sb.append("&");
             Log.e("chx", "buildOrderParam: " + buildKeyValue(key, value, true));
@@ -271,6 +285,7 @@ public class MyALipayUtils {
      * @return
      */
     private String buildKeyValue(String key, String value, boolean isEncode) {
+        LogUtils.d("buildKeyValue    value====="+value);
         StringBuilder sb = new StringBuilder();
         //出现空字符串
         sb.append(key);

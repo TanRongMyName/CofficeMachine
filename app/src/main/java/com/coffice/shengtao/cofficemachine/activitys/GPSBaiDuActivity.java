@@ -158,8 +158,8 @@ public class GPSBaiDuActivity extends BaseActivity {
         return true;
     }
     @Override
-    protected void onPause() {
-        super.onPause();
+    protected void onResume() {
+        super.onResume();
         if (checkDangerousPermissions(this, LOCATIONGPS)){
             LogUtils.e("有权限");
         }else {

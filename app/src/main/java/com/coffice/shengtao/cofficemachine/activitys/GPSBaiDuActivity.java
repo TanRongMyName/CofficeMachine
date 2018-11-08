@@ -86,6 +86,7 @@ public class GPSBaiDuActivity extends BaseActivity {
             sb.append(location.getLongitude());
             sb.append("\nradius : ");
             sb.append(location.getRadius());
+            LogUtils.d("location.getLocType()==="+location.getLocType());
             if (location.getLocType() == BDLocation.TypeGpsLocation) {// GPS定位结果
                 sb.append("\nspeed : ");
                 sb.append(location.getSpeed());// 单位：公里每小时
@@ -133,6 +134,7 @@ public class GPSBaiDuActivity extends BaseActivity {
                 }
             }
             Log.e("描述：", sb.toString());
+
             tv.setText(sb.toString());
             mLocationClient.stop();
         }

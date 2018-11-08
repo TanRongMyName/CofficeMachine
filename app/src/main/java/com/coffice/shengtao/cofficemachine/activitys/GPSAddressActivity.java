@@ -30,6 +30,8 @@ import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 public class GPSAddressActivity extends BaseActivity {
     //https://blog.csdn.net/mingjiezuo/article/details/79755357
     //先获取当前的 经纬度 然后 在调用 百度地图 获取当前的位置地址明细
+    //权限有点问题
+    //本地获取到的 可以不使用百度地图的
     private TextView tv;
     static final String[] LOCATIONGPS = new String[]{
             Manifest.permission.ACCESS_COARSE_LOCATION,
@@ -116,12 +118,6 @@ public class GPSAddressActivity extends BaseActivity {
             }else {
                 LogUtils.e("无法获取到位置信息");
             }
-//            tv.postDelayed(new Runnable() {  view 定时去执行线程
-//                @Override
-//                public void run() {
-//
-//                }
-//            },10000);
         }
 
     }
@@ -150,7 +146,6 @@ public class GPSAddressActivity extends BaseActivity {
     protected void onPause() {
         super.onPause();
         if (checkDangerousPermissions(this, LOCATIONGPS)){
-            LogUtils.e("有权限");
         }else {
             if (!hasRequestPermission){
                 showScanCodeTip();

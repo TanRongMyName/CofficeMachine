@@ -1,17 +1,16 @@
 package com.coffice.shengtao.cofficemachine;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.coffice.shengtao.cofficemachine.activitys.AlipayIntegrationActivity;
 import com.coffice.shengtao.cofficemachine.activitys.BaseActivity;
 import com.coffice.shengtao.cofficemachine.activitys.GPSAddressActivity;
 import com.coffice.shengtao.cofficemachine.activitys.LitePalTestActivity;
 import com.coffice.shengtao.cofficemachine.activitys.ScanCodeActivity;
-import com.coffice.shengtao.cofficemachine.activitys.TastPayTwoActivity;
-import com.coffice.shengtao.cofficemachine.activitys.TestAPay;
+import com.coffice.shengtao.cofficemachine.activitys.ApayStandboxActivity;
 import com.coffice.shengtao.cofficemachine.utils.LogUtils;
 import com.coffice.shengtao.cofficemachine.utils.ToastUtils;
 
@@ -60,7 +59,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 intent=new Intent(this,ScanCodeActivity.class);
                 break;
             case R.id.button5:
-                intent=new Intent(this,TestAPay.class);
+                intent=new Intent(this,AlipayIntegrationActivity.class);
                 break;
             case R.id.readaddress:
                 intent=new Intent(this,GPSAddressActivity.class);

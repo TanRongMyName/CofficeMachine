@@ -9,7 +9,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -17,7 +16,6 @@ import android.widget.Button;
 
 import com.alipay.sdk.app.PayTask;
 import com.coffice.shengtao.cofficemachine.R;
-import com.coffice.shengtao.cofficemachine.data.GlobalData;
 import com.coffice.shengtao.cofficemachine.utils.LogUtils;
 import com.coffice.shengtao.cofficemachine.utils.ToastUtils;
 import com.coffice.shengtao.cofficemachine.utils.aplayutils.OrderInfoUtil2_0;
@@ -27,7 +25,7 @@ import org.litepal.util.LogUtil;
 
 import java.util.Map;
 
-public class TestAPay extends BaseActivity {
+public class ApayStandboxActivity extends BaseActivity {
     private String[] cameraPermissions = {
             Manifest.permission.READ_PHONE_STATE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE
@@ -54,9 +52,9 @@ public class TestAPay extends BaseActivity {
                     String resultStatus = payResult.getResultStatus();
                     // 判断resultStatus 为9000则代表支付成功
                     if (TextUtils.equals(resultStatus, "9000")) {
-                       ToastUtils.showShort(TestAPay.this, "支付成功");
+                       ToastUtils.showShort(ApayStandboxActivity.this, "支付成功");
                     } else {
-                        ToastUtils.showShort(TestAPay.this, "支付失败");
+                        ToastUtils.showShort(ApayStandboxActivity.this, "支付失败");
                     }
                     break;
             }
@@ -92,7 +90,7 @@ public class TestAPay extends BaseActivity {
             @Override
             public void run() {
                 //新建任务
-                PayTask alipay = new PayTask(TestAPay.this);
+                PayTask alipay = new PayTask(ApayStandboxActivity.this);
                 //获取支付结果
                 Map<String, String> result = alipay.payV2(orderInfo, true);
                 LogUtils.d("result==="+result.toString());
@@ -147,7 +145,7 @@ public class TestAPay extends BaseActivity {
                 requestDangerousPermissions(cameraPermissions, REQUEST_CODE_CAMERA);
             }
         });
-        dialog.show(getSupportFragmentManager(), TestAPay.class.getSimpleName());
+        dialog.show(getSupportFragmentManager(), ApayStandboxActivity.class.getSimpleName());
     }
 
     @Override

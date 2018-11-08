@@ -40,7 +40,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activitys.LitePalTestActivity" />
-        <activity android:name=".activitys.TestAPay" />
+        <activity android:name=".activitys.ApayStandboxActivity" />
 
         <!-- 支付宝 支付两个activity -->
         <activity
@@ -63,13 +63,15 @@
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
-            android:process=":remote"></service>
+            android:process=":remote" />
 
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="Bwo4tElD0PQvssMWNpIxfEgNDQirWwaQ" />
 
-        <activity android:name=".activitys.GPSBaiDuActivity"></activity>
+        <activity android:name=".activitys.GPSBaiDuActivity" />
+        <activity android:name=".activitys.ApayRealActivity" />
+        <activity android:name=".activitys.AlipayIntegrationActivity"></activity>
     </application>
 
 </manifest>

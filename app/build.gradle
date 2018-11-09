@@ -61,4 +61,6 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     /*侧滑使用空间*/
     implementation 'com.android.support:design:28.0.0'
+    /*BottomNavigationBar 底部菜单实现的空间*/
+    implementation 'com.ashokvarma.android:bottom-navigation-bar:0.9.5'
 }

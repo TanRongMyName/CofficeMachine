@@ -12,5 +12,8 @@
     <color name="TITLE_COLOR_GOES_HERE">#0a9610</color>
     <color name="SUBTITLE_COLOR_GOES_HERE">#2ec935</color>
 
+    <color name="red">@android:color/holo_red_dark</color>
+    <color name="blue">@android:color/holo_blue_bright</color>
+    <color name="orign">@android:color/holo_orange_dark</color>
 
 </resources>

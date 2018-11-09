@@ -70,8 +70,10 @@ public class NetChangeActivity extends BaseActivity implements View.OnClickListe
         } else if (NetWorkUtil.CURRENT_TAG == NetWorkUtil.NET_CELLULAR) {
             btn_net_switch.setText("蜂窝网");
         }
+
         webview.clearCache(true);
         webview.clearFormData();
+        webview.loadData("","text/html; charset=UTF-8", null);
     }
 
 

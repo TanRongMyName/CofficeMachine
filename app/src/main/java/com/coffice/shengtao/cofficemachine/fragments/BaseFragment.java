@@ -8,8 +8,12 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 public class BaseFragment extends Fragment {
     //对权限的申请
+    private Unbinder unbinder;
     /**
      * 请求权限
      *
@@ -71,6 +75,13 @@ public class BaseFragment extends Fragment {
     }
 
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        if(unbinder!=null){
+            unbinder.unbind();
+        }
+    }
 }
 
 

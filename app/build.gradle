@@ -43,12 +43,20 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    /*litepal 数据库添加*/
     implementation files('libs/litepal-2.0.0-src.jar')
+    /*支付宝sdk接入*/
     implementation files('libs/alipaySdk-20180601.jar')
+    /*扫描二维码使用*/
     implementation 'com.github.maogedadada:qrphoto:0.0.6'
     implementation 'com.github.qingmei2:QrCodeScannerView-Android:1.1.2'
+    /*百度地图的skd 接入*/
     implementation files('libs/BaiduLBS_Android.jar')
+    /*网络框架的添加*/
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.squareup.okhttp3:okhttp:3.11.0'
     implementation 'com.android.volley:volley:1.1.0'
+    /*butterknife 注解框架的使用*/
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 }

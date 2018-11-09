@@ -7,6 +7,7 @@ import android.widget.Button;
 
 import com.coffice.shengtao.cofficemachine.activitys.AlipayIntegrationActivity;
 import com.coffice.shengtao.cofficemachine.activitys.BaseActivity;
+import com.coffice.shengtao.cofficemachine.activitys.BottomMenuListActivity;
 import com.coffice.shengtao.cofficemachine.activitys.GPSAddressActivity;
 import com.coffice.shengtao.cofficemachine.activitys.LitePalTestActivity;
 import com.coffice.shengtao.cofficemachine.activitys.NetChangeActivity;
@@ -16,7 +17,7 @@ import com.coffice.shengtao.cofficemachine.utils.LogUtils;
 import com.coffice.shengtao.cofficemachine.utils.ToastUtils;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener{
-    private Button button1, button2, button3, button4,gpsaddress,netChangeRequest;
+    private Button button1, button2, button3, button4,gpsaddress,netChangeRequest,bottommenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         button4=findViewById(R.id.button5);
         gpsaddress=findViewById(R.id.readaddress);
         netChangeRequest=findViewById(R.id.changeNetRequest);
+        bottommenu=findViewById(R.id.bottommenu);
     }
 
     @Override
@@ -46,6 +48,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         button4.setOnClickListener(this);
         gpsaddress.setOnClickListener(this);
         netChangeRequest.setOnClickListener(this);
+        bottommenu.setOnClickListener(this);
     }
 
     @Override
@@ -68,6 +71,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 break;
             case R.id.changeNetRequest:
                 intent=new Intent(this,NetChangeActivity.class);
+                break;
+            case R.id.bottommenu:
+                intent=new Intent(this,BottomMenuListActivity.class);
                 break;
             default:
                 break;

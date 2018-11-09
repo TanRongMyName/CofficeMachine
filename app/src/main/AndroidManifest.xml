@@ -23,13 +23,11 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <!--网络权限 写入权限-->
+    <!-- 网络权限 写入权限 -->
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
-    <!--<uses-permission android:name="android.permission.WRITE_SETTINGS"-->
-        <!--tools:ignore="ProtectedPermissions" />-->
 
-
-
+    <!-- <uses-permission android:name="android.permission.WRITE_SETTINGS" -->
+    <!-- tools:ignore="ProtectedPermissions" /> -->
     <application
         android:name=".application.MyApplication"
         android:allowBackup="true"
@@ -78,7 +76,9 @@
         <activity android:name=".activitys.GPSBaiDuActivity" />
         <activity android:name=".activitys.ApayRealActivity" />
         <activity android:name=".activitys.AlipayIntegrationActivity" />
-        <activity android:name=".activitys.NetChangeActivity"></activity>
+        <activity android:name=".activitys.NetChangeActivity" />
+        <activity android:name=".activitys.BottomMenuListActivity" />
+        <activity android:name=".activitys.BottomMenuShowActivity"></activity>
     </application>
 
 </manifest>

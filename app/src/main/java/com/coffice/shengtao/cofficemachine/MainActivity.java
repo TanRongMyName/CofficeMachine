@@ -45,6 +45,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         button3.setOnClickListener(this);
         button4.setOnClickListener(this);
         gpsaddress.setOnClickListener(this);
+        netChangeRequest.setOnClickListener(this);
     }
 
     @Override

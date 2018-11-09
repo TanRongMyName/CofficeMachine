@@ -36,7 +36,7 @@ public class GPSAddressActivity extends BaseActivity {
     //先获取当前的 经纬度 然后 在调用 百度地图 获取当前的位置地址明细
     //权限有点问题
     //本地获取到的 可以不使用百度地图的
-    private TextView tv;
+    private TextView tv,addressinfo;
     static final String[] LOCATIONGPS = new String[]{
             Manifest.permission.ACCESS_COARSE_LOCATION,
             Manifest.permission.ACCESS_FINE_LOCATION,
@@ -50,6 +50,7 @@ public class GPSAddressActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gpsaddress);
         tv=findViewById(R.id.showaddress);
+        addressinfo=findViewById(R.id.addressinfo);
     }
     /**
      * 检测GPS、位置权限是否开启
@@ -139,6 +140,22 @@ public class GPSAddressActivity extends BaseActivity {
                // Log.d(TAG, "onSuccess: " + response);
                 //修改UI试下
                 LogUtils.d(response);
+                addressinfo.setText(response);
+                //返回结果值
+//                {
+//                    "status":0,
+//                    "result":{
+//                        "location":{"lng":120.66298796130677,"lat":31.298247160114639},
+//                        "formatted_address":"江苏省苏州市吴中区东振路85号-16幢",
+//                        "business":"娄葑,东环路,葑门",
+//                        "addressComponent":{"country":"中国","country_code":0,"country_code_iso":"CHN","country_code_iso2":"CN","province":"江苏省","city":"苏州市","city_level":2,"district":"吴中区","town":"","adcode":"320506","street":"东振路","street_number":"85号-16幢","direction":"附近","distance":"1"},
+//                        "pois":[],
+//                        "roads":[],
+//                        "poiRegions":[{"direction_desc":"内","name":"东振花园-131517幢","tag":"房地产;内部楼栋","uid":"62593a652459227307fef58e"},{"direction_desc":"内","name":"东振花园","tag":"房地产;住宅区","uid":"fbf383d636d6fe1a4c6d463e"}],
+//                        "sematic_description":"东振花园-131517幢内,东振花园内0米",
+//                        "cityCode":224
+//                    }
+//                }
             }
 
             @Override

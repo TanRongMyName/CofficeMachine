@@ -13,11 +13,12 @@ import com.coffice.shengtao.cofficemachine.activitys.LitePalTestActivity;
 import com.coffice.shengtao.cofficemachine.activitys.NetChangeActivity;
 import com.coffice.shengtao.cofficemachine.activitys.ScanCodeActivity;
 import com.coffice.shengtao.cofficemachine.activitys.ApayStandboxActivity;
+import com.coffice.shengtao.cofficemachine.activitys.SlinMenuActivity;
 import com.coffice.shengtao.cofficemachine.utils.LogUtils;
 import com.coffice.shengtao.cofficemachine.utils.ToastUtils;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener{
-    private Button button1, button2, button3, button4,gpsaddress,netChangeRequest,bottommenu;
+    private Button button1, button2, button3, button4,gpsaddress,netChangeRequest,bottommenu,slidingMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         gpsaddress=findViewById(R.id.readaddress);
         netChangeRequest=findViewById(R.id.changeNetRequest);
         bottommenu=findViewById(R.id.bottommenu);
+        slidingMenu=findViewById(R.id.slidingMenu);
     }
 
     @Override
@@ -49,6 +51,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         gpsaddress.setOnClickListener(this);
         netChangeRequest.setOnClickListener(this);
         bottommenu.setOnClickListener(this);
+        slidingMenu.setOnClickListener(this);
     }
 
     @Override
@@ -74,6 +77,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 break;
             case R.id.bottommenu:
                 intent=new Intent(this,BottomMenuListActivity.class);
+                break;
+            case R.id.slidingMenu:
+                intent=new Intent(this,SlinMenuActivity.class);
                 break;
             default:
                 break;

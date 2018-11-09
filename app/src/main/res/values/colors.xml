@@ -8,4 +8,9 @@
     <color name="cover_bg2">#b41c99f7</color>
     <color name="color_outside_bg">#0a9610</color>
     <color name="color_laser">#2ec935</color>
+
+    <color name="TITLE_COLOR_GOES_HERE">#0a9610</color>
+    <color name="SUBTITLE_COLOR_GOES_HERE">#2ec935</color>
+
+
 </resources>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/navigation_item_one"
+            android:icon="@drawable/bg_drawer_navigation_one"
+            android:title="huangixoaguo" />
+        <item
+            android:id="@+id/navigation_item_two"
+            android:icon="@drawable/bg_drawer_navigation_two"
+            android:title="目录" />
+        <item
+            android:id="@+id/navigation_item_three"
+            android:icon="@drawable/bg_drawer_navigation_three"
+            android:title="佳佳" />
+        <item
+            android:id="@+id/navigation_item_four"
+            android:icon="@drawable/bg_drawer_navigation_four"
+            android:title="闹钟" />
+        <item
+            android:id="@+id/navigation_item_five"
+            android:icon="@drawable/tab_host"
+            android:title="设置" />
+
+        <item
+            android:id="@+id/navigation_subheader_one"
+            android:icon="@drawable/bg_drawer_navigation_four"
+            android:title="子条目">
+            <!--<menu>-->
+                <!--<item-->
+                    <!--android:id="@+id/navigation_sub_item_one"-->
+                    <!--android:icon="@mipmap/wdyd"-->
+                    <!--android:title="佳佳" />-->
+                <!--<item-->
+                    <!--android:id="@+id/navigation_sub_item_two"-->
+                    <!--android:icon="@mipmap/wdyy"-->
+                    <!--android:title="闹钟" />-->
+            <!--</menu>-->
+        </item>
+
+
+        <!--<item-->
+            <!--android:id="@+id/navigation_subheader_two"-->
+            <!--android:icon="@mipmap/sz"-->
+            <!--android:title="子条目">-->
+            <!--<menu>-->
+                <!--<item-->
+                    <!--android:id="@+id/navigation_sub_item_four"-->
+                    <!--android:icon="@mipmap/wdyd"-->
+                    <!--android:title="佳佳" />-->
+                <!--<item-->
+                    <!--android:id="@+id/navigation_sub_item_five"-->
+                    <!--android:icon="@mipmap/wdyy"-->
+                    <!--android:title="闹钟" />-->
+            <!--</menu>-->
+        <!--</item>-->
+        <!--<item-->
+            <!--android:id="@+id/navigation_subheader_three"-->
+            <!--android:icon="@mipmap/sz"-->
+            <!--android:title="子条目">-->
+            <!--<menu>-->
+                <!--<item-->
+                    <!--android:id="@+id/navigation_sub_item_six"-->
+                    <!--android:icon="@mipmap/wdyd"-->
+                    <!--android:title="佳佳" />-->
+                <!--<item-->
+                    <!--android:id="@+id/navigation_sub_item_seven"-->
+                    <!--android:icon="@mipmap/wdyy"-->
+                    <!--android:title="闹钟" />-->
+            <!--</menu>-->
+        <!--</item>-->
+        <!--<item-->
+            <!--android:id="@+id/navigation_subheader_four"-->
+            <!--android:icon="@mipmap/sz"-->
+            <!--android:title="子条目">-->
+            <!--<menu>-->
+                <!--<item-->
+                    <!--android:id="@+id/navigation_sub_item_eight"-->
+                    <!--android:icon="@mipmap/wdyd"-->
+                    <!--android:title="佳佳" />-->
+                <!--<item-->
+                    <!--android:id="@+id/navigation_sub_item_nine"-->
+                    <!--android:icon="@mipmap/wdyy"-->
+                    <!--android:title="闹钟" />-->
+            <!--</menu>-->
+        <!--</item>-->
+    </group>
+</menu>
+

@@ -117,8 +117,8 @@ public class GPSAddressActivity extends BaseActivity {
             locationUtils.startMonitor();
             if(locationUtils.getLocation()!=null) {
                 locationUtils.stopMonitor();
-                latitude[0] = location.getLatitude();
-                longitude[0] = location.getLongitude();
+                latitude[0] = locationUtils.getLocation().getLatitude();
+                longitude[0] = locationUtils.getLocation().getLongitude();
                 LogUtils.e("维度：" + latitude[0] + "\n经度" + longitude[0]);
                 tv.setText("百度地图获取维度：" + latitude[0] + "\n经度" + longitude[0]);
                 HttpRequest(latitude[0]+","+longitude[0]);

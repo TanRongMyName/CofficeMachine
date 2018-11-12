@@ -25,8 +25,9 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <!-- 网络权限 写入权限 -->
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
-    <!--接收开机广播权限-->
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"></uses-permission>
+    <!-- 接收开机广播权限 -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
     <!-- <uses-permission android:name="android.permission.WRITE_SETTINGS" -->
     <!-- tools:ignore="ProtectedPermissions" /> -->
     <application
@@ -84,13 +85,15 @@
             android:name=".activitys.SlinMenuActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activitys.bottomMenuActivity.BottomNavigationActivity" />
-        <activity android:name=".activitys.bottomMenuActivity.PopWindowFragmentActivity"></activity>
-        //接收开关机 广播  用来供电启动app
-        <receiver android:name=".broadcast.BootBroadcastReceiver" >
+        <activity android:name=".activitys.bottomMenuActivity.PopWindowFragmentActivity" />
+        //接收开关机 广播 用来供电启动app
+        <receiver android:name=".broadcast.BootBroadcastReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
+
+        <activity android:name=".activitys.bottomMenuActivity.FragmentTabHostActivity"></activity>
     </application>
 
 </manifest>

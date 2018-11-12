@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+   >
+    <ImageView
+        android:id="@+id/iv_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        app:srcCompat="@drawable/home" />
+
+    <TextView
+        android:id="@+id/tv_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="首页" />
+    ---------------------
+    作者：GaoJiaNan2016
+    来源：CSDN
+    原文：https://blog.csdn.net/g777520/article/details/79110858
+    版权声明：本文为博主原创文章，转载请附上博文链接！
+</LinearLayout>

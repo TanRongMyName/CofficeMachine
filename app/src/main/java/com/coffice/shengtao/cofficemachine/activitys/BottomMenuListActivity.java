@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import com.coffice.shengtao.cofficemachine.R;
 import com.coffice.shengtao.cofficemachine.activitys.bottomMenuActivity.BottomNavigationActivity;
+import com.coffice.shengtao.cofficemachine.activitys.bottomMenuActivity.FragmentTabHostActivity;
 import com.coffice.shengtao.cofficemachine.activitys.bottomMenuActivity.PopWindowFragmentActivity;
 
 import butterknife.BindView;
@@ -55,6 +56,8 @@ public class BottomMenuListActivity extends AppCompatActivity {
                 break;
             case R.id.menuway3:
                 bundle.putInt("MenuWay",3);
+                intent=new Intent(BottomMenuListActivity.this,FragmentTabHostActivity.class);
+                bundle.putString("MenuWay",((Button)view).getText().toString());
                 break;
             case R.id.menuway4:
                 bundle.putInt("MenuWay",4);
@@ -63,7 +66,9 @@ public class BottomMenuListActivity extends AppCompatActivity {
                 bundle.putInt("MenuWay",5);
                 break;
         }
-        intent.putExtras(bundle);
-        startActivity(intent);
+        if(intent!=null) {
+            intent.putExtras(bundle);
+            startActivity(intent);
+        }
     }
 }

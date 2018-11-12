@@ -36,7 +36,7 @@ public abstract class BaseFragment extends Fragment {
 
 
     //对权限的申请
-    private Unbinder unbinder;
+    public Unbinder unbinder;
     /**
      * 请求权限
      *

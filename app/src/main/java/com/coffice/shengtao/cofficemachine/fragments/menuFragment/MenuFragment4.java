@@ -2,7 +2,6 @@ package com.coffice.shengtao.cofficemachine.fragments.menuFragment;
 
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,12 +11,10 @@ import android.widget.TextView;
 import com.coffice.shengtao.cofficemachine.R;
 import com.coffice.shengtao.cofficemachine.fragments.BaseFragment;
 
-
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MenuFragment2 extends BaseFragment {
-
+public class MenuFragment4 extends BaseFragment {
     TextView context;
     /**
      * 标志位，标志已经初始化完成
@@ -28,12 +25,14 @@ public class MenuFragment2 extends BaseFragment {
      */
     private boolean mHasLoadedOnce;
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+
         if (mView == null) {
             // 需要inflate一个布局文件 填充Fragment
-            mView = inflater.inflate(R.layout.fragment_menu_fragment2, container, false);
+            mView = inflater.inflate(R.layout.fragment_menu_fragment4, container, false);
             initView();
             isPrepared = true;
 //        实现懒加载
@@ -44,9 +43,9 @@ public class MenuFragment2 extends BaseFragment {
         if (parent != null) {
             parent.removeView(mView);
         }
-
         return mView;
     }
+
 
     /**
      * 初始化控件
@@ -67,14 +66,6 @@ public class MenuFragment2 extends BaseFragment {
         mHasLoadedOnce = true;
     }
 
-    public static MenuFragment2 newInstance(String param1) {
-        MenuFragment2 fragment = new MenuFragment2();
-        Bundle args = new Bundle();
-        args.putString("agrs1", param1);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();
@@ -82,5 +73,4 @@ public class MenuFragment2 extends BaseFragment {
             unbinder.unbind();
         }
     }
-
 }

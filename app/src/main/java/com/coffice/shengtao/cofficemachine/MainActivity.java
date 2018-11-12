@@ -18,7 +18,8 @@ import com.coffice.shengtao.cofficemachine.utils.LogUtils;
 import com.coffice.shengtao.cofficemachine.utils.ToastUtils;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener{
-    private Button button1, button2, button3, button4,gpsaddress,netChangeRequest,bottommenu,slidingMenu;
+    private Button button1, button2, button3, button4,gpsaddress,netChangeRequest,
+            bottommenu,slidingMenu,onPowerStart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         netChangeRequest=findViewById(R.id.changeNetRequest);
         bottommenu=findViewById(R.id.bottommenu);
         slidingMenu=findViewById(R.id.slidingMenu);
+        onPowerStart=findViewById(R.id.onPowerStart);//开机自启动 app
     }
 
     @Override
@@ -52,6 +54,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         netChangeRequest.setOnClickListener(this);
         bottommenu.setOnClickListener(this);
         slidingMenu.setOnClickListener(this);
+        onPowerStart.setOnClickListener(this);
     }
 
     @Override
@@ -79,6 +82,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 intent=new Intent(this,BottomMenuListActivity.class);
                 break;
             case R.id.slidingMenu:
+                intent=new Intent(this,SlinMenuActivity.class);
+                break;
+            case R.id.onPowerStart:
+                //成功 关键是 注册静态广播 来监听 开机事件  获取到开机事件  跳转到 启动页面
+                //5.0开机么页面
                 intent=new Intent(this,SlinMenuActivity.class);
                 break;
             default:

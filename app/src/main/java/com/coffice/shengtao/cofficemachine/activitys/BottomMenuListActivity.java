@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.coffice.shengtao.cofficemachine.R;
+import com.coffice.shengtao.cofficemachine.activitys.bottomMenuActivity.BottomNavigationActivity;
+import com.coffice.shengtao.cofficemachine.activitys.bottomMenuActivity.PopWindowFragmentActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -39,15 +41,17 @@ public class BottomMenuListActivity extends AppCompatActivity {
 
     @OnClick({R.id.menuway1, R.id.menuway2, R.id.menuway3, R.id.menuway4, R.id.menuway5})
     public void onViewClicked(View view) {
-        Intent intent=new Intent(BottomMenuListActivity.this,BottomMenuShowActivity.class);
+        Intent intent=null;
         Bundle bundle=new Bundle();
 
         switch (view.getId()) {
             case R.id.menuway1:
-                bundle.putInt("MenuWay",1);
+                intent=new Intent(BottomMenuListActivity.this,BottomNavigationActivity.class);
+                bundle.putString("MenuWay",((Button)view).getText().toString());
                 break;
             case R.id.menuway2:
-                bundle.putInt("MenuWay",2);
+                intent=new Intent(BottomMenuListActivity.this,PopWindowFragmentActivity.class);
+                bundle.putString("MenuWay",((Button)view).getText().toString());
                 break;
             case R.id.menuway3:
                 bundle.putInt("MenuWay",3);

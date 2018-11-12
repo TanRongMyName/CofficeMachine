@@ -5,4 +5,14 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="navigation_drawer_open">open</string>
     <string name="navigation_drawer_close">close</string>
+
+<!--qq 底部菜单的中文-->
+    <!--<string name="skin_tabbar_icon_auth">主页</string>-->
+    <!--<string name="skin_tabbar_icon_at">联系人</string>-->
+    <!--<string name="skin_tabbar_icon_space">爱好</string>-->
+    <!--<string name="skin_tabbar_icon_more">定位</string>-->
+    <string name="skin_tabbar_icon_virgo">处女座</string>
+    <string name="skin_tabbar_icon_capricornus">摩羯座</string>
+    <string name="skin_tabbar_icon_pisces">双鱼座</string>
+    <string name="skin_tabbar_icon_libra">天秤座</string>
 </resources>

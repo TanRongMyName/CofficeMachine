@@ -1,10 +1,9 @@
 package com.coffice.shengtao.cofficemachine.activitys.bottomMenuActivity;
 
-import android.support.v4.app.Fragment;
+import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.widget.TextView;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
@@ -15,10 +14,13 @@ import com.coffice.shengtao.cofficemachine.fragments.menuFragment.MenuFragment2;
 import com.coffice.shengtao.cofficemachine.fragments.menuFragment.MenuFragment3;
 import com.coffice.shengtao.cofficemachine.utils.LogUtils;
 
-import java.util.ArrayList;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
-public class BottomNavigationActivity extends BaseActivity implements BottomNavigationBar.OnTabSelectedListener{
-    private ArrayList<Fragment> fragments;
+
+public class BottomNavigationActivity extends BaseActivity implements BottomNavigationBar.OnTabSelectedListener {
+    @BindView(R.id.title)
+    TextView title;
     private BottomNavigationBar bottomNavigationBar;
     private MenuFragment1 msgFragment;
     private MenuFragment2 contactsFragment;
@@ -26,14 +28,17 @@ public class BottomNavigationActivity extends BaseActivity implements BottomNavi
     private FragmentManager fragmentManager;
     private FragmentTransaction transaction;
     int lastSelectedPosition = 0;
-
+    public String titles;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_navigation);
+        titles= (String) getIntent().getExtras().get("MenuWay");
+        ButterKnife.bind(this);
         bottomNavigationBar = findViewById(R.id.bottom_navigation_bar);
         init();
     }
+
     private void init() {
         //要先设计模式后再添加图标！
         //设置按钮模式  MODE_FIXED表示固定   MODE_SHIFTING表示转移
@@ -48,11 +53,12 @@ public class BottomNavigationActivity extends BaseActivity implements BottomNavi
                 .addItem(new BottomNavigationItem(R.drawable.home, "主页")).setActiveColor(R.color.blue)
                 .addItem(new BottomNavigationItem(R.drawable.person, "联系人")).setActiveColor(R.color.red)
                 .addItem(new BottomNavigationItem(R.drawable.like, "爱好")).setActiveColor(R.color.orign)
-                .setFirstSelectedPosition(lastSelectedPosition )
+                .setFirstSelectedPosition(lastSelectedPosition)
                 .initialise();
 
         bottomNavigationBar.setTabSelectedListener(this);
         setDefaultFragment();
+        title.setText(titles);
     }
 
     //设置初始界面

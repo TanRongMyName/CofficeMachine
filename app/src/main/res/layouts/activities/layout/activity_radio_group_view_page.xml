@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:button="@null"
-            android:drawableTop="@drawable/bg_drawer_navigation_four"
+            android:drawableTop="@drawable/bg_drawer_navigation_four_clicked"
             android:gravity="center"
             android:checked="true"
             android:text="处女座"
@@ -41,7 +41,7 @@
             android:layout_marginLeft="5dp"
             android:layout_weight="1"
             android:button="@null"
-            android:drawableTop="@drawable/bg_drawer_navigation_one"
+            android:drawableTop="@drawable/bg_drawer_navigation_one_clicked"
             android:gravity="center"
             android:text="摩羯座"
             android:textColor="@drawable/textcolor" />
@@ -53,7 +53,7 @@
             android:layout_marginLeft="5dp"
             android:layout_weight="1"
             android:button="@null"
-            android:drawableTop="@drawable/bg_drawer_navigation_three"
+            android:drawableTop="@drawable/bg_drawer_navigation_three_clicked"
             android:gravity="center"
             android:text="双鱼座"
             android:textColor="@drawable/textcolor" />
@@ -66,7 +66,7 @@
             android:layout_marginLeft="5dp"
             android:layout_weight="1"
             android:button="@null"
-            android:drawableTop="@drawable/bg_drawer_navigation_two"
+            android:drawableTop="@drawable/bg_drawer_navigation_two_clicked"
             android:gravity="center"
             android:text="天秤座"
             android:textColor="@drawable/textcolor" />

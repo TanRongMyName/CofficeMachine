@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+        android:id="@+id/activity_main"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".activitys.bottomMenuActivity.ByeBurgerMenuActivity">
+
+        <com.coffice.shengtao.cofficemachine.selfview.NoScrollViewPager
+            android:id="@+id/noScrollViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+        <android.support.design.widget.BottomNavigationView
+            android:id="@+id/bottom_navigation_view"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="bottom"
+            android:background="@color/colorPrimary"
+            app:layout_behavior="@string/bye_burger_bottom_behavior"
+            app:menu="@menu/bottom"/>
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            app:layout_behavior="@string/bye_burger_title_behavior"/>
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginBottom="80dp"
+            android:layout_marginRight="20dp"
+            android:padding="5dp"
+            android:src="@android:drawable/ic_dialog_email"
+            app:layout_behavior="@string/bye_burger_float_behavior"/>
+</android.support.design.widget.CoordinatorLayout>

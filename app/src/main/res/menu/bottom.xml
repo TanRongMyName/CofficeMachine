@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/tab1"
+        android:icon="@android:drawable/ic_menu_add"
+        android:title="tab1"
+        app:showAsAction="always"
+        />
+    <item
+        android:id="@+id/tab2"
+        android:icon="@android:drawable/ic_menu_agenda"
+        android:title="tab2"
+        app:showAsAction="ifRoom"
+        />
+    <item
+        android:id="@+id/tab3"
+        android:icon="@android:drawable/ic_menu_call"
+        android:title="tab3"
+        app:showAsAction="ifRoom"
+        />
+    <item
+        android:id="@+id/tab4"
+        android:icon="@android:drawable/ic_menu_save"
+        android:title="tab4"
+        app:showAsAction="ifRoom"
+        />
+
+</menu>

@@ -94,7 +94,12 @@
         </receiver>
 
         <activity android:name=".activitys.bottomMenuActivity.FragmentTabHostActivity" />
-        <activity android:name=".activitys.bottomMenuActivity.RadioGroupViewPageActivity"></activity>
+        <activity android:name=".activitys.bottomMenuActivity.RadioGroupViewPageActivity" />
+        <activity android:name=".activitys.bottomMenuActivity.BadgeRadioButtonActivity" />
+        <activity
+            android:name=".activitys.bottomMenuActivity.ByeBurgerMenuActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+        <activity android:name=".activitys.bottomMenuActivity.AHBottomnavigationActivity"></activity>
     </application>
 
 </manifest>

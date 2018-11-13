@@ -21,15 +21,27 @@ public class ApayRealActivity extends BaseActivity {
 
 
     public void onRealPay(View view){
-         MyALipayUtils.ALiPayBuilder builder =new MyALipayUtils.ALiPayBuilder();
-         MyALipayUtils myALipayUtils =builder.build();
-        builder.setAppid(GlobalData.APayId);
-        builder.setMoney("1000");
+        //公司的APPID
+        MyALipayUtils.ALiPayBuilder builder =new MyALipayUtils.ALiPayBuilder();
+        MyALipayUtils myALipayUtils =builder.build();
+        builder.setAppid(GlobalData.ShengTao_APPID);
+        builder.setMoney("0.1");
         builder.setOrderTradeId(myALipayUtils.getOutTradeNo());
-        builder.setRsa2(GlobalData.APayRSA2);
+        builder.setRsa2(GlobalData.ShengTao_RSA2);
         builder.setTitle("午餐消费");
         builder.setNotifyUrl("https://auth.example.com/authRedirect");
         myALipayUtils.toALiPay(ApayRealActivity.this);
+
+        //自己的APPID pid
+//         MyALipayUtils.ALiPayBuilder builder =new MyALipayUtils.ALiPayBuilder();
+//         MyALipayUtils myALipayUtils =builder.build();
+//        builder.setAppid(GlobalData.APayId);
+//        builder.setMoney("0.1");
+//        builder.setOrderTradeId(myALipayUtils.getOutTradeNo());
+//        builder.setRsa2(GlobalData.APayRSA2);
+//        builder.setTitle("午餐消费");
+//        builder.setNotifyUrl("https://auth.example.com/authRedirect");
+//        myALipayUtils.toALiPay(ApayRealActivity.this);
     }
 
     @Override

@@ -66,4 +66,36 @@ public class GlobalData {
     public static final String Sand_Merchant_UUID="2088102176530832";
     public static final String BaiDuMap_Address_Url="http://api.map.baidu.com/geocoder/v2/?ak=sNt22yxtnLihNl78HTasb7vzcbvEYZK0&location=%s&output=json&pois=0&mcode=27:09:CB:86:B5:F9:30:AF:20:E0:FA:E0:4B:3C:27:93:CC:B3:4A:FD;com.china.bida.cliu.wallpaperstore";
 
+    public static final String ShengTao_PID="2088131198347463";
+
+    public static final String ShengTao_APPID="2018062860445321";
+
+    public static final String ShengTao_RSA2="MIIEpQIBAAKCAQEA2s4h4ltKZMhDpfZrymSqmLAggrnlgY59jPe2rKhv/ZrDyqcW\n" +
+            "vvAxrlkVgZYUumSdgVfRB1eoZ6qtQ+ZnunK+uQOvPooxU2ICds5ZvgFQ5RO3snw+\n" +
+            "jj/1sQMcd3XOCbXyCT2jcohYOZ+XaI9dQ1womN/rXpDrrSZQ9ghAVq5XQ0d6rHGS\n" +
+            "lGV2xoeRX+O5/QF6SJze9ERLRKpZSARDrFCZ7Foo2yoneeSefV9saN+2MX3DPGvQ\n" +
+            "r6OEwwlmo+AXSeiHm6khRx24fsy9u6aJO/lOqO9XLWCVSoEuCHwh69BxUethlmO6\n" +
+            "60f5GC+DNqP4n7/ndw47xQPcg0d75A+cNckIQQIDAQABAoIBAQCkLZ3BMgzNOHOC\n" +
+            "GTfiQsy7CxUp4gDyyI8uckTQowZ9PV6CNgPcO3CbyN5ZQNrGzW5duh3vK3gCaU/f\n" +
+            "LghRH346ZyhcfebrERSWPtmZt3USnkvtEksCA74AFzyJ6owyPyKgim6VJvdELZq3\n" +
+            "azNossMHiqUabRVZ8/E12xUjtWdm490wQx5pC25K3ybl67ww00JQR8C3A3eeacyk\n" +
+            "NgR++xKExyK/8VRMFHoBZqzqyHQk8+IOHtW6+aDmv500qti475g4LCVwBt1MtiDP\n" +
+            "oHzYO/2oYjvHJNSbPLBAR1Xbw8zWnasFWd+GuDSjrpeCQ3C1dYbd4IYr3FWRnxc9\n" +
+            "7iHsIYhBAoGBAPQsQqSkQ6wQjvhJb9hE6xtuPGTgz00FiWZHjNknEYG5iC0AXgvX\n" +
+            "j0MbfhQDDZKWOnL8RvEWJVJGPYzcQFInf4AF1PmFrCb3Z4JPDRu4LqQWiVB2NH92\n" +
+            "TAdfhOcQ8FQ5XM4SWCpTh9FN2EKmIaFR2jTTe1QTd9fizfIfgpY3USvpAoGBAOVn\n" +
+            "UCpkrAsIh3Ly7KBwfljhCkG+hEI9zzdi7WjGynwrC2BGqb9uKpMPX6eCZjihiTEz\n" +
+            "29M3OtK5GUXmTAalhOa0vqGFSwm1kHbhzaf2fnqCUsN5ZAIhJN/1ep2ZlGQHgUbt\n" +
+            "McbYdhgvBuHwCaHNG3ptxNRQsEe11MRa1oVi2zqZAoGBAMmeHm1aofJbPeKwqOTY\n" +
+            "i5X74Wye4S3FK55D6H6Krv8CFvqpuf5nQQl1kxatKrDm0V6PB3kdAzY7f6lnWMk9\n" +
+            "ih9JMYHUKcGHOnY0FivUWtbtMPc6k8DICqFv8wrlRr0VHJegOCLDFHv0nmTyTwSo\n" +
+            "1NgX5FcZODUQN2P9NtQY2zK5AoGBALakZKz77gXyynR4eHDcX5u/v/zMBF0A/QPp\n" +
+            "3X74Fqp5UttaJzfkLD1dlhi1t1ELO0FTOoeVh13SRQ7j5k+8ZG2SJdxPVYjrZ5Ne\n" +
+            "/+/kTpqXO/GpqjgPz14IAZGMfxqM5x5jJqhcGtnyRxaHmAOcW25ECtvHSjIt0LJs\n" +
+            "aDNWm5ixAoGADsMUW1/yGyadmdU9bvoH2ZRGXx2UeVYC+HSxySlaNWsKBLoHcgNZ\n" +
+            "AEmZkGoEEQlqITvag1J+EPJpuhCscwwUrtnmu9KjEk4eg5vRvF13KhO2YACbGzW9\n" +
+            "w+WljEFvBqVvf8BNQMAO9XtUb0bgO9FqUDIivl1kGu0zkHCDlVI1YiM=";
+
+
+
 }

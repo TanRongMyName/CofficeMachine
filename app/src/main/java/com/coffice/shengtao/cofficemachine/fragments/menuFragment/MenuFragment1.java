@@ -1,25 +1,34 @@
 package com.coffice.shengtao.cofficemachine.fragments.menuFragment;
 
 
+import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.coffice.shengtao.cofficemachine.R;
+import com.coffice.shengtao.cofficemachine.adapter.BaseRecyclerHoder;
+import com.coffice.shengtao.cofficemachine.adapter.RecycleDataBaseAdapter;
 import com.coffice.shengtao.cofficemachine.fragments.BaseFragment;
 
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class MenuFragment1 extends BaseFragment {
-
-    TextView context;
+    List<String> arrsources;
     /**
      * 标志位，标志已经初始化完成
      */
@@ -29,7 +38,7 @@ public class MenuFragment1 extends BaseFragment {
      */
     private boolean mHasLoadedOnce;
 
-
+    private RecyclerView recyclerView;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -55,10 +64,22 @@ public class MenuFragment1 extends BaseFragment {
      * 初始化控件
      */
     private void initView() {
-        context=mView.findViewById(R.id.context);
-        if (getArguments() != null) {
-            context.setText(getArguments().getString("agrs1"));
+        recyclerView = (RecyclerView) mView.findViewById(R.id.recyclerView);
+        arrsources=new ArrayList<>();
+        for(int i=0;i<100;i++){
+            arrsources.add(""+i);
         }
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
+        recyclerView.setAdapter(new RecycleDataBaseAdapter(getActivity(), arrsources, android.R.layout.simple_list_item_1) {
+            @Override
+            public void convert(BaseRecyclerHoder holder, Object item, int position, boolean isScrolling) {
+                holder.setText(android.R.id.text1,item.toString());
+            }
+        });
+
     }
 
     @Override

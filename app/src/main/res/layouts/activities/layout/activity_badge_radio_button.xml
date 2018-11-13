@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activitys.bottomMenuActivity.BadgeRadioButtonActivity"
+        android:orientation="vertical" >
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/main_vp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#D7D7D7" />
+        <RadioGroup
+            android:id="@+id/main_rg"
+            android:layout_width="match_parent"
+            android:layout_height="85dp"
+            android:orientation="horizontal">
+
+            <com.coffice.shengtao.cofficemachine.selfview.BadgeRadioButton
+                android:id="@+id/main_chunvzuo"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/bg_drawer_navigation_four_clicked"
+                android:gravity="center"
+                android:checked="true"
+                android:text="处女座"
+                android:textColor="@drawable/textcolor" />
+
+            <com.coffice.shengtao.cofficemachine.selfview.BadgeRadioButton
+                android:id="@+id/main_mojiezuo"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/bg_drawer_navigation_one_clicked"
+                android:gravity="center"
+                android:text="摩羯座"
+                android:textColor="@drawable/textcolor" />
+
+            <com.coffice.shengtao.cofficemachine.selfview.BadgeRadioButton
+                android:id="@+id/main_shuangzizuo"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/bg_drawer_navigation_three_clicked"
+                android:gravity="center"
+                android:text="双鱼座"
+                android:textColor="@drawable/textcolor" />
+
+
+            <com.coffice.shengtao.cofficemachine.selfview.BadgeRadioButton
+                android:id="@+id/main_tianpingzuo"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/bg_drawer_navigation_two_clicked"
+                android:gravity="center"
+                android:text="天秤座"
+                android:textColor="@drawable/textcolor" />
+        </RadioGroup>
+
+    </LinearLayout>

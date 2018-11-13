@@ -7,7 +7,10 @@ import android.view.View;
 import android.widget.Button;
 
 import com.coffice.shengtao.cofficemachine.R;
+import com.coffice.shengtao.cofficemachine.activitys.bottomMenuActivity.AHBottomnavigationActivity;
+import com.coffice.shengtao.cofficemachine.activitys.bottomMenuActivity.BadgeRadioButtonActivity;
 import com.coffice.shengtao.cofficemachine.activitys.bottomMenuActivity.BottomNavigationActivity;
+import com.coffice.shengtao.cofficemachine.activitys.bottomMenuActivity.ByeBurgerMenuActivity;
 import com.coffice.shengtao.cofficemachine.activitys.bottomMenuActivity.FragmentTabHostActivity;
 import com.coffice.shengtao.cofficemachine.activitys.bottomMenuActivity.PopWindowFragmentActivity;
 import com.coffice.shengtao.cofficemachine.activitys.bottomMenuActivity.RadioGroupViewPageActivity;
@@ -28,6 +31,10 @@ public class BottomMenuListActivity extends AppCompatActivity {
     Button menuway4;
     @BindView(R.id.menuway5)
     Button menuway5;
+    @BindView(R.id.ByeBurgerMenu)
+    Button ByeBurgerMenu;
+    @BindView(R.id.ahbuttomnevigation)
+    Button ahbuttomnevigation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,35 +48,46 @@ public class BottomMenuListActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
-    @OnClick({R.id.menuway1, R.id.menuway2, R.id.menuway3, R.id.menuway4, R.id.menuway5})
+    @OnClick({R.id.menuway1, R.id.menuway2, R.id.menuway3, R.id.menuway4, R.id.menuway5, R.id.ByeBurgerMenu, R.id.ahbuttomnevigation})
     public void onViewClicked(View view) {
-        Intent intent=null;
-        Bundle bundle=new Bundle();
+        Intent intent = null;
+        Bundle bundle = new Bundle();
 
         switch (view.getId()) {
             case R.id.menuway1:
-                intent=new Intent(BottomMenuListActivity.this,BottomNavigationActivity.class);
-                bundle.putString("MenuWay",((Button)view).getText().toString());
+                intent = new Intent(BottomMenuListActivity.this, BottomNavigationActivity.class);
+                bundle.putString("MenuWay", ((Button) view).getText().toString());
                 break;
             case R.id.menuway2:
-                intent=new Intent(BottomMenuListActivity.this,PopWindowFragmentActivity.class);
-                bundle.putString("MenuWay",((Button)view).getText().toString());
+                intent = new Intent(BottomMenuListActivity.this, PopWindowFragmentActivity.class);
+                bundle.putString("MenuWay", ((Button) view).getText().toString());
                 break;
             case R.id.menuway3:
-                intent=new Intent(BottomMenuListActivity.this,FragmentTabHostActivity.class);
-                bundle.putString("MenuWay",((Button)view).getText().toString());
+                intent = new Intent(BottomMenuListActivity.this, FragmentTabHostActivity.class);
+                bundle.putString("MenuWay", ((Button) view).getText().toString());
                 break;
             case R.id.menuway4:
-                intent=new Intent(BottomMenuListActivity.this,RadioGroupViewPageActivity.class);
-                bundle.putString("MenuWay",((Button)view).getText().toString());
+                intent = new Intent(BottomMenuListActivity.this, RadioGroupViewPageActivity.class);
+                bundle.putString("MenuWay", ((Button) view).getText().toString());
                 break;
             case R.id.menuway5:
-                bundle.putInt("MenuWay",5);
+                intent = new Intent(BottomMenuListActivity.this, BadgeRadioButtonActivity.class);
+                bundle.putString("MenuWay", ((Button) view).getText().toString());
+                break;
+            case R.id.ByeBurgerMenu:
+                intent = new Intent(BottomMenuListActivity.this, ByeBurgerMenuActivity.class);
+                bundle.putString("MenuWay", ((Button) view).getText().toString());
+                break;
+            case R.id.ahbuttomnevigation:
+                intent = new Intent(BottomMenuListActivity.this, AHBottomnavigationActivity.class);
+                bundle.putString("MenuWay", ((Button) view).getText().toString());
                 break;
         }
-        if(intent!=null) {
+        if (intent != null) {
             intent.putExtras(bundle);
             startActivity(intent);
         }
     }
+
+
 }

@@ -6,5 +6,9 @@
     tools:context=".fragments.menuFragment.MenuFragment4">
 
 
-
+    <TextView
+        android:id="@+id/context"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="内容Fragment4" />
 </FrameLayout>

@@ -93,7 +93,8 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".activitys.bottomMenuActivity.FragmentTabHostActivity"></activity>
+        <activity android:name=".activitys.bottomMenuActivity.FragmentTabHostActivity" />
+        <activity android:name=".activitys.bottomMenuActivity.RadioGroupViewPageActivity"></activity>
     </application>
 
 </manifest>

@@ -10,6 +10,7 @@ import com.coffice.shengtao.cofficemachine.R;
 import com.coffice.shengtao.cofficemachine.activitys.bottomMenuActivity.BottomNavigationActivity;
 import com.coffice.shengtao.cofficemachine.activitys.bottomMenuActivity.FragmentTabHostActivity;
 import com.coffice.shengtao.cofficemachine.activitys.bottomMenuActivity.PopWindowFragmentActivity;
+import com.coffice.shengtao.cofficemachine.activitys.bottomMenuActivity.RadioGroupViewPageActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -55,12 +56,12 @@ public class BottomMenuListActivity extends AppCompatActivity {
                 bundle.putString("MenuWay",((Button)view).getText().toString());
                 break;
             case R.id.menuway3:
-                bundle.putInt("MenuWay",3);
                 intent=new Intent(BottomMenuListActivity.this,FragmentTabHostActivity.class);
                 bundle.putString("MenuWay",((Button)view).getText().toString());
                 break;
             case R.id.menuway4:
-                bundle.putInt("MenuWay",4);
+                intent=new Intent(BottomMenuListActivity.this,RadioGroupViewPageActivity.class);
+                bundle.putString("MenuWay",((Button)view).getText().toString());
                 break;
             case R.id.menuway5:
                 bundle.putInt("MenuWay",5);

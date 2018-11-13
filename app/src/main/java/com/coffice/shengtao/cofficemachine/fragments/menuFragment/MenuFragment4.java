@@ -73,4 +73,12 @@ public class MenuFragment4 extends BaseFragment {
             unbinder.unbind();
         }
     }
+
+    public static MenuFragment4 newInstance(String param1) {
+        MenuFragment4 fragment = new MenuFragment4();
+        Bundle args = new Bundle();
+        args.putString("agrs1", param1);
+        fragment.setArguments(args);
+        return fragment;
+    }
 }

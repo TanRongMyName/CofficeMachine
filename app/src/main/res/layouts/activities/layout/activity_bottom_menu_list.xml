@@ -33,6 +33,7 @@
         android:text="PopWindow+Fragment实现底部菜单"
         app:layout_constraintBottom_toTopOf="@+id/menuway3"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/menuway1" />
 
@@ -46,7 +47,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:text="底部菜单显示3"
+        android:text="FragmentTabHost实现底部菜单栏"
         app:layout_constraintBottom_toTopOf="@+id/menuway4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,7 +63,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:text="底部菜单显示4"
+        android:text="RadioGroup+ViewPage 实现底部菜单切换"
         app:layout_constraintBottom_toTopOf="@+id/menuway5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

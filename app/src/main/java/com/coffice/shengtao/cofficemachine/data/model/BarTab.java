@@ -13,7 +13,7 @@ public class BarTab {
     //标题
     private String title;
     //绑定的Fragment
-    private Fragment cls;
+    private Class<?> cls;
     //整个底部View
     private View view;
     //Bundle
@@ -25,7 +25,7 @@ public class BarTab {
     //底部菜单的2个布局view
     private ItemView itemView;
 
-    public BarTab(String title, Object select, Object not, Fragment cls){
+    public BarTab(String title, Object select, Object not, Class<?> cls){
         this.title=title;
         this.imageSelect=select;
         this.imageNormal=not;
@@ -61,11 +61,11 @@ public class BarTab {
         this.title = title;
     }
 
-    public Fragment getCls() {
+    public Class<?> getCls() {
         return cls;
     }
 
-    public void setCls(Fragment cls) {
+    public void setCls(Class<?> cls) {
         this.cls = cls;
     }
 

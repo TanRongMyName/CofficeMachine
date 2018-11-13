@@ -9,6 +9,6 @@
         android:id="@+id/context"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="内容" />
+        android:text="内容Fragment3" />
 
 </FrameLayout>

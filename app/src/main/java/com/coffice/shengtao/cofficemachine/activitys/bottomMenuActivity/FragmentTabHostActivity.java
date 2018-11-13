@@ -13,6 +13,10 @@ import com.coffice.shengtao.cofficemachine.activitys.BaseActivity;
 import com.coffice.shengtao.cofficemachine.data.model.BarTab;
 import com.coffice.shengtao.cofficemachine.data.model.BaseBottomBar;
 import com.coffice.shengtao.cofficemachine.fragments.menuFragment.MenuFragment1;
+import com.coffice.shengtao.cofficemachine.fragments.menuFragment.MenuFragment2;
+import com.coffice.shengtao.cofficemachine.fragments.menuFragment.MenuFragment3;
+import com.coffice.shengtao.cofficemachine.fragments.menuFragment.MenuFragment4;
+import com.coffice.shengtao.cofficemachine.utils.LogUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +33,8 @@ public class FragmentTabHostActivity extends BaseActivity {
 
     public List<BarTab> list;
 
+    BaseBottomBar baseBottomBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,21 +49,30 @@ public class FragmentTabHostActivity extends BaseActivity {
     public void initData() {
         super.initData();
         list=new ArrayList<>();
-        list.add(new BarTab("爱好",R.drawable.like,R.drawable.like_fill,MenuFragment1.newInstance("爱好")));
-        list.add(new BarTab("首页",R.drawable.home,R.drawable.home_fill,MenuFragment1.newInstance("爱好")));
-        list.add(new BarTab("联系人",R.drawable.person,R.drawable.person_fill,MenuFragment1.newInstance("爱好")));
-        list.add(new BarTab("位置",R.drawable.location,R.drawable.location_fill,MenuFragment1.newInstance("爱好")));
+        list.add(new BarTab("爱好",R.drawable.like_fill,R.drawable.like,MenuFragment1.class));
+        list.add(new BarTab("首页",R.drawable.home_fill,R.drawable.home,MenuFragment2.class));
+        list.add(new BarTab("联系人",R.drawable.person_fill,R.drawable.person,MenuFragment3.class));
+        list.add(new BarTab("位置",R.drawable.location_fill,R.drawable.location,MenuFragment4.class));
 
-        new BaseBottomBar<BarTab>(this,fthTest,R.id.fl_test,R.layout.item_bar,list) {
+        baseBottomBar= new BaseBottomBar<BarTab>(this,fthTest,R.id.fl_test,R.layout.item_bar,list) {
             @Override
             protected TextView getBarText(View view) {
-                return view.findViewById(R.id.iv_bar);
+                LogUtils.d("view.findViewById(R.id.iv_bar)"+view.findViewById(R.id.tv_bar).getClass().toString());
+                return view.findViewById(R.id.tv_bar);
             }
 
             @Override
             protected ImageView getBarImage(View view) {
-                return view.findViewById(R.id.tv_bar);
+                LogUtils.d("view.findViewById(R.id.tv_bar)"+view.findViewById(R.id.iv_bar).getClass().toString());
+                return  view.findViewById(R.id.iv_bar);
             }
         };
+        baseBottomBar.create();
+        //baseBottomBar.setBottomBarListener(new)
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 }

@@ -72,4 +72,8 @@ dependencies {
     implementation 'com.github.githubwing:ByeBurger:1.2.2'
     /**采用悬浮按钮的方式 看效果：**/
     implementation 'com.aurelhubert:ahbottomnavigation:2.1.0'
+    /*LuseenBottomNavigation 实现底部菜单 lib*/
+    implementation 'com.github.armcha:LuseenBottomNavigation:1.8.2'
+    /*Bottombar 实现底部菜单栏  使用异常  很多 功能失效 同时只是 调用了Tab 没用切换Fragment*/
+//    implementation 'com.roughike:bottom-bar:2.3.1'
 }

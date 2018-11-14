@@ -19,6 +19,7 @@ import com.coffice.shengtao.cofficemachine.R;
 import com.coffice.shengtao.cofficemachine.adapter.BaseRecyclerHoder;
 import com.coffice.shengtao.cofficemachine.adapter.RecycleDataBaseAdapter;
 import com.coffice.shengtao.cofficemachine.fragments.BaseFragment;
+import com.coffice.shengtao.cofficemachine.utils.LogUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +29,7 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class MenuFragment1 extends BaseFragment {
+
     List<String> arrsources;
     /**
      * 标志位，标志已经初始化完成
@@ -45,8 +47,8 @@ public class MenuFragment1 extends BaseFragment {
         if (mView == null) {
             // 需要inflate一个布局文件 填充Fragment
             mView = inflater.inflate(R.layout.fragment_menu_fragment1, container, false);
-            initView();
             isPrepared = true;
+            initView();
 //        实现懒加载
             lazyLoad();
         }
@@ -56,7 +58,6 @@ public class MenuFragment1 extends BaseFragment {
             parent.removeView(mView);
         }
 
-
         return mView;
     }
 
@@ -64,6 +65,10 @@ public class MenuFragment1 extends BaseFragment {
      * 初始化控件
      */
     private void initView() {
+        if(getArguments()!=null) {
+            title = (String) getArguments().get("agrs1");
+        }
+        LogUtils.d("MenuFragment1 title==="+title);
         recyclerView = (RecyclerView) mView.findViewById(R.id.recyclerView);
         arrsources=new ArrayList<>();
         for(int i=0;i<100;i++){
@@ -94,6 +99,7 @@ public class MenuFragment1 extends BaseFragment {
     public static MenuFragment1 newInstance(String param1) {
         MenuFragment1 fragment = new MenuFragment1();
         Bundle args = new Bundle();
+        fragmentargs=param1;
         args.putString("agrs1", param1);
         fragment.setArguments(args);
         return fragment;

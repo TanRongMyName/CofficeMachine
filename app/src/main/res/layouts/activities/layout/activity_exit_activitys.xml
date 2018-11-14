@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activitys.exitActivitys">
+
+    <Button
+        android:id="@+id/exitapp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="一件退出app"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="129dp"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/restartapp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="一件重启"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="277dp"
+        tools:ignore="MissingConstraints" />
+</android.support.constraint.ConstraintLayout>

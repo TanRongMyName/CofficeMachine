@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.coffice.shengtao.cofficemachine.R;
 import com.coffice.shengtao.cofficemachine.fragments.BaseFragment;
+import com.coffice.shengtao.cofficemachine.utils.LogUtils;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -54,6 +55,8 @@ public class MenuFragment4 extends BaseFragment {
         context=mView.findViewById(R.id.context);
         if (getArguments() != null) {
             context.setText(getArguments().getString("agrs1"));
+            title= (String) getArguments().get("agrs1");
+            LogUtils.d("MenuFragment4 title==="+title);
         }
     }
 
@@ -77,6 +80,7 @@ public class MenuFragment4 extends BaseFragment {
     public static MenuFragment4 newInstance(String param1) {
         MenuFragment4 fragment = new MenuFragment4();
         Bundle args = new Bundle();
+        fragmentargs=param1;
         args.putString("agrs1", param1);
         fragment.setArguments(args);
         return fragment;

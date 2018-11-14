@@ -32,5 +32,13 @@
         <item name="tab_4">#6C4A42</item>
         <item name="tab_5">#F63D2B</item>
     </array>
+<!--LuseenBottomNavigation 使用颜色-->
+    <array name="fragment_colors">
+        <item name="firstColor">#00BCD4</item>
+        <item name="secondColor">#E91E63</item>
+        <item name="thirdColor">#FF5722</item>
+        <item name="fourthColor">#4CAF50</item>
+    </array>
+    <color name="firstColor">#00BCD4</color>
 
 </resources>

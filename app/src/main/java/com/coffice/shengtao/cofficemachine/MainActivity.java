@@ -14,12 +14,13 @@ import com.coffice.shengtao.cofficemachine.activitys.NetChangeActivity;
 import com.coffice.shengtao.cofficemachine.activitys.ScanCodeActivity;
 import com.coffice.shengtao.cofficemachine.activitys.ApayStandboxActivity;
 import com.coffice.shengtao.cofficemachine.activitys.SlinMenuActivity;
+import com.coffice.shengtao.cofficemachine.activitys.exitActivitys;
 import com.coffice.shengtao.cofficemachine.utils.LogUtils;
 import com.coffice.shengtao.cofficemachine.utils.ToastUtils;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener{
     private Button button1, button2, button3, button4,gpsaddress,netChangeRequest,
-            bottommenu,slidingMenu,onPowerStart;
+            bottommenu,slidingMenu,onPowerStart,activityexit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         bottommenu=findViewById(R.id.bottommenu);
         slidingMenu=findViewById(R.id.slidingMenu);
         onPowerStart=findViewById(R.id.onPowerStart);//开机自启动 app
+        activityexit=findViewById(R.id.activityexit);
     }
 
     @Override
@@ -55,6 +57,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         bottommenu.setOnClickListener(this);
         slidingMenu.setOnClickListener(this);
         onPowerStart.setOnClickListener(this);
+        activityexit.setOnClickListener(this);
     }
 
     @Override
@@ -88,6 +91,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 //成功 关键是 注册静态广播 来监听 开机事件  获取到开机事件  跳转到 启动页面
                 //5.0开机么页面
                 intent=new Intent(this,SlinMenuActivity.class);
+                break;
+            case R.id.activityexit:
+                //成功 关键是 注册静态广播 来监听 开机事件  获取到开机事件  跳转到 启动页面
+                //5.0开机么页面
+                intent=new Intent(this,exitActivitys.class);
                 break;
             default:
                 break;

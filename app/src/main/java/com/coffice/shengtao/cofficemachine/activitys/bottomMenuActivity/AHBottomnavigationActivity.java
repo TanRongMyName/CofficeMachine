@@ -9,6 +9,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.content.ContextCompat;
@@ -21,15 +22,14 @@ import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationAdapter;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationViewPager;
+import com.aurelhubert.ahbottomnavigation.notification.AHNotification;
 import com.coffice.shengtao.cofficemachine.R;
 import com.coffice.shengtao.cofficemachine.activitys.BaseActivity;
 import com.coffice.shengtao.cofficemachine.adapter.ViewPagerAdatper;
-import com.coffice.shengtao.cofficemachine.fragments.BaseFragment;
-import com.coffice.shengtao.cofficemachine.fragments.menuFragment.MenuFragment1;
-import com.coffice.shengtao.cofficemachine.fragments.menuFragment.MenuFragment2;
-import com.coffice.shengtao.cofficemachine.fragments.menuFragment.MenuFragment3;
-import com.coffice.shengtao.cofficemachine.fragments.menuFragment.MenuFragment4;
+
 import com.coffice.shengtao.cofficemachine.fragments.menuFragment.MenuFragment5;
+import com.coffice.shengtao.cofficemachine.utils.LogUtils;
+import com.coffice.shengtao.cofficemachine.utils.SPUtils;
 
 import java.util.ArrayList;
 
@@ -57,7 +57,9 @@ public class AHBottomnavigationActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+       // SPUtils.put(this,"translucentNavigation",true);
         boolean enabledTranslucentNavigation=getSharedPreferences("shared", Context.MODE_PRIVATE).getBoolean("translucentNavigation",false);
+        LogUtils.d("enabledTranslucentNavigation====="+enabledTranslucentNavigation);
         setTheme(enabledTranslucentNavigation?R.style.AppTheme_TranslucentNavigation : R.style.AppTheme);
         setContentView(R.layout.activity_ahbottomnavigation);
         binder = ButterKnife.bind(this);
@@ -76,7 +78,7 @@ public class AHBottomnavigationActivity extends BaseActivity {
             navigationAdapter = new AHBottomNavigationAdapter(this, R.menu.bottom_navigation_menu_3);
             navigationAdapter.setupWithBottomNavigation(bottomNavigation, tabColors);
         } else {
-            AHBottomNavigationItem item1 = new AHBottomNavigationItem(R.string.tab_1, R.mipmap.ic_apps_black_24dp, R.color.color_tab_1);
+            AHBottomNavigationItem item1 = new AHBottomNavigationItem(R.string.tab_1, R.drawable.ic_apps_black_24dp, R.color.color_tab_1);
             AHBottomNavigationItem item2 = new AHBottomNavigationItem(R.string.tab_2, R.mipmap.ic_maps_local_bar, R.color.color_tab_2);
             AHBottomNavigationItem item3 = new AHBottomNavigationItem(R.string.tab_3, R.mipmap.ic_maps_local_restaurant, R.color.color_tab_3);
             bottomNavigationItems.add(item1);
@@ -85,14 +87,18 @@ public class AHBottomnavigationActivity extends BaseActivity {
             bottomNavigation.addItems(bottomNavigationItems);
         }
 
-
         bottomNavigation.manageFloatingActionButtonBehavior(floatingActionButton);
         bottomNavigation.setTranslucentNavigationEnabled(true);
-        fragmentlist.add(MenuFragment5.newInstance("Fragment1"));
-        fragmentlist.add(MenuFragment5.newInstance("Fragment2"));
-        fragmentlist.add(MenuFragment5.newInstance("Fragment3"));
-        fragmentlist.add(MenuFragment5.newInstance("Fragment4"));
+
+        fragmentlist.add(MenuFragment5.newInstance(0));
+        fragmentlist.add(MenuFragment5.newInstance(1));
+        fragmentlist.add(MenuFragment5.newInstance(2));
+        fragmentlist.add(MenuFragment5.newInstance(3));
         adapter=new ViewPagerAdatper(getSupportFragmentManager(),fragmentlist);
+        viewPager.setOffscreenPageLimit(4);
+        viewPager.setAdapter(adapter);
+        currentFragment = adapter.getCurrentFragment();
+
         bottomNavigation.setOnTabSelectedListener(new AHBottomNavigation.OnTabSelectedListener() {
             @SuppressLint("RestrictedApi")
             @Override
@@ -141,9 +147,13 @@ public class AHBottomnavigationActivity extends BaseActivity {
 
                                 @Override
                                 public void onAnimationEnd(Animator animation) {
-                                    floatingActionButton.animate()
-                                            .setInterpolator(new LinearOutSlowInInterpolator())
-                                            .start();
+                                    if(floatingActionButton!=null) {
+                                        floatingActionButton.animate()
+                                                .setInterpolator(new LinearOutSlowInInterpolator())
+                                                .start();
+                                    }else{
+                                        LogUtils.d("floatingActionButton====="+floatingActionButton);
+                                    }
                                 }
 
                                 @Override
@@ -192,10 +202,25 @@ public class AHBottomnavigationActivity extends BaseActivity {
                                 .start();
                     }
                 }
-
                 return true;
             }
         });
+
+
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                // Setting custom colors for notification
+                AHNotification notification = new AHNotification.Builder()
+                        .setText(":)")
+                        .setBackgroundColor(ContextCompat.getColor(AHBottomnavigationActivity.this, R.color.color_notification_back))
+                        .setTextColor(ContextCompat.getColor(AHBottomnavigationActivity.this, R.color.color_notification_text))
+                        .build();
+                bottomNavigation.setNotification(notification, 1);
+                Snackbar.make(bottomNavigation, "Snackbar with bottom navigation",
+                        Snackbar.LENGTH_SHORT).show();
+            }
+        }, 3000);
     }
     /**
      * Return if the bottom navigation is colored

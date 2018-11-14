@@ -9,9 +9,11 @@ import android.widget.Button;
 import com.coffice.shengtao.cofficemachine.R;
 import com.coffice.shengtao.cofficemachine.activitys.bottomMenuActivity.AHBottomnavigationActivity;
 import com.coffice.shengtao.cofficemachine.activitys.bottomMenuActivity.BadgeRadioButtonActivity;
+import com.coffice.shengtao.cofficemachine.activitys.bottomMenuActivity.BottomBarActivity;
 import com.coffice.shengtao.cofficemachine.activitys.bottomMenuActivity.BottomNavigationActivity;
 import com.coffice.shengtao.cofficemachine.activitys.bottomMenuActivity.ByeBurgerMenuActivity;
 import com.coffice.shengtao.cofficemachine.activitys.bottomMenuActivity.FragmentTabHostActivity;
+import com.coffice.shengtao.cofficemachine.activitys.bottomMenuActivity.LuseenBottomNavigationActivity;
 import com.coffice.shengtao.cofficemachine.activitys.bottomMenuActivity.PopWindowFragmentActivity;
 import com.coffice.shengtao.cofficemachine.activitys.bottomMenuActivity.RadioGroupViewPageActivity;
 
@@ -35,6 +37,10 @@ public class BottomMenuListActivity extends AppCompatActivity {
     Button ByeBurgerMenu;
     @BindView(R.id.ahbuttomnevigation)
     Button ahbuttomnevigation;
+    @BindView(R.id.luseenbottonnavigation)
+    Button luseenbottonnavigation;
+    @BindView(R.id.bottombar)
+    Button bottombar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +54,9 @@ public class BottomMenuListActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
-    @OnClick({R.id.menuway1, R.id.menuway2, R.id.menuway3, R.id.menuway4, R.id.menuway5, R.id.ByeBurgerMenu, R.id.ahbuttomnevigation})
+    @OnClick({R.id.menuway1, R.id.menuway2, R.id.menuway3, R.id.menuway4,
+            R.id.menuway5, R.id.ByeBurgerMenu, R.id.ahbuttomnevigation,
+            R.id.luseenbottonnavigation,R.id.bottombar})
     public void onViewClicked(View view) {
         Intent intent = null;
         Bundle bundle = new Bundle();
@@ -82,12 +90,15 @@ public class BottomMenuListActivity extends AppCompatActivity {
                 intent = new Intent(BottomMenuListActivity.this, AHBottomnavigationActivity.class);
                 bundle.putString("MenuWay", ((Button) view).getText().toString());
                 break;
+
+            case R.id.bottombar:
+                intent = new Intent(BottomMenuListActivity.this, BottomBarActivity.class);
+                bundle.putString("MenuWay", ((Button) view).getText().toString());
+                break;
         }
         if (intent != null) {
             intent.putExtras(bundle);
             startActivity(intent);
         }
     }
-
-
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+<!--填充整个页面   是否包含 Navigationbar-->
     <style name="AppTheme.TranslucentNavigation" parent="AppTheme">
         <item name="android:windowTranslucentNavigation">true</item>
         <item name="android:fitsSystemWindows">true</item>

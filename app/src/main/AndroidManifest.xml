@@ -98,8 +98,16 @@
         <activity android:name=".activitys.bottomMenuActivity.BadgeRadioButtonActivity" />
         <activity
             android:name=".activitys.bottomMenuActivity.ByeBurgerMenuActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
-        <activity android:name=".activitys.bottomMenuActivity.AHBottomnavigationActivity"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".activitys.bottomMenuActivity.AHBottomnavigationActivity" />
+        <activity android:name=".activitys.bottomMenuActivity.LuseenBottomNavigationActivity" />
+        <activity android:name=".activitys.bottomMenuActivity.BottomBarActivity" />
+
+        <meta-data
+            android:name="com.google.android.actions"
+            android:resource="@xml/bottombar_menu" />
+
+        <activity android:name=".activitys.exitActivitys"></activity>
     </application>
 
 </manifest>

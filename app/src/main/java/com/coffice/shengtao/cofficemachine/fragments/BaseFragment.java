@@ -12,7 +12,8 @@ import android.view.View;
 import butterknife.Unbinder;
 
 public abstract class BaseFragment extends Fragment {
-
+    public String title;
+    public static String fragmentargs;
     /**
      * Fragment当前状态是否可见
      */

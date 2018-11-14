@@ -199,10 +199,10 @@ public class MenuFragment5 extends BaseFragment {
 
     }
 
-    public static MenuFragment5 newInstance(String param1) {
+    public static MenuFragment5 newInstance(int param1) {
         MenuFragment5 fragment = new MenuFragment5();
         Bundle args = new Bundle();
-        args.putString("index", param1);
+        args.putInt("index", param1);
         fragment.setArguments(args);
         return fragment;
     }

@@ -11,8 +11,7 @@ import android.widget.TextView;
 
 import com.coffice.shengtao.cofficemachine.R;
 import com.coffice.shengtao.cofficemachine.fragments.BaseFragment;
-
-
+import com.coffice.shengtao.cofficemachine.utils.LogUtils;
 
 
 /**
@@ -57,6 +56,8 @@ public class MenuFragment3 extends BaseFragment {
         context=mView.findViewById(R.id.context);
         if (getArguments() != null) {
             context.setText(getArguments().getString("agrs1"));
+            title= (String) getArguments().get("agrs1");
+            LogUtils.d(" MenuFragment3 title==="+title);
         }
     }
 
@@ -72,6 +73,7 @@ public class MenuFragment3 extends BaseFragment {
     public static MenuFragment3 newInstance(String param1) {
         MenuFragment3 fragment = new MenuFragment3();
         Bundle args = new Bundle();
+        fragmentargs=param1;
         args.putString("agrs1", param1);
         fragment.setArguments(args);
         return fragment;

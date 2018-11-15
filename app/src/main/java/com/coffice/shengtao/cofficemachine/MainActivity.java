@@ -9,6 +9,7 @@ import com.coffice.shengtao.cofficemachine.activitys.AlipayIntegrationActivity;
 import com.coffice.shengtao.cofficemachine.activitys.BaseActivity;
 import com.coffice.shengtao.cofficemachine.activitys.BottomMenuListActivity;
 import com.coffice.shengtao.cofficemachine.activitys.GPSAddressActivity;
+import com.coffice.shengtao.cofficemachine.activitys.GreenDaoActivity;
 import com.coffice.shengtao.cofficemachine.activitys.LitePalTestActivity;
 import com.coffice.shengtao.cofficemachine.activitys.NetChangeActivity;
 import com.coffice.shengtao.cofficemachine.activitys.ScanCodeActivity;
@@ -68,6 +69,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 intent=new Intent(this,LitePalTestActivity.class);
                 break;
             case R.id.button2:
+                intent=new Intent(this,GreenDaoActivity.class);
                 break;
             case R.id.button3:
                 intent=new Intent(this,ScanCodeActivity.class);

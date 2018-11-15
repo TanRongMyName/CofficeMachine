@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.coffice.shengtao.cofficemachine.pictureframe.base.ImageLoaderManager;
+import com.coffice.shengtao.cofficemachine.pictureframe.base.ImageLoaderOptions;
+
 /**
  * 万能视频的 viewhoder 一列数据的绑定
  */
@@ -56,6 +59,9 @@ public class BaseRecyclerHoder extends RecyclerView.ViewHolder {
         tv.setText(text);
         return this;
     }
+    public TextView getTextView(int viewId){
+        return getView(viewId);
+    }
 
     /**
      * 设置图片
@@ -82,6 +88,8 @@ public class BaseRecyclerHoder extends RecyclerView.ViewHolder {
         //Picasso.with(context).load(url).into((ImageView) getView(viewId));
         //        ImageLoader.getInstance().init(ImageLoaderConfiguration.createDefault(context));
         //        ImageLoader.getInstance().displayImage(url, (ImageView) getView(viewId));
+        ImageLoaderOptions op=new ImageLoaderOptions.Builder(getView(viewId),url).imageRadiusDp(12).build();
+        ImageLoaderManager.getInstance().showImage(op);
         return this;
     }
 }

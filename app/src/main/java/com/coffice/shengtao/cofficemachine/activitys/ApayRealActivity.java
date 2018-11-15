@@ -43,6 +43,23 @@ public class ApayRealActivity extends BaseActivity {
 //        builder.setNotifyUrl("https://auth.example.com/authRedirect");
 //        myALipayUtils.toALiPay(ApayRealActivity.this);
     }
+    //授权成功 支付出现异常 是没有签约？？？？等待疑问中
+    public void onauthok(View view){
+        //公司的APPID
+        MyALipayUtils.ALiPayBuilder builder =new MyALipayUtils.ALiPayBuilder();
+        MyALipayUtils myALipayUtils =builder.build();
+        builder.setAppid(GlobalData.ShengTao_APPID);
+
+        builder.setPid(GlobalData.ShengTao_PID);
+        builder.setTarget_id("测试使用");
+
+        builder.setMoney("0.1");
+        builder.setOrderTradeId(myALipayUtils.getOutTradeNo());
+        builder.setRsa2(GlobalData.ShengTao_RSA2);
+        builder.setTitle("午餐消费");
+        builder.setNotifyUrl("https://auth.example.com/authRedirect");
+        myALipayUtils.antoker(ApayRealActivity.this);
+    }
 
     @Override
     protected void onResume() {

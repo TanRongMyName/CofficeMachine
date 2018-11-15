@@ -3,12 +3,16 @@ package com.coffice.shengtao.cofficemachine.activitys;
 import android.app.Activity;
 import android.os.Handler;
 import android.os.Message;
+import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.alipay.sdk.app.AuthTask;
 import com.alipay.sdk.app.PayTask;
 import com.coffice.shengtao.cofficemachine.utils.LogUtils;
+import com.coffice.shengtao.cofficemachine.utils.aplayutils.AuthResult;
 import com.coffice.shengtao.cofficemachine.utils.aplayutils.Base64;
+import com.coffice.shengtao.cofficemachine.utils.aplayutils.OrderInfoUtil2_0;
 import com.coffice.shengtao.cofficemachine.utils.aplayutils.PayResult;
 
 import java.io.UnsupportedEncodingException;
@@ -28,6 +32,7 @@ import java.util.Random;
 
 public class MyALipayUtils {
     private static final int SDK_PAY_FLAG = 1;
+    private static final int SDK_AUTH_FLAG=2;
     private Activity context;
     private ALiPayBuilder builder;
 
@@ -37,7 +42,7 @@ public class MyALipayUtils {
 
     private Handler mHandler = new Handler() {
         public void handleMessage(Message msg) {
-
+            if (msg.what == SDK_PAY_FLAG) {
 //            返回码    含义
 //            9000    订单支付成功
 //            8000    正在处理中，支付结果未知（有可能已经支付成功），请查询商户订单列表中订单的支付状态
@@ -47,37 +52,56 @@ public class MyALipayUtils {
 //            6002    网络连接出错
 //            6004    支付结果未知（有可能已经支付成功），请查询商户订单列表中订单的支付状态
 //            其它    其它支付错误
-            PayResult payResult = new PayResult((Map<String, String>) msg.obj);
-            switch (payResult.getResultStatus()) {
-                case "9000":
-                    Toast.makeText(context, "支付成功", Toast.LENGTH_SHORT).show();
-                    context.finish();
+                PayResult payResult = new PayResult((Map<String, String>) msg.obj);
+                switch (payResult.getResultStatus()) {
+                    case "9000":
+                        Toast.makeText(context, "支付成功", Toast.LENGTH_SHORT).show();
+                        context.finish();
 //                    Toast.makeText(this, "支付成功", Toast.LENGTH_SHORT).show();
-                    /*跳转我的会员页面*/
+                        /*跳转我的会员页面*/
 //                    Intent intent = new Intent(context, MyVipActivity.class);
 //                    context.startActivity(intent);
-                    break;
-                case "8000":
-                    Toast.makeText(context, "正在处理中", Toast.LENGTH_SHORT).show();
-                    break;
-                case "4000":
-                    Toast.makeText(context, "订单支付失败", Toast.LENGTH_SHORT).show();
-                    break;
-                case "5000":
-                    Toast.makeText(context, "重复请求", Toast.LENGTH_SHORT).show();
-                    break;
-                case "6001":
-                    Toast.makeText(context, "已取消支付", Toast.LENGTH_SHORT).show();
-                    break;
-                case "6002":
-                    Toast.makeText(context, "网络连接出错", Toast.LENGTH_SHORT).show();
-                    break;
-                case "6004":
-                    Toast.makeText(context, "正在处理中", Toast.LENGTH_SHORT).show();
-                    break;
-                default:
-                    Toast.makeText(context, "支付失败", Toast.LENGTH_SHORT).show();
-                    break;
+                        break;
+                    case "8000":
+                        Toast.makeText(context, "正在处理中", Toast.LENGTH_SHORT).show();
+                        break;
+                    case "4000":
+                        Toast.makeText(context, "订单支付失败", Toast.LENGTH_SHORT).show();
+                        break;
+                    case "5000":
+                        Toast.makeText(context, "重复请求", Toast.LENGTH_SHORT).show();
+                        break;
+                    case "6001":
+                        Toast.makeText(context, "已取消支付", Toast.LENGTH_SHORT).show();
+                        break;
+                    case "6002":
+                        Toast.makeText(context, "网络连接出错", Toast.LENGTH_SHORT).show();
+                        break;
+                    case "6004":
+                        Toast.makeText(context, "正在处理中", Toast.LENGTH_SHORT).show();
+                        break;
+                    default:
+                        Toast.makeText(context, "支付失败", Toast.LENGTH_SHORT).show();
+                        break;
+                }
+            }else if(msg.what==SDK_AUTH_FLAG){
+                @SuppressWarnings("unchecked")
+                AuthResult authResult = new AuthResult((Map<String, String>) msg.obj, true);
+                String resultStatus = authResult.getResultStatus();
+                // 判断resultStatus 为“9000”且result_code
+                // 为“200”则代表授权成功，具体状态码代表含义可参考授权接口文档
+                if (TextUtils.equals(resultStatus, "9000") && TextUtils.equals(authResult.getResultCode(), "200")) {
+                    // 获取alipay_open_id，调支付时作为参数extern_token 的value
+                    // 传入，则支付账户为该授权账户
+                    Toast.makeText(context,
+                            "授权成功\n" + String.format("authCode:%s", authResult.getAuthCode()), Toast.LENGTH_SHORT)
+                            .show();
+                } else {
+                    // 其他状态值则为授权失败
+                    Toast.makeText(context,
+                            "授权失败" + String.format("authCode:%s", authResult.getAuthCode()), Toast.LENGTH_SHORT).show();
+
+                }
             }
         }
     };
@@ -131,6 +155,33 @@ public class MyALipayUtils {
                         (orderInfo, true);
                 Message msg = new Message();
                 msg.what = SDK_PAY_FLAG;
+                msg.obj = result;
+                mHandler.sendMessage(msg);
+            }
+        };
+
+        Thread payThread = new Thread(payRunnable);
+        payThread.start();
+    }
+    public void antoker(final Activity activity){
+        this.context = activity;
+        boolean rsa2 = (builder.getRsa2().length() > 0);
+        Map<String, String> authInfoMap = OrderInfoUtil2_0.buildAuthInfoMap(builder.pid,builder.appid,builder.target_id,rsa2);
+        String info = OrderInfoUtil2_0.buildOrderParam(authInfoMap);
+        String privateKey = rsa2 ? builder.getRsa2() : builder.getRsa();
+        String sign = OrderInfoUtil2_0.getSign(authInfoMap, privateKey, rsa2);
+        final String authInfo = info + "&" + sign;
+        Log.e("chx", "toALiPay: " + authInfo);
+        Runnable payRunnable = new Runnable() {
+
+            @Override
+            public void run() {
+                // 构造AuthTask 对象
+                AuthTask authTask = new AuthTask(context);
+                // 调用授权接口，获取授权结果
+                Map<String, String> result = authTask.authV2(authInfo, true);
+                Message msg = new Message();
+                msg.what = SDK_AUTH_FLAG;
                 msg.obj = result;
                 mHandler.sendMessage(msg);
             }
@@ -320,6 +371,8 @@ public class MyALipayUtils {
         private String title;
         private String notifyUrl;
         private String orderTradeId;
+        private String pid;
+        private String target_id;
 
         public MyALipayUtils build() {
             return new MyALipayUtils(this);
@@ -386,6 +439,22 @@ public class MyALipayUtils {
         public ALiPayBuilder setNotifyUrl(String notifyUrl) {
             this.notifyUrl = notifyUrl;
             return this;
+        }
+
+        public String getPid() {
+            return pid;
+        }
+
+        public void setPid(String pid) {
+            this.pid = pid;
+        }
+
+        public String getTarget_id() {
+            return target_id;
+        }
+
+        public void setTarget_id(String target_id) {
+            this.target_id = target_id;
         }
     }
 }

@@ -63,7 +63,6 @@ public class GreenDaoActivity extends BaseActivity {
     public void initData() {
         super.initData();
         initCoffe();
-
         fromDB = CoffeeDao.queryAll();
         adapter = new RecycleDataBaseAdapter<Coffee>(this,fromDB,R.layout.item_cofe){
             @Override
@@ -110,6 +109,7 @@ public class GreenDaoActivity extends BaseActivity {
         if(fromDB!=null){
             fromDB.clear();
         }
+        CoffeeDao.clearCacsh();
         Coffee coffee=null;
         switch (view.getId()) {
             case R.id.add:
@@ -135,11 +135,15 @@ public class GreenDaoActivity extends BaseActivity {
                 }else{
                     ToastUtils.showShort(this,"请先插入一条数据");
                 }
+
                 break;
         }
         coffee=null;
         List list1 = CoffeeDao.queryAll();
         fromDB.addAll(list1);
+        if(view.getId()==R.id.delete){
+            conunt=list1.size();
+        }
         LogUtils.d("list.size()==="+fromDB.size());
         adapter.notifyDataSetChanged();
     }

@@ -95,7 +95,8 @@ public class GlobalData {
             "aDNWm5ixAoGADsMUW1/yGyadmdU9bvoH2ZRGXx2UeVYC+HSxySlaNWsKBLoHcgNZ\n" +
             "AEmZkGoEEQlqITvag1J+EPJpuhCscwwUrtnmu9KjEk4eg5vRvF13KhO2YACbGzW9\n" +
             "w+WljEFvBqVvf8BNQMAO9XtUb0bgO9FqUDIivl1kGu0zkHCDlVI1YiM=";
-private static final String DB_Name="coffic_vending_machine_db.db";//数据库使用的名称
-
-
+    public  static final String DB_Name="coffic_vending_machine_db.db";//数据库使用的名称
+    /*极光推送的参数*/
+    public static final String Aurora_AppKey="cc0b40d6fa8cc1172ae81bce";
+    public static final String Aurora_Master_Secret="91b3d2ca31f7eb905fe0a46d";
 }

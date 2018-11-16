@@ -12,8 +12,17 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         ndk {
             abiFilters "armeabi-v7a"
-        }
+            //选择要添加的对应cpu类型的.so库。  jpush 使用的
+            //abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a'
+            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
 
+        }
+        //极光推送的 设置
+        manifestPlaceholders = [
+                JPUSH_PKGNAME: applicationId,
+                JPUSH_APPKEY : "cc0b40d6fa8cc1172ae81bce", //JPush上注册的包名对应的appkey.
+                JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+        ]
     }
     //greendao配置
     greendao {
@@ -78,7 +87,7 @@ dependencies {
     implementation 'com.ashokvarma.android:bottom-navigation-bar:0.9.5'
     /*实现在向下滚动的时候隐藏导航栏，而向上滚动可以使导航栏重新显现。*/
     implementation 'com.github.githubwing:ByeBurger:1.2.2'
-    /**采用悬浮按钮的方式 看效果：**/
+    /** 采用悬浮按钮的方式 看效果： **/
     implementation 'com.aurelhubert:ahbottomnavigation:2.1.0'
     /*LuseenBottomNavigation 实现底部菜单 lib*/
     implementation 'com.github.armcha:LuseenBottomNavigation:1.8.2'
@@ -86,10 +95,16 @@ dependencies {
     //    implementation 'com.roughike:bottom-bar:2.3.1'
     //greendao依赖
     implementation 'org.greenrobot:greendao:3.2.0'
+    /*greendao 加密使用*/
+    implementation 'net.zetetic:android-database-sqlcipher:3.5.7@aar'
+    /*glide 图片框架使用*/
     implementation 'com.github.bumptech.glide:glide:4.8.0'
     /*fresco:框架使用*/
     implementation 'com.facebook.fresco:webpsupport:1.11.0'
     implementation 'com.facebook.fresco:animated-webp:1.10.0'
     implementation 'com.facebook.fresco:animated-gif:1.10.0'
     implementation 'com.facebook.fresco:fresco:1.11.0'
+    //极光推送的jar
+    implementation files('libs/jpush-android-3.1.7.jar')
+    implementation files('libs/jcore-android-1.2.6.jar')
 }

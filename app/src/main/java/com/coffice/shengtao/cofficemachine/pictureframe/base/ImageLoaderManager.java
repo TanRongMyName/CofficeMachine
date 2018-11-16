@@ -4,6 +4,8 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.view.View;
 
+import com.coffice.shengtao.cofficemachine.utils.LogUtils;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -86,6 +88,7 @@ public class ImageLoaderManager {
 //        loaderstrategy.init(context);
     }
     private IImageLoaderstrategy getLoaderstrategy(LoaderEnum loaderEnum){
+        LogUtils.d("当前使用的是："+loaderEnum);
         return imageloaderMap.get(loaderEnum);
     }
 

@@ -6,6 +6,7 @@ import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.Keep;
 import org.greenrobot.greendao.annotation.Property;
 import org.greenrobot.greendao.annotation.Unique;
+import org.litepal.annotation.Column;
 
 /**
  * E-Mail：543441727@qq.com

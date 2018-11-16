@@ -2,6 +2,7 @@ package com.coffice.shengtao.cofficemachine.databaseframe.greendao.dao;
 
 import com.coffice.shengtao.cofficemachine.application.MyApplication;
 import com.coffice.shengtao.cofficemachine.databaseframe.greendao.model.Coffee;
+import com.coffice.shengtao.cofficemachine.utils.LogUtils;
 
 import java.util.List;
 
@@ -48,8 +49,10 @@ public class CoffeeDao {
      *
      * @param coffee
      */
-    public static void insertCoffee(Coffee coffee) {
-        MyApplication.getDaoInstant().getCoffeeDao().insertOrReplace(coffee);
+    public static Long  insertCoffee(Coffee coffee) {
+       Long id= MyApplication.getDaoInstant().getCoffeeDao().insertOrReplace(coffee);
+       LogUtils.d("insertCoffee ===="+id);
+       return id;
     }
 
     /**
@@ -99,6 +102,13 @@ public class CoffeeDao {
         } else {
             return null;
         }
+    }
+
+    /**
+     * 清除缓存
+     */
+    public static void clearCacsh(){
+        MyApplication.getDaoInstant().getCoffeeDao().detachAll();
     }
 }
 //    　　Dao中其它的一些方法

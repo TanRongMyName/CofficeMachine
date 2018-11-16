@@ -14,7 +14,10 @@ import com.coffice.shengtao.cofficemachine.pictureframe.base.LoaderEnum;
 import com.coffice.shengtao.cofficemachine.pictureframe.fresco.FrescoImageLoader;
 import com.coffice.shengtao.cofficemachine.pictureframe.glide.GlideImageLocader;
 
+import org.greenrobot.greendao.database.Database;
 import org.litepal.LitePalApplication;
+
+import cn.jpush.android.api.JPushInterface;
 
 public class MyApplication extends Application {
     private static MyApplication context;
@@ -41,6 +44,7 @@ public class MyApplication extends Application {
         setupDatabase();
         initPictureFrame();
         initHttp();
+        initJPush();
     }
     /**
      * 初始化网络通信 的 volley 请求队列
@@ -61,7 +65,9 @@ public class MyApplication extends Application {
         //初始化Greendao 数据   dao泛型   --操作数据库
         DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(this, "coffic_vending_machine_db1.db", null);
         //获取可写数据库
-        SQLiteDatabase db = helper.getWritableDatabase();
+        //SQLiteDatabase db = helper.getWritableDatabase();
+        //数据库加密
+        Database db = helper.getEncryptedWritableDb("123");
         //获取数据库对象
         DaoMaster daoMaster = new DaoMaster(db);
         //获取dao对象管理者
@@ -85,12 +91,20 @@ public class MyApplication extends Application {
 //        ImageLoaderManager.getInstance().init(this,config);
 
         ImageLoaderConfig config = new ImageLoaderConfig
-                .Builder(LoaderEnum.FRESCO,new FrescoImageLoader())
-                .addImageLodaer(LoaderEnum.GLIDE,new GlideImageLocader())
+                .Builder(LoaderEnum.FRESCO,new FrescoImageLoader())   //这样切换
+                //.addImageLodaer(LoaderEnum.GLIDE,new GlideImageLocader())
                 .maxMemory(40*1024*1024L)  // 单位为Byte
                 .build();
         ImageLoaderManager.getInstance().init(this,config);
 
+    }
+
+    /**
+     * 极光推送  的初始化
+     */
+    public void initJPush(){
+        JPushInterface.setDebugMode(true);
+        JPushInterface.init(this);
     }
 
 

@@ -1,7 +1,11 @@
 package com.coffice.shengtao.cofficemachine;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
+import android.support.v4.content.LocalBroadcastManager;
 import android.view.View;
 import android.widget.Button;
 
@@ -16,19 +20,22 @@ import com.coffice.shengtao.cofficemachine.activitys.ScanCodeActivity;
 import com.coffice.shengtao.cofficemachine.activitys.ApayStandboxActivity;
 import com.coffice.shengtao.cofficemachine.activitys.SlinMenuActivity;
 import com.coffice.shengtao.cofficemachine.activitys.exitActivitys;
+import com.coffice.shengtao.cofficemachine.utils.ExampleUtil;
 import com.coffice.shengtao.cofficemachine.utils.LogUtils;
 import com.coffice.shengtao.cofficemachine.utils.ToastUtils;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener{
     private Button button1, button2, button3, button4,gpsaddress,netChangeRequest,
-            bottommenu,slidingMenu,onPowerStart,activityexit;
-
+            bottommenu,slidingMenu,onPowerStart,activityexit,jpush;
+    public static boolean isForeground = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
         initEvent();
+        //注册广播
+        registerMessageReceiver();  // used for receive msg
     }
 
     @Override
@@ -44,6 +51,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         slidingMenu=findViewById(R.id.slidingMenu);
         onPowerStart=findViewById(R.id.onPowerStart);//开机自启动 app
         activityexit=findViewById(R.id.activityexit);
+        jpush=findViewById(R.id.jpush);
     }
 
     @Override
@@ -59,6 +67,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         slidingMenu.setOnClickListener(this);
         onPowerStart.setOnClickListener(this);
         activityexit.setOnClickListener(this);
+        jpush.setOnClickListener(this);
     }
 
     @Override
@@ -99,6 +108,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 //5.0开机么页面
                 intent=new Intent(this,exitActivitys.class);
                 break;
+            case R.id.jpush:
+                ToastUtils.showShort(this,"点击收到的极光推送信息后会自动跳转");
+                //intent=new Intent(this,exitActivitys.class);
             default:
                 break;
         }
@@ -109,4 +121,65 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
             LogUtils.d("intent 为空");
         }
     }
+
+    @Override
+    protected void onResume() {
+        isForeground = true;
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        isForeground=false;
+        super.onPause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        //解除本地注册的广播 ----
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(mMessageReceiver);
+        super.onDestroy();
+    }
+
+    private MessageReceiver mMessageReceiver;
+    public static final String MESSAGE_RECEIVED_ACTION = "com.example.jpushdemo.MESSAGE_RECEIVED_ACTION";
+    public static final String KEY_TITLE = "title";
+    public static final String KEY_MESSAGE = "message";
+    public static final String KEY_EXTRAS = "extras";
+
+    public void registerMessageReceiver() {
+        mMessageReceiver = new MessageReceiver();
+        IntentFilter filter = new IntentFilter();
+        filter.setPriority(IntentFilter.SYSTEM_HIGH_PRIORITY);
+        filter.addAction(MESSAGE_RECEIVED_ACTION);
+        LocalBroadcastManager.getInstance(this).registerReceiver(mMessageReceiver, filter);
+    }
+
+    public class MessageReceiver extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            try {
+                if (MESSAGE_RECEIVED_ACTION.equals(intent.getAction())) {
+                    String messge = intent.getStringExtra(KEY_MESSAGE);
+                    String extras = intent.getStringExtra(KEY_EXTRAS);
+                    StringBuilder showMsg = new StringBuilder();
+                    showMsg.append(KEY_MESSAGE + " : " + messge + "\n");
+                    if (!ExampleUtil.isEmpty(extras)) {
+                        showMsg.append(KEY_EXTRAS + " : " + extras + "\n");
+                    }
+                    setCostomMsg(showMsg.toString());
+                }
+            } catch (Exception e){
+            }
+        }
+    }
+
+    private void setCostomMsg(String msg){
+        if (null != msg) {
+            ToastUtils.showShort(this,"接受到的推送为："+msg);
+        }
+    }
+
+
 }

@@ -110,7 +110,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 break;
             case R.id.jpush:
                 ToastUtils.showShort(this,"点击收到的极光推送信息后会自动跳转");
-                //intent=new Intent(this,exitActivitys.class);
+                //不需要添加intent=new Intent(this,exitActivitys.class);
             default:
                 break;
         }

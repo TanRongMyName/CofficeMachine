@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.coffice.shengtao.cofficemachine.R;
@@ -20,6 +21,7 @@ import com.coffice.shengtao.cofficemachine.pictureframe.base.ImageLoaderManager;
 import com.coffice.shengtao.cofficemachine.pictureframe.base.ImageLoaderOptions;
 import com.coffice.shengtao.cofficemachine.utils.LogUtils;
 import com.coffice.shengtao.cofficemachine.utils.ToastUtils;
+import com.qingmei2.library.encode.QRCodeEncoder;
 
 import org.litepal.LitePal;
 
@@ -50,7 +52,8 @@ public class GreenDaoActivity extends BaseActivity {
     private int conunt=0;
 
     private RecycleDataBaseAdapter<Coffee>adapter;
-
+    //用来生成二维码
+    private QRCodeEncoder qrCodeEncoder;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,6 +78,8 @@ public class GreenDaoActivity extends BaseActivity {
                 holder.setText(R.id.discriptcoffee,item.getDiscrip());
                // holder.setImageResource(R.id.imageCoffee,R.mipmap.caffee1);
                 holder.setImageByUrl(R.id.imageCoffee,item.getImageurl());
+                //添加二维码
+                qrCodeEncoder.createQrCode2ImageView(item.getDiscount_price()+"", (ImageView) holder.getView(R.id.cordeimage));
             }
         };
         adapter.setOnItemClickListener(new RecycleDataBaseAdapter.OnItemClickListener() {
@@ -119,13 +124,15 @@ public class GreenDaoActivity extends BaseActivity {
                 break;
             case R.id.update:
                 //更新最后一个
-                coffee=CoffeeDao.queryLast();
-                if(coffee!=null){
-                    coffee.setPrice(30.00);
-                    CoffeeDao.updateCoffee(coffee);
-                }else{
-                    ToastUtils.showShort(this,"请先插入一条数据");
-                }
+//                coffee=CoffeeDao.queryLast();
+//                if(coffee!=null){
+//                    coffee.setPrice(30.00);
+//                    CoffeeDao.updateCoffee(coffee);
+//                }else{
+//                    ToastUtils.showShort(this,"请先插入一条数据");
+//                }
+                //试着修改所有的价格  自动减一
+                CoffeeDao.updateCoffee();
 
                 break;
             case R.id.delete:
@@ -153,6 +160,9 @@ public class GreenDaoActivity extends BaseActivity {
      * 初始化coffee 信息----用来添加到 数据库中----
      */
     public void initCoffe(){
+
+        qrCodeEncoder=new QRCodeEncoder(this);
+
         willSaveList=new ArrayList<>();
         //Long id, String name_china, String name_english, String kind, double price, double discount_price, String imageurl
         //id 可以为空

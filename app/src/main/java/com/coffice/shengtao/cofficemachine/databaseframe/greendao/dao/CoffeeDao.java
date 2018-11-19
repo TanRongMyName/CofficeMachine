@@ -50,6 +50,8 @@ public class CoffeeDao {
      * @param coffee
      */
     public static Long  insertCoffee(Coffee coffee) {
+        //查询所有表明
+
        Long id= MyApplication.getDaoInstant().getCoffeeDao().insertOrReplace(coffee);
        LogUtils.d("insertCoffee ===="+id);
        return id;
@@ -69,7 +71,19 @@ public class CoffeeDao {
      */
     public static void updateCoffee(Coffee coffee) {
         MyApplication.getDaoInstant().getCoffeeDao().update(coffee);
+
     }
+
+    /**
+     * 更新数据  需不需要 Id ？
+     * 每个价格 自动减一
+     */
+    public static void updateCoffee() {
+        MyApplication.getDaoInstant().getCoffeeDao().getDatabase().execSQL("update Coffee set disconunt_kind=(disconunt_kind-1);");
+    }
+
+
+
 
     /**
      * 查询Type为1的所有数据

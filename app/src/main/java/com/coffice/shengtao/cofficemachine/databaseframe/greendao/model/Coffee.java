@@ -54,7 +54,7 @@ import org.litepal.annotation.Column;
 //爱尔兰咖啡 Irish Coffee https://imgsa.baidu.com/exp/w=480/sign=a27a16b87af0f736d8fe4d093a54b382/a8014c086e061d95036517ff79f40ad163d9cad1.jpg
 //是一种既像酒又像咖啡的咖啡，由爱尔兰威士忌加入浓缩咖啡中，再在最上面放上一层鲜奶油构制而成。可以这样说，爱尔兰咖啡是一种含有酒精的咖啡。
 
-
+//默认生成的表明 就是类名  可以 操作sql 语句
 @Entity
 public class Coffee {
     //自动增长的id

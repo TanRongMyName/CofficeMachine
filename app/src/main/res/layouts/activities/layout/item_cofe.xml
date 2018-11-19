@@ -63,13 +63,30 @@
 
     <TextView
         android:id="@+id/discriptcoffee"
-        android:layout_width="match_parent"
-        android:layout_height="105dp"
+        android:layout_width="199dp"
+        android:layout_height="162dp"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
         android:layout_marginTop="146dp"
-        android:text="是一种最古老的咖啡，是由意大利浓缩咖啡、巧克力酱、鲜奶油和牛奶混合而成，摩卡得名于有名的摩卡港。其独特之甘，酸，苦味，极为优雅。为一般高级人士所喜爱的优良品种。普通皆单品饮用。饮之润滑可口。醇味历久不退。若调配综合咖啡，更是一种理想的品种。"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="0dp" />
+        android:text="是一种最古老的咖啡，是由意大利浓缩咖啡、巧克力酱、鲜奶油和牛奶混合而成，摩卡得名于有名的摩卡港。其独特之甘，酸，苦味，极为优雅。为一般高级人士所喜爱的优良品种。普通皆单品饮用。饮之润滑可口。醇味历久不退。若调配综合咖啡，更是一种理想的品种。" />
+
+    <ImageView
+        android:id="@+id/cordeimage"
+        android:layout_width="169dp"
+        android:layout_height="122dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="21dp"
+        android:layout_marginLeft="21dp"
+        android:layout_marginTop="171dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginRight="22dp"
+        android:layout_toEndOf="@+id/discriptcoffee"
+        android:layout_toRightOf="@+id/discriptcoffee"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/capricornus" />
 </RelativeLayout>

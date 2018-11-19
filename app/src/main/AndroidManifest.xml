@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.coffice.shengtao.cofficemachine">
-
     <!-- Required  极光推送 -->
     <permission
         android:name="com.coffice.shengtao.cofficemachine.permission.JPUSH_MESSAGE"
@@ -241,6 +240,7 @@
         <meta-data
             android:name="JPUSH_APPKEY"
             android:value="cc0b40d6fa8cc1172ae81bce" /> <!-- 值来自开发者平台取得的AppKey& -->
+        <!--自己的activity-->
         <activity android:name=".activitys.JPushActivity"></activity>
     </application>
 

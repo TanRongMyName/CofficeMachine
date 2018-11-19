@@ -87,7 +87,7 @@ dependencies {
     implementation 'com.ashokvarma.android:bottom-navigation-bar:0.9.5'
     /*实现在向下滚动的时候隐藏导航栏，而向上滚动可以使导航栏重新显现。*/
     implementation 'com.github.githubwing:ByeBurger:1.2.2'
-    /** 采用悬浮按钮的方式 看效果： **/
+    /** 采用悬浮按钮的方式 看效果：  **/
     implementation 'com.aurelhubert:ahbottomnavigation:2.1.0'
     /*LuseenBottomNavigation 实现底部菜单 lib*/
     implementation 'com.github.armcha:LuseenBottomNavigation:1.8.2'
@@ -107,4 +107,7 @@ dependencies {
     //极光推送的jar
     implementation files('libs/jpush-android-3.1.7.jar')
     implementation files('libs/jcore-android-1.2.6.jar')
+    implementation files('libs/agora-rtc-sdk.jar')
+    implementation files('libs/jmessage-sdk-android-2.7.1.jar')
+    implementation files('libs/jmrtc-sdk-android-1.0.2.jar')
 }

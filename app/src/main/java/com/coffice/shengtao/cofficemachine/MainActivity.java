@@ -15,6 +15,7 @@ import com.coffice.shengtao.cofficemachine.activitys.BottomMenuListActivity;
 import com.coffice.shengtao.cofficemachine.activitys.GPSAddressActivity;
 import com.coffice.shengtao.cofficemachine.activitys.GreenDaoActivity;
 import com.coffice.shengtao.cofficemachine.activitys.LitePalTestActivity;
+import com.coffice.shengtao.cofficemachine.activitys.MoreActivity;
 import com.coffice.shengtao.cofficemachine.activitys.NetChangeActivity;
 import com.coffice.shengtao.cofficemachine.activitys.ScanCodeActivity;
 import com.coffice.shengtao.cofficemachine.activitys.ApayStandboxActivity;
@@ -26,7 +27,7 @@ import com.coffice.shengtao.cofficemachine.utils.ToastUtils;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener{
     private Button button1, button2, button3, button4,gpsaddress,netChangeRequest,
-            bottommenu,slidingMenu,onPowerStart,activityexit,jpush;
+            bottommenu,slidingMenu,onPowerStart,activityexit,jpush,moreActivity;
     public static boolean isForeground = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +53,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         onPowerStart=findViewById(R.id.onPowerStart);//开机自启动 app
         activityexit=findViewById(R.id.activityexit);
         jpush=findViewById(R.id.jpush);
+        moreActivity=findViewById(R.id.moreActivity);
     }
 
     @Override
@@ -68,6 +70,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         onPowerStart.setOnClickListener(this);
         activityexit.setOnClickListener(this);
         jpush.setOnClickListener(this);
+        moreActivity.setOnClickListener(this);
     }
 
     @Override
@@ -111,6 +114,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
             case R.id.jpush:
                 ToastUtils.showShort(this,"点击收到的极光推送信息后会自动跳转");
                 //不需要添加intent=new Intent(this,exitActivitys.class);
+            case R.id.moreActivity:
+                intent=new Intent(this,MoreActivity.class);
             default:
                 break;
         }

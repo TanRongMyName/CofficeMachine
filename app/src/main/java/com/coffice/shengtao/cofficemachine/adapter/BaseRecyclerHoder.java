@@ -84,10 +84,18 @@ public class BaseRecyclerHoder extends RecyclerView.ViewHolder {
     /**
      * 设置图片
      */
-    public BaseRecyclerHoder setImageByUrl(int viewId,String url){
+    public BaseRecyclerHoder setImageByUrl(final int viewId, final String url){
         //Picasso.with(context).load(url).into((ImageView) getView(viewId));
         //        ImageLoader.getInstance().init(ImageLoaderConfiguration.createDefault(context));
         //        ImageLoader.getInstance().displayImage(url, (ImageView) getView(viewId));
+        //使用 异步执行加载 图片
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                ImageLoaderOptions op=new ImageLoaderOptions.Builder(getView(viewId),url).imageRadiusDp(12).build();
+//                ImageLoaderManager.getInstance().showImage(op);
+//            }
+//        }).start();
         ImageLoaderOptions op=new ImageLoaderOptions.Builder(getView(viewId),url).imageRadiusDp(12).build();
         ImageLoaderManager.getInstance().showImage(op);
         return this;

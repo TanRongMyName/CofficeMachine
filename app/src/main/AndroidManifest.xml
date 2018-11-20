@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.coffice.shengtao.cofficemachine">
+
     <!-- Required  极光推送 -->
     <permission
         android:name="com.coffice.shengtao.cofficemachine.permission.JPUSH_MESSAGE"
@@ -43,6 +44,7 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <!-- 读取内存中的数据 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <!-- <uses-permission android:name="android.permission.WRITE_SETTINGS" -->
     <!-- tools:ignore="ProtectedPermissions" /> -->
     <application
@@ -130,7 +132,7 @@
         <activity
             android:name="cn.jpush.android.ui.PopWinActivity"
             android:exported="false"
-            android:theme="@style/MyDialogStyle"></activity>
+            android:theme="@style/MyDialogStyle" />
 
         <!-- Required SDK核心功能 -->
         <activity
@@ -240,8 +242,10 @@
         <meta-data
             android:name="JPUSH_APPKEY"
             android:value="cc0b40d6fa8cc1172ae81bce" /> <!-- 值来自开发者平台取得的AppKey& -->
-        <!--自己的activity-->
-        <activity android:name=".activitys.JPushActivity"></activity>
+        <!-- 自己的activity -->
+        <activity android:name=".activitys.JPushActivity" />
+        <activity android:name=".activitys.MoreActivity" />
+        <activity android:name=".activitys.SMS_AuthenticationActivity"></activity>
     </application>
 
 </manifest>

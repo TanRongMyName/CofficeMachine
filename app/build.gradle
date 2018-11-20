@@ -1,6 +1,17 @@
 apply plugin: 'com.android.application'
 //使用greendao
 apply plugin: 'org.greenrobot.greendao'
+// 添加插件
+apply plugin: 'com.mob.sdk'
+
+// 在MobSDK的扩展中注册SMSSDK的相关信息
+MobSDK {
+    appKey "210e164a118fe"
+    appSecret "84ad0cddd7e5fb5df7d03eb0cd5f2317"
+    SMSSDK {
+//        gui false
+    }
+}
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -23,6 +34,8 @@ android {
                 JPUSH_APPKEY : "cc0b40d6fa8cc1172ae81bce", //JPush上注册的包名对应的appkey.
                 JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
         ]
+        //最多方法的拓展  因为应用的jar 越多或导致 方法数量越界
+        multiDexEnabled true
     }
     //greendao配置
     greendao {

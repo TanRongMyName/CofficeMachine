@@ -60,6 +60,7 @@ public class GreenDaoActivity extends BaseActivity {
         setContentView(R.layout.activity_green_dao);
         binder = ButterKnife.bind(this);
         initData();
+
     }
 
     @Override
@@ -79,7 +80,15 @@ public class GreenDaoActivity extends BaseActivity {
                // holder.setImageResource(R.id.imageCoffee,R.mipmap.caffee1);
                 holder.setImageByUrl(R.id.imageCoffee,item.getImageurl());
                 //添加二维码
-                qrCodeEncoder.createQrCode2ImageView(item.getDiscount_price()+"", (ImageView) holder.getView(R.id.cordeimage));
+//                new Thread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        qrCodeEncoder.createQrCode2ImageView(item.getDiscount_price()+"", (ImageView) holder.getView(R.id.cordeimage));
+//                    }
+//                });
+                 new CreateCorde(item.getDiscount_price()+"",(ImageView) holder.getView(R.id.cordeimage)).run();
+                //主线程阻塞 需要放到异步线程执行
+                //qrCodeEncoder.createQrCode2ImageView(item.getDiscount_price()+"", (ImageView) holder.getView(R.id.cordeimage));
             }
         };
         adapter.setOnItemClickListener(new RecycleDataBaseAdapter.OnItemClickListener() {
@@ -156,6 +165,18 @@ public class GreenDaoActivity extends BaseActivity {
     }
 
 
+    public class CreateCorde implements Runnable{
+        private String corde;
+        private ImageView iv;
+        public CreateCorde(String corde,ImageView iv){
+            this.corde=corde;
+            this.iv=iv;
+        }
+        @Override
+        public void run() {
+            qrCodeEncoder.createQrCode2ImageView(corde,  iv);
+        }
+    }
     /**
      * 初始化coffee 信息----用来添加到 数据库中----
      */

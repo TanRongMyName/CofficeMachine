@@ -91,8 +91,8 @@ public class MyApplication extends Application {
 //        ImageLoaderManager.getInstance().init(this,config);
 
         ImageLoaderConfig config = new ImageLoaderConfig
-                .Builder(LoaderEnum.FRESCO,new FrescoImageLoader())   //这样切换
-                //.addImageLodaer(LoaderEnum.GLIDE,new GlideImageLocader())
+                .Builder(LoaderEnum.GLIDE,new GlideImageLocader())   //这样切换
+                //.addImageLodaer(LoaderEnum.GLIDE,new GlideImageLocader())   LoaderEnum.FRESCO,new FrescoImageLoader()
                 .maxMemory(40*1024*1024L)  // 单位为Byte
                 .build();
         ImageLoaderManager.getInstance().init(this,config);

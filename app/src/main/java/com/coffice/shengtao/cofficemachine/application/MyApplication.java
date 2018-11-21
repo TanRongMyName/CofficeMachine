@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
+import com.coffice.shengtao.cofficemachine.databaseframe.greendao.dao.GreenDaoManager;
 import com.coffice.shengtao.cofficemachine.databaseframe.greendao.gen.DaoMaster;
 import com.coffice.shengtao.cofficemachine.databaseframe.greendao.gen.DaoSession;
 import com.coffice.shengtao.cofficemachine.pictureframe.base.ImageLoaderConfig;
@@ -25,8 +26,6 @@ public class MyApplication extends Application {
     }
 
     public static RequestQueue mQueue;//volley 使用的request请求队列
-
-    public static DaoSession daosession;//greendao 使用的Session
 
     @Override
     public void onCreate() {
@@ -60,31 +59,10 @@ public class MyApplication extends Application {
     private void setupDatabase() {
         //创建数据库shop.db
         LitePalApplication.initialize(this);
-
-        //初始化Greendao 数据   dao泛型   --操作数据库
-        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(this, "coffic_vending_machine_db1.db", null);
-        //获取可写数据库
-        SQLiteDatabase db = helper.getWritableDatabase();
-        //数据库加密  加载数据出现问题
-        //Database db = helper.getEncryptedWritableDb("123");
-        //获取数据库对象
-        DaoMaster daoMaster = new DaoMaster(db);
-        //获取dao对象管理者
-        daosession = daoMaster.newSession();
+        GreenDaoManager.getInstance();
     }
 
-      // 加载外部 数据库  SD 上的
-//    public void initDB(){
-//        DaoMaster.DevOpenHelper dbHelper = new DaoMaster.DevOpenHelper(
-//                new GreenDaoContext(), Constants.DB_NAME,null);
-//        mDatabase = dbHelper.getReadableDatabase();
-//        mDaoMaster = new DaoMaster(mDatabase);
-//        mDaoSession = mDaoMaster.newSession();
-//    }
 
-    public static DaoSession getDaoInstant() {
-        return daosession;
-    }
     /**
      * 初始化 图片框架
      */

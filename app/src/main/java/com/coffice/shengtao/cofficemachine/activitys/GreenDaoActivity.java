@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.coffice.shengtao.cofficemachine.R;
 import com.coffice.shengtao.cofficemachine.adapter.BaseRecyclerHoder;
 import com.coffice.shengtao.cofficemachine.adapter.RecycleDataBaseAdapter;
+import com.coffice.shengtao.cofficemachine.databaseframe.GreenDao;
 import com.coffice.shengtao.cofficemachine.databaseframe.greendao.dao.CoffeeDao;
 import com.coffice.shengtao.cofficemachine.databaseframe.greendao.model.Coffee;
 import com.coffice.shengtao.cofficemachine.databaseframe.litepal.model.Machine;
@@ -69,7 +70,8 @@ public class GreenDaoActivity extends BaseActivity {
     public void initData() {
         super.initData();
         initCoffe();
-        fromDB = CoffeeDao.queryAll();
+        //fromDB = CoffeeDao.queryAll();
+        fromDB=GreenDao.getInstance().setClass(Coffee.class).queryAll();
         adapter = new RecycleDataBaseAdapter<Coffee>(this,fromDB,R.layout.item_cofe){
             @Override
             public void convert(BaseRecyclerHoder holder, Coffee item, int position, boolean isScrolling) {
@@ -125,12 +127,14 @@ public class GreenDaoActivity extends BaseActivity {
         if(fromDB!=null){
             fromDB.clear();
         }
-        CoffeeDao.clearCacsh();
+        //CoffeeDao.clearCacsh();
+        GreenDao.getInstance().setClass(Coffee.class).clearCacsh();
         Coffee coffee=null;
         switch (view.getId()) {
             case R.id.add:
                 conunt=conunt>=willSaveList.size()?0:conunt;
-                CoffeeDao.insertCoffee(willSaveList.get(conunt));
+                GreenDao.getInstance().setClass(Coffee.class).save(willSaveList.get(conunt));
+                //CoffeeDao.insertCoffee(willSaveList.get(conunt));
                 conunt++;
                 break;
             case R.id.update:
@@ -143,13 +147,13 @@ public class GreenDaoActivity extends BaseActivity {
 //                    ToastUtils.showShort(this,"请先插入一条数据");
 //                }
                 //试着修改所有的价格  自动减一
-                CoffeeDao.updateCoffee();
-
+                //CoffeeDao.updateCoffee();
+                GreenDao.getInstance().setClass(Coffee.class).updateBySql("update Coffee set disconunt_kind=(disconunt_kind-1);");
                 break;
             case R.id.delete:
-                coffee=CoffeeDao.queryLast();
+                coffee= (Coffee) GreenDao.getInstance().setClass(Coffee.class).queryLast();
                 if(coffee!=null){
-                    CoffeeDao.deleteCoffee(coffee.getId());
+                    GreenDao.getInstance().setClass(Coffee.class).deleteById(coffee.getId());
                 }else{
                     ToastUtils.showShort(this,"请先插入一条数据");
                 }
@@ -157,7 +161,7 @@ public class GreenDaoActivity extends BaseActivity {
                 break;
         }
         coffee=null;
-        List list1 = CoffeeDao.queryAll();
+        List list1 = GreenDao.getInstance().setClass(Coffee.class).queryAll();
         fromDB.addAll(list1);
         if(view.getId()==R.id.delete){
             conunt=list1.size();

@@ -1,0 +1,79 @@
+package com.coffice.shengtao.cofficemachine.activitys;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
+
+import com.coffice.shengtao.cofficemachine.MainActivity;
+import com.coffice.shengtao.cofficemachine.R;
+import com.coffice.shengtao.cofficemachine.adapter.BaseRecyclerHoder;
+import com.coffice.shengtao.cofficemachine.adapter.RecycleDataBaseAdapter;
+import com.coffice.shengtao.cofficemachine.data.model.KnowPoint;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
+public class MoreActivity extends BaseActivity {
+
+    @BindView(R.id.myreclcler)
+    RecyclerView myreclcler;
+    private RecycleDataBaseAdapter<KnowPoint> adapter;
+    private List<KnowPoint> list;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_more);
+        binder = ButterKnife.bind(this);
+        initData();
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        binder.unbind();
+    }
+
+    @Override
+    public void initData() {
+        super.initData();
+        initlistData();
+        adapter=new RecycleDataBaseAdapter<KnowPoint>(this,list,R.layout.item_knowedge) {
+            @Override
+            public void convert(BaseRecyclerHoder holder, KnowPoint item, int position, boolean isScrolling) {
+                holder.setText(R.id.tvTitle,item.getTitle());
+                holder.setText(R.id.tvDiscript,item.getDiscript());
+                holder.setText(R.id.tvUrl,item.getUrl());
+            }
+        };
+        adapter.setOnItemLongClickListener(new RecycleDataBaseAdapter.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(RecyclerView parent, View view, int position) {
+                Intent intent=new Intent(MoreActivity.this,list.get(position).getCls());
+                MoreActivity.this.startActivity(intent);
+                return false;
+            }
+        });
+        myreclcler.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
+        myreclcler.setAdapter(adapter);
+
+
+
+    }
+
+    public void initlistData(){
+        list=new ArrayList<>();
+        list.add(new KnowPoint("短信认证",
+                "这篇文章主要介绍了Android用 Mob 实现发送短信验证码实例，具有一定的参考价值，感兴趣的小伙伴们可以参考一下\n" ,
+                "https://www.cnblogs.com/demodashi/p/8512871.html",SMS_AuthenticationActivity.class));
+
+        list.add(new KnowPoint("数据库操作",
+                "对数据库的一种导入，导出操作，加载外部外部数据库，同时将Assits中的数据库拷贝到data/data/packageName/databases下\n" ,
+                "https://blog.csdn.net/oaitan/article/details/54412660",DataBaseControlActivity.class));
+    }
+}

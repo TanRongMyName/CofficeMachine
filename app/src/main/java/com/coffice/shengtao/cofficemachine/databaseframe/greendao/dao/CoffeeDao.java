@@ -1,6 +1,5 @@
 package com.coffice.shengtao.cofficemachine.databaseframe.greendao.dao;
 
-import com.coffice.shengtao.cofficemachine.application.MyApplication;
 import com.coffice.shengtao.cofficemachine.databaseframe.greendao.model.Coffee;
 import com.coffice.shengtao.cofficemachine.utils.LogUtils;
 
@@ -51,8 +50,7 @@ public class CoffeeDao {
      */
     public static Long  insertCoffee(Coffee coffee) {
         //查询所有表明
-
-       Long id= MyApplication.getDaoInstant().getCoffeeDao().insertOrReplace(coffee);
+       Long id= GreenDaoManager.getInstance().getDao(Coffee.class).insertOrReplace(coffee);
        LogUtils.d("insertCoffee ===="+id);
        return id;
     }
@@ -63,14 +61,14 @@ public class CoffeeDao {
      * @param id
      */
     public static void deleteCoffee(long id) {
-        MyApplication.getDaoInstant().getCoffeeDao().deleteByKey(id);
+        GreenDaoManager.getInstance().getDao(Coffee.class).deleteByKey(id);
     }
 
     /**
      * 更新数据  需不需要 Id ？
      */
     public static void updateCoffee(Coffee coffee) {
-        MyApplication.getDaoInstant().getCoffeeDao().update(coffee);
+        GreenDaoManager.getInstance().getDao(Coffee.class).update(coffee);
 
     }
 
@@ -79,7 +77,7 @@ public class CoffeeDao {
      * 每个价格 自动减一
      */
     public static void updateCoffee() {
-        MyApplication.getDaoInstant().getCoffeeDao().getDatabase().execSQL("update Coffee set disconunt_kind=(disconunt_kind-1);");
+        GreenDaoManager.getInstance().getDao(Coffee.class).getDatabase().execSQL("update Coffee set disconunt_kind=(disconunt_kind-1);");
     }
 
 
@@ -101,7 +99,7 @@ public class CoffeeDao {
      * @return
      */
     public static List<Coffee> queryAll() {
-        return MyApplication.getDaoInstant().getCoffeeDao().loadAll();
+        return GreenDaoManager.getInstance().getDao(Coffee.class).loadAll();
     }
 
     /**
@@ -110,7 +108,7 @@ public class CoffeeDao {
      * @return
      */
     public static Coffee queryLast() {
-        List<Coffee> coffess = MyApplication.getDaoInstant().getCoffeeDao().loadAll();
+        List<Coffee> coffess = GreenDaoManager.getInstance().getDao(Coffee.class).loadAll();
         if (coffess != null&&coffess.size()>0) {
             return coffess.get(coffess.size() - 1);
         } else {
@@ -122,7 +120,7 @@ public class CoffeeDao {
      * 清除缓存
      */
     public static void clearCacsh(){
-        MyApplication.getDaoInstant().getCoffeeDao().detachAll();
+        GreenDaoManager.getInstance().getDao(Coffee.class).detachAll();
     }
 }
 //    　　Dao中其它的一些方法

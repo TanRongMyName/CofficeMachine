@@ -23,6 +23,7 @@ import com.coffice.shengtao.cofficemachine.activitys.SlinMenuActivity;
 import com.coffice.shengtao.cofficemachine.activitys.exitActivitys;
 import com.coffice.shengtao.cofficemachine.utils.ExampleUtil;
 import com.coffice.shengtao.cofficemachine.utils.LogUtils;
+import com.coffice.shengtao.cofficemachine.utils.ScreenUtils;
 import com.coffice.shengtao.cofficemachine.utils.ToastUtils;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener{
@@ -35,8 +36,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         setContentView(R.layout.activity_main);
         initView();
         initEvent();
-        //注册广播
+        //注册广播  推送
         registerMessageReceiver();  // used for receive msg
+        LogUtils.d("width=="+ScreenUtils.getScreenWidth(this)+" height=="+ScreenUtils.getScreenHeight(this));
+        //重新生成一种布局
     }
 
     @Override
@@ -107,8 +110,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 intent=new Intent(this,SlinMenuActivity.class);
                 break;
             case R.id.activityexit:
-                //成功 关键是 注册静态广播 来监听 开机事件  获取到开机事件  跳转到 启动页面
-                //5.0开机么页面
                 intent=new Intent(this,exitActivitys.class);
                 break;
             case R.id.jpush:

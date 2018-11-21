@@ -1,13 +1,18 @@
 package com.coffice.shengtao.cofficemachine.activitys;
 
 import android.app.Activity;
+import android.app.ActivityManager;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+
+import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -109,6 +114,23 @@ public class BaseActivity extends AppCompatActivity {
             }
         });
         dialog.show(getSupportFragmentManager(), ApayStandboxActivity.class.getSimpleName());
+    }
+
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    public void exit0() {
+        // 1\. 通过Context获取ActivityManager
+        ActivityManager activityManager = (ActivityManager) getApplicationContext().getSystemService(Context.ACTIVITY_SERVICE);
+
+        // 2\. 通过ActivityManager获取任务栈
+        List<ActivityManager.AppTask> appTaskList = activityManager.getAppTasks();
+
+        // 3\. 逐个关闭Activity
+        for (ActivityManager.AppTask appTask : appTaskList) {
+            appTask.finishAndRemoveTask();
+        }
+        // 4\. 结束进程
+        System.exit(0);
     }
 
 

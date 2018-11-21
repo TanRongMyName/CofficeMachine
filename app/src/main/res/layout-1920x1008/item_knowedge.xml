@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="198dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="123dp"
+        android:layout_marginLeft="123dp"
+        android:layout_marginTop="7dp"
+        android:text="短信认证"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/tvDiscript"
+        android:layout_width="553dp"
+        android:layout_height="52dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="42dp"
+        android:text="获取短信验证码的的第三方很多，今天介绍一个获取短信验证码的demo，它有以下优势  短信到达率几乎100% 代码经过我封装，集成简单 获取短信验证码免费"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="156dp"
+        android:layout_height="76dp"
+        android:layout_below="@+id/tvTitle"
+        android:layout_marginStart="31dp"
+        android:layout_marginLeft="31dp"
+        android:layout_marginTop="7dp"
+        android:layout_toEndOf="@+id/tvDiscript"
+        android:layout_toRightOf="@+id/tvDiscript"
+        android:background="@mipmap/tips"
+        android:gravity="end"
+        android:text="      \n  长按跳转    \n到功能页面    "
+        android:textAlignment="textEnd" />
+
+    <TextView
+        android:id="@+id/tvUrl"
+        android:layout_width="375dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="104dp"
+        android:text="https://www.cnblogs.com/demodashi/p/8512871.html" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tvUrl"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="0dp"
+        android:text="url:"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="9dp" />
+</RelativeLayout>

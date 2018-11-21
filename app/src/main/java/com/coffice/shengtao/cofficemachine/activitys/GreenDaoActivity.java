@@ -2,8 +2,10 @@ package com.coffice.shengtao.cofficemachine.activitys;
 
 
 import android.graphics.Paint;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -86,7 +88,7 @@ public class GreenDaoActivity extends BaseActivity {
 //                        qrCodeEncoder.createQrCode2ImageView(item.getDiscount_price()+"", (ImageView) holder.getView(R.id.cordeimage));
 //                    }
 //                });
-                 new CreateCorde(item.getDiscount_price()+"",(ImageView) holder.getView(R.id.cordeimage)).run();
+             //---- //new CreateCorde(item.getDiscount_price()+"",(ImageView) holder.getView(R.id.cordeimage)).run();
                 //主线程阻塞 需要放到异步线程执行
                 //qrCodeEncoder.createQrCode2ImageView(item.getDiscount_price()+"", (ImageView) holder.getView(R.id.cordeimage));
             }
@@ -164,6 +166,11 @@ public class GreenDaoActivity extends BaseActivity {
         adapter.notifyDataSetChanged();
     }
 
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    public void onExit(View view){
+        exit0();
+    }
 
     public class CreateCorde implements Runnable{
         private String corde;

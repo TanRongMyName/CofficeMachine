@@ -11,7 +11,6 @@ import com.coffice.shengtao.cofficemachine.databaseframe.greendao.gen.DaoSession
 import com.coffice.shengtao.cofficemachine.pictureframe.base.ImageLoaderConfig;
 import com.coffice.shengtao.cofficemachine.pictureframe.base.ImageLoaderManager;
 import com.coffice.shengtao.cofficemachine.pictureframe.base.LoaderEnum;
-import com.coffice.shengtao.cofficemachine.pictureframe.fresco.FrescoImageLoader;
 import com.coffice.shengtao.cofficemachine.pictureframe.glide.GlideImageLocader;
 
 import org.greenrobot.greendao.database.Database;
@@ -65,14 +64,23 @@ public class MyApplication extends Application {
         //初始化Greendao 数据   dao泛型   --操作数据库
         DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(this, "coffic_vending_machine_db1.db", null);
         //获取可写数据库
-        //SQLiteDatabase db = helper.getWritableDatabase();
-        //数据库加密
-        Database db = helper.getEncryptedWritableDb("123");
+        SQLiteDatabase db = helper.getWritableDatabase();
+        //数据库加密  加载数据出现问题
+        //Database db = helper.getEncryptedWritableDb("123");
         //获取数据库对象
         DaoMaster daoMaster = new DaoMaster(db);
         //获取dao对象管理者
         daosession = daoMaster.newSession();
     }
+
+      // 加载外部 数据库  SD 上的
+//    public void initDB(){
+//        DaoMaster.DevOpenHelper dbHelper = new DaoMaster.DevOpenHelper(
+//                new GreenDaoContext(), Constants.DB_NAME,null);
+//        mDatabase = dbHelper.getReadableDatabase();
+//        mDaoMaster = new DaoMaster(mDatabase);
+//        mDaoSession = mDaoMaster.newSession();
+//    }
 
     public static DaoSession getDaoInstant() {
         return daosession;

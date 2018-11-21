@@ -33,7 +33,11 @@ public class CountDownTimerHelper extends CountDownTimer {
     public void onTick(long millisUntilFinished) {
          //改变按钮上的内容
         //Log.v("millisUntilFinished",millisUntilFinished+"");
-        this.button.setText(millisUntilFinished/1000+"秒后可重新发送");
+        if(context!=null) {
+            this.button.setText(millisUntilFinished / 1000 + "秒后可重新发送");
+        }else{
+            cancleTimer();
+        }
     }
 
     @Override

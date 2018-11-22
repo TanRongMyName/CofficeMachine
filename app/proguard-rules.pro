@@ -28,3 +28,5 @@
 
 -dontwarn cn.jiguang.**
 -keep class cn.jiguang.** { *; }
+# agoral 视频混淆
+-keep class io.agora.**{*;}

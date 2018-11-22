@@ -6,11 +6,19 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
+
+import com.coffice.shengtao.cofficemachine.utils.LogUtils;
 
 import java.util.List;
 
@@ -131,6 +139,34 @@ public class BaseActivity extends AppCompatActivity {
         }
         // 4\. 结束进程
         System.exit(0);
+    }
+
+
+    /*对虚拟键盘的操作*/
+    public final void closeIME(View v) {
+        InputMethodManager mgr = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+        mgr.hideSoftInputFromWindow(v.getWindowToken(), 0); // 0 force close IME
+        v.clearFocus();
+    }
+
+    public final void closeIMEWithoutFocus(View v) {
+        InputMethodManager mgr = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+        mgr.hideSoftInputFromWindow(v.getWindowToken(), 0); // 0 force close IME
+    }
+
+    public void openIME(final EditText v) {
+        final boolean focus = v.requestFocus();
+        if (v.hasFocus()) {
+            final Handler handler = new Handler(Looper.getMainLooper());
+            handler.post(new Runnable() {
+                @Override
+                public void run() {
+                    InputMethodManager mgr = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+                    boolean result = mgr.showSoftInput(v, InputMethodManager.SHOW_FORCED);
+                    LogUtils.d("openIME " + focus + " " + result);
+                }
+            });
+        }
     }
 
 

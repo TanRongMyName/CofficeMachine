@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activitys.DataBaseUseDescripActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+       >
+
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" GreenDao 使用  \n Greendao是一款用于数据库创建与管理的框架，由于原生SQLite语言比较复杂繁琐，使得不少程序员不得不去学习SQLite原生语言，但是学习成本高，效率低下，所以不少公 司致力于开发一款简单的数据库管理框架，较为著名的就有Greendao和ORMLite，但是就数据分析来看，Greendao的效率是高于ORMLite及其他框架的，是目前该行业的领先者。 也因为Greendao的使用方法简便，且效率高使得其成为目前使用最为广泛的数据库管理框架，这也是广大程序员的福音。\n 项目中使用类：\n baseDao 抽象方法：用来实现 这样每个数据表都拥有一个SessionDao 直接操作数据库不用自在手动对应每个实体都去重写CRUD \n  GreenDaoContext: 重写了Context 上下文，这样的目的是为了 可以直接操作外部数据库 \nGreenDaoManager:对GreenDao 的基本数据一种封装 同时 在对数据库进行初始化时，使用GreenDaoManager.getInstance();就可以了 \nGreenDao:是对外调用的方法体的CRUD 使用方法 为 GreenDao.getInstance().setClass().crud(); \ngreedao 数据库 可以和 ORMLite 可以融合 因为都是对外提供Dao 操作数据库" />
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" LitePal 使用 \nLitePal是一款开源的Android数据库框架，采用对象关系映射（ORM）模式，将常用的数据库功能进行封装，可以不用写一行SQL语句就可以完成创建表、增删改查的操作。并 且很轻量级，jar包不到100k，几乎零配置。 \n  1. 关系映射模型 我们的编程语言使用的是面向对象语言，数据库用的是关系型数据库，将面向对象语言和关系型数据库建立的一种映射关系成为对象关系映射。 \n  2. 为什么使用对象关系映射 因为我们都比较擅长面向对象编程，只有很少一部分人精通关系型数据库，绝大多数的人都不太喜欢在代码中写Sql语句，使用面向对象来操作数 据库，从而可以从Sql语句中解脱出来。 \n项目中使用： \nLitePal 将操作数据的方法绑定到了实体对象上：导致对方法抽象出来出现异常 关联到一些列实体的参数 \n同时 litePal 对外提供 LitePal.操作类 直接单独操作实体 操作数据库 \n具体的使用资料：druidMadical   2018年3月21日开始" />
+
+    </ScrollView>
+
+
+
+
+</android.support.constraint.ConstraintLayout>

@@ -27,4 +27,7 @@
     <string name="menu_3">Menu 3</string>
     <string name="menu_4">Menu 4</string>
     <string name="menu_5">Menu 5</string>
+
+    <!-- Tutorial Step 1 音视频的APPId 测试-->
+    <string name="agora_app_id">f0813715aacf40d4a61097d5f356ccef</string>
 </resources>

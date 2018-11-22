@@ -4,7 +4,6 @@ package com.coffice.shengtao.cofficemachine.activitys;
 import android.graphics.Paint;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -16,17 +15,11 @@ import android.widget.TextView;
 import com.coffice.shengtao.cofficemachine.R;
 import com.coffice.shengtao.cofficemachine.adapter.BaseRecyclerHoder;
 import com.coffice.shengtao.cofficemachine.adapter.RecycleDataBaseAdapter;
-import com.coffice.shengtao.cofficemachine.databaseframe.GreenDao;
-import com.coffice.shengtao.cofficemachine.databaseframe.greendao.dao.CoffeeDao;
+import com.coffice.shengtao.cofficemachine.databaseframe.greendao.dao.GreenDao;
 import com.coffice.shengtao.cofficemachine.databaseframe.greendao.model.Coffee;
-import com.coffice.shengtao.cofficemachine.databaseframe.litepal.model.Machine;
-import com.coffice.shengtao.cofficemachine.pictureframe.base.ImageLoaderManager;
-import com.coffice.shengtao.cofficemachine.pictureframe.base.ImageLoaderOptions;
 import com.coffice.shengtao.cofficemachine.utils.LogUtils;
 import com.coffice.shengtao.cofficemachine.utils.ToastUtils;
 import com.qingmei2.library.encode.QRCodeEncoder;
-
-import org.litepal.LitePal;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -12,7 +12,7 @@ import com.coffice.shengtao.cofficemachine.R;
 import com.coffice.shengtao.cofficemachine.databaseframe.greendao.dao.CoffeeDao;
 import com.coffice.shengtao.cofficemachine.utils.LogUtils;
 import com.coffice.shengtao.cofficemachine.utils.ToastUtils;
-import com.coffice.shengtao.cofficemachine.utils.aplayutils.FileUtils;
+import com.coffice.shengtao.cofficemachine.utils.FileUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;

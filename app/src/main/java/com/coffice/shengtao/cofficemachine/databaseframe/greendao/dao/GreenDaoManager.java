@@ -38,9 +38,9 @@ public class GreenDaoManager {
 
     private GreenDaoManager(){
         if (mInstance==null){
-//            DaoMaster.DevOpenHelper openHelper=new DaoMaster.DevOpenHelper(MyApplication.getInstent(),"coffic_vending_machine_db1.db",null);
-//            mDaoMaster=new DaoMaster(openHelper.getWritableDatabase());
-//            mDaoSession=mDaoMaster.newSession();
+            DaoMaster.DevOpenHelper openHelper=new DaoMaster.DevOpenHelper(MyApplication.getInstent(),"coffic_vending_machine_db1.db",null);
+            mDaoMaster=new DaoMaster(openHelper.getWritableDatabase());
+            mDaoSession=mDaoMaster.newSession();
 
 //            //初始化Greendao 数据   dao泛型   --操作数据库
 //            DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(this, "coffic_vending_machine_db1.db", null);
@@ -54,9 +54,9 @@ public class GreenDaoManager {
 //            daosession = daoMaster.newSession();
               //
               //切换到 sd卡上的数据库
-            DaoMaster.DevOpenHelper openHelper=new DaoMaster.DevOpenHelper(new GreenDaoContext(),"coffic_vending_machine_db1.db",null);
-            mDaoMaster=new DaoMaster(openHelper.getWritableDatabase());
-            mDaoSession=mDaoMaster.newSession();
+//            DaoMaster.DevOpenHelper openHelper=new DaoMaster.DevOpenHelper(new GreenDaoContext(),"coffic_vending_machine_db1.db",null);
+//            mDaoMaster=new DaoMaster(openHelper.getWritableDatabase());
+//            mDaoSession=mDaoMaster.newSession();
         }
     }
     // 加载外部 数据库  SD 上的

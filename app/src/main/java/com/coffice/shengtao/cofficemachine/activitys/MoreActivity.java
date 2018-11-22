@@ -2,6 +2,7 @@ package com.coffice.shengtao.cofficemachine.activitys;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -64,7 +65,10 @@ public class MoreActivity extends BaseActivity {
 
 
 
+
+
     }
+
 
     public void initlistData(){
         list=new ArrayList<>();
@@ -75,5 +79,13 @@ public class MoreActivity extends BaseActivity {
         list.add(new KnowPoint("数据库操作",
                 "对数据库的一种导入，导出操作，加载外部外部数据库，同时将Assits中的数据库拷贝到data/data/packageName/databases下\n" ,
                 "https://blog.csdn.net/oaitan/article/details/54412660",DataBaseControlActivity.class));
+        list.add(new KnowPoint("数据库整合",
+                "目标将LitePal 与GreenDao 数据库融合为一体，结果 失败  LitePal 的crud 绑定在实体上，而GreenDao 将Crud 单独生成类方法" ,
+                "https://github.com/LitePalFramework/LitePal||https://github.com/greenrobot/greenDAO",DataBaseUseDescripActivity.class));
+        list.add(new KnowPoint("及时视频",
+                "作为提供实时音视频业务的 PaaS（Platform as a Service）层，SD-RTN 专注为上层（SaaS）业务开放音视频业务的网络基础能力，解决开发者共性问题，营造友好的开发环境，实现敏捷开发，并为实时音视频业务打造“专网”级别沉浸式网络体验" ,
+                "https://www.agora.io/cn/network/",AgoraIVedioActivity.class));
+
+
     }
 }

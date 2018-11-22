@@ -4,7 +4,10 @@ package com.coffice.shengtao.cofficemachine.databaseframe.greendao.dao;
 
 import java.security.InvalidParameterException;
 import java.sql.SQLException;
-public abstract class BaseDao <T> {
+import java.util.List;
+import java.util.Map;
+
+public abstract class BaseDao<T> {
 /**
  * 增，带事务操作
  *
@@ -12,24 +15,7 @@ public abstract class BaseDao <T> {
  * @return 影响的行数
  * @throws SQLException SQLException异常
  */
-//public int save(T t) throws SQLException {
-//        Dao<T, Integer> dao = getDao();
-//
-//        DatabaseConnection databaseConnection = null;
-//        try {
-//        databaseConnection = dao.startThreadConnection();
-//        dao.setAutoCommit(databaseConnection, false);
-//        int save = dao.create(t);
-//        dao.commit(databaseConnection);
-//        return save;
-//        } catch (SQLException e) {
-//        dao.rollBack(databaseConnection);
-//        e.printStackTrace();
-//        } finally {
-//        dao.endThreadConnection(databaseConnection);
-//        }
-//        return 0;
-//        }
+public abstract int save(T t);
 
 /**
  * 增或更新，带事务操作
@@ -37,23 +23,7 @@ public abstract class BaseDao <T> {
  * @return Dao.CreateOrUpdateStatus
  * @throws SQLException SQLException异常
  */
-//public Dao.CreateOrUpdateStatus saveOrUpdate(T t) throws SQLException {
-//        Dao<T, Integer> dao = getDao();
-//        DatabaseConnection databaseConnection = null;
-//        try {
-//        databaseConnection = dao.startThreadConnection();
-//        dao.setAutoCommit(databaseConnection, false);
-//        Dao.CreateOrUpdateStatus orUpdate = dao.createOrUpdate(t);
-//        dao.commit(databaseConnection);
-//        return orUpdate;
-//        } catch (SQLException e) {
-//        dao.rollBack(databaseConnection);
-//        e.printStackTrace();
-//        } finally {
-//        dao.endThreadConnection(databaseConnection);
-//        }
-//        return null;
-//        }
+//public abstract Dao.CreateOrUpdateStatus saveOrUpdate(T t);
 
 /**
  * 增，带事务操作
@@ -61,26 +31,7 @@ public abstract class BaseDao <T> {
  * @return 影响的行数
  * @throws SQLException SQLException异常
  */
-//public int save(List<T> t) throws SQLException {
-//        Dao<T, Integer> dao = getDao();
-//        DatabaseConnection databaseConnection = null;
-//        try {
-//        databaseConnection = dao.startThreadConnection();
-//        dao.setAutoCommit(databaseConnection, false);
-//        for (T item : t) {
-//        dao.create(item);
-//        }
-//        dao.commit(databaseConnection);
-//        return t.size();
-//        } catch (SQLException e) {
-//        dao.rollBack(databaseConnection);
-//        e.printStackTrace();
-//        } finally {
-//        dao.endThreadConnection(databaseConnection);
-//        }
-//        return 0;
-//        }
-
+public abstract int save(List<T> t) ;
 /**
  * 删，带事务操作
  *
@@ -88,23 +39,7 @@ public abstract class BaseDao <T> {
  * @return 影响的行数
  * @throws SQLException SQLException异常
  */
-//public int delete(T t) throws SQLException {
-//        Dao<T, Integer> dao = getDao();
-//        DatabaseConnection databaseConnection = null;
-//        try {
-//        databaseConnection = dao.startThreadConnection();
-//        dao.setAutoCommit(databaseConnection, false);
-//        int delete = dao.delete(t);
-//        dao.commit(databaseConnection);
-//        return delete;
-//        } catch (SQLException e) {
-//        dao.rollBack(databaseConnection);
-//        e.printStackTrace();
-//        } finally {
-//        dao.endThreadConnection(databaseConnection);
-//        }
-//        return 0;
-//        }
+public abstract int delete(T t) ;
 
 /**
  * 删，带事务操作
@@ -113,23 +48,7 @@ public abstract class BaseDao <T> {
  * @return 影响的行数
  * @throws SQLException SQLException异常
  */
-//public int delete(List<T> list) throws SQLException {
-//        Dao<T, Integer> dao = getDao();
-//        DatabaseConnection databaseConnection = null;
-//        try {
-//        databaseConnection = dao.startThreadConnection();
-//        dao.setAutoCommit(databaseConnection, false);
-//        int delete = dao.delete(list);
-//        dao.commit(databaseConnection);
-//        return delete;
-//        } catch (SQLException e) {
-//        dao.rollBack(databaseConnection);
-//        e.printStackTrace();
-//        } finally {
-//        dao.endThreadConnection(databaseConnection);
-//        }
-//        return 0;
-//        }
+public abstract int delete(List<T> list) ;
 
 /**
  * 删，带事务操作
@@ -140,26 +59,7 @@ public abstract class BaseDao <T> {
  * @throws SQLException              SQLException异常
  * @throws InvalidParameterException InvalidParameterException异常
  */
-//public int delete(String[] columnNames, Object[] columnValues) throws SQLException, InvalidParameterException {
-//        List<T> list = query(columnNames, columnValues);
-//        if (null != list && !list.isEmpty()) {
-//        Dao<T, Integer> dao = getDao();
-//        DatabaseConnection databaseConnection = null;
-//        try {
-//        databaseConnection = dao.startThreadConnection();
-//        dao.setAutoCommit(databaseConnection, false);
-//        int delete = dao.delete(list);
-//        dao.commit(databaseConnection);
-//        return delete;
-//        } catch (SQLException e) {
-//        dao.rollBack(databaseConnection);
-//        e.printStackTrace();
-//        } finally {
-//        dao.endThreadConnection(databaseConnection);
-//        }
-//        }
-//        return 0;
-//        }
+public abstract int delete(String[] columnNames, Object[] columnValues) ;
 
 /**
  * 删，带事务操作
@@ -168,23 +68,7 @@ public abstract class BaseDao <T> {
  * @return 影响的行数
  * @throws SQLException SQLException异常
  */
-//public int deleteById(Integer id) throws SQLException {
-//        Dao<T, Integer> dao = getDao();
-//        DatabaseConnection databaseConnection = null;
-//        try {
-//        databaseConnection = dao.startThreadConnection();
-//        dao.setAutoCommit(databaseConnection, false);
-//        int delete = dao.deleteById(id);
-//        dao.commit(databaseConnection);
-//        return delete;
-//        } catch (SQLException e) {
-//        dao.rollBack(databaseConnection);
-//        e.printStackTrace();
-//        } finally {
-//        dao.endThreadConnection(databaseConnection);
-//        }
-//        return 0;
-//        }
+public  abstract Long deleteById(Long id);
 
 /**
  * 删，带事务操作
@@ -192,24 +76,7 @@ public abstract class BaseDao <T> {
  * @return 影响的行数
  * @throws SQLException SQLException异常
  */
-//public int deleteByIds(List<Integer> ids) throws SQLException {
-//        Dao<T, Integer> dao = getDao();
-//
-//        DatabaseConnection databaseConnection = null;
-//        try {
-//        databaseConnection = dao.startThreadConnection();
-//        dao.setAutoCommit(databaseConnection, false);
-//        int delete = dao.deleteIds(ids);
-//        dao.commit(databaseConnection);
-//        return delete;
-//        } catch (SQLException e) {
-//        dao.rollBack(databaseConnection);
-//        e.printStackTrace();
-//        } finally {
-//        dao.endThreadConnection(databaseConnection);
-//        }
-//        return 0;
-//        }
+public abstract int deleteByIds(List<Long> ids) ;
 /**
  * 删，带事务操作
  *
@@ -217,23 +84,7 @@ public abstract class BaseDao <T> {
  * @return 影响的行数
  * @throws SQLException SQLException异常
  */
-//public int delete(PreparedDelete<T> preparedDelete) throws SQLException {
-//        Dao<T, Integer> dao = getDao();
-//        DatabaseConnection databaseConnection = null;
-//        try {
-//        databaseConnection = dao.startThreadConnection();
-//        dao.setAutoCommit(databaseConnection, false);
-//        int delete = dao.delete(preparedDelete);
-//        dao.commit(databaseConnection);
-//        return delete;
-//        } catch (SQLException e) {
-//        dao.rollBack(databaseConnection);
-//        e.printStackTrace();
-//        } finally {
-//        dao.endThreadConnection(databaseConnection);
-//        }
-//        return 0;
-//        }
+//public abstract int delete(PreparedDelete<T> preparedDelete) ;
 
 /**
  * 改，带事务操作
@@ -242,23 +93,8 @@ public abstract class BaseDao <T> {
  * @return 影响的行数
  * @throws SQLException SQLException异常
  */
-//public int update(T t) throws SQLException {
-//        Dao<T, Integer> dao = getDao();
-//        DatabaseConnection databaseConnection = null;
-//        try {
-//        databaseConnection = dao.startThreadConnection();
-//        dao.setAutoCommit(databaseConnection, false);
-//        int update = dao.update(t);
-//        dao.commit(databaseConnection);
-//        return update;
-//        } catch (SQLException e) {
-//        dao.rollBack(databaseConnection);
-//        e.printStackTrace();
-//        } finally {
-//        dao.endThreadConnection(databaseConnection);
-//        }
-//        return 0;
-//        }
+public abstract int update(T t);
+
 
 /**
  * 改，带事务操作
@@ -266,46 +102,14 @@ public abstract class BaseDao <T> {
  * @return 影响的行数
  * @throws SQLException SQLException异常
  */
-//public int update(PreparedUpdate<T> preparedUpdate) throws SQLException {
-//        Dao<T, Integer> dao = getDao();
-//        DatabaseConnection databaseConnection = null;
-//        try {
-//        databaseConnection = dao.startThreadConnection();
-//        dao.setAutoCommit(databaseConnection, false);
-//        int update = dao.update(preparedUpdate);
-//        dao.commit(databaseConnection);
-//        return update;
-//        } catch (SQLException e) {
-//        dao.rollBack(databaseConnection);
-//        e.printStackTrace();
-//        } finally {
-//        dao.endThreadConnection(databaseConnection);
-//        }
-//        return 0;
-//        }
+//public abstract int update(PreparedUpdate<T> preparedUpdate) ;
 /**
  * 查，带事务操作
  *
  * @return 查询结果集合
  * @throws SQLException SQLException异常
  */
-//public List<T> queryAll() throws SQLException {
-//        Dao<T, Integer> dao = getDao();
-//        DatabaseConnection databaseConnection = null;
-//        try {
-//        databaseConnection = dao.startThreadConnection();
-//        dao.setAutoCommit(databaseConnection, false);
-//        List<T> query = dao.queryForAll();
-//        dao.commit(databaseConnection);
-//        return query;
-//        } catch (SQLException e) {
-//        dao.rollBack(databaseConnection);
-//        e.printStackTrace();
-//        } finally {
-//        dao.endThreadConnection(databaseConnection);
-//        }
-//        return null;
-//        }
+public abstract List<T> queryAll() ;
 
 /**
  * 查，带事务操作
@@ -314,23 +118,7 @@ public abstract class BaseDao <T> {
  * @return 查询结果集合
  * @throws SQLException SQLException异常
  */
-//public List<T> query(PreparedQuery<T> preparedQuery) throws SQLException {
-//        Dao<T, Integer> dao = getDao();
-//        DatabaseConnection databaseConnection = null;
-//        try {
-//        databaseConnection = dao.startThreadConnection();
-//        dao.setAutoCommit(databaseConnection, false);
-//        List<T> query = dao.query(preparedQuery);
-//        dao.commit(databaseConnection);
-//        return query;
-//        } catch (SQLException e) {
-//        dao.rollBack(databaseConnection);
-//        e.printStackTrace();
-//        } finally {
-//        dao.endThreadConnection(databaseConnection);
-//        }
-//        return null;
-//        }
+//public abstract List<T> query(PreparedQuery<T> preparedQuery) ;
 
 /**
  * 查，带事务操作
@@ -340,27 +128,7 @@ public abstract class BaseDao <T> {
  * @return 查询结果集合
  * @throws SQLException SQLException异常
  */
-//public List<T> query(String columnName, String columnValue) throws SQLException {
-//        QueryBuilder<T, Integer> queryBuilder = getDao().queryBuilder();
-//        queryBuilder.where().eq(columnName, columnValue);
-//        PreparedQuery<T> preparedQuery = queryBuilder.prepare();
-//        Dao<T, Integer> dao = getDao();
-//        DatabaseConnection databaseConnection = null;
-//        try {
-//        databaseConnection = dao.startThreadConnection();
-//        dao.setAutoCommit(databaseConnection, false);
-//        List<T> query = dao.query(preparedQuery);
-//        //also can use dao.queryForEq(columnName,columnValue);
-//        dao.commit(databaseConnection);
-//        return query;
-//        } catch (SQLException e) {
-//        dao.rollBack(databaseConnection);
-//        e.printStackTrace();
-//        } finally {
-//        dao.endThreadConnection(databaseConnection);
-//        }
-//        return null;
-//        }
+public abstract List<T> query(String columnName, String columnValue) ;
 
 /**
  * 查，带事务操作
@@ -370,38 +138,7 @@ public abstract class BaseDao <T> {
  * @return 查询结果集合
  * @throws SQLException SQLException异常
  */
-//public List<T> query(String[] columnNames, Object[] columnValues) throws SQLException {
-//        if (columnNames.length != columnNames.length) {
-//        throw new InvalidParameterException("params size is not equal");
-//        }
-//        QueryBuilder<T, Integer> queryBuilder = getDao().queryBuilder();
-//        Where<T, Integer> wheres = queryBuilder.where();
-//        for (int i = 0; i < columnNames.length; i++) {
-//        if (i==0){
-//        wheres.eq(columnNames[i], columnValues[i]);
-//        }else{
-//        wheres.and().eq(columnNames[i], columnValues[i]);
-//        }
-//
-//        }
-//        PreparedQuery<T> preparedQuery = queryBuilder.prepare();
-//
-//        Dao<T, Integer> dao = getDao();
-//        DatabaseConnection databaseConnection = null;
-//        try {
-//        databaseConnection = dao.startThreadConnection();
-//        dao.setAutoCommit(databaseConnection, false);
-//        List<T> query = dao.query(preparedQuery);
-//        dao.commit(databaseConnection);
-//        return query;
-//        } catch (SQLException e) {
-//        dao.rollBack(databaseConnection);
-//        e.printStackTrace();
-//        } finally {
-//        dao.endThreadConnection(databaseConnection);
-//        }
-//        return null;
-//        }
+public abstract List<T> query(String[] columnNames, Object[] columnValues);
 
 /**
  * 查，带事务操作
@@ -410,41 +147,7 @@ public abstract class BaseDao <T> {
  * @return 查询结果集合
  * @throws SQLException SQLException异常
  */
-//public List<T> query(Map<String, Object> map) throws SQLException {
-//        QueryBuilder<T, Integer> queryBuilder = getDao().queryBuilder();
-//        if (!map.isEmpty()) {
-//        Where<T, Integer> wheres = queryBuilder.where();
-//        Iterator<Map.Entry<String, Object>> iterator = map.entrySet().iterator();
-//        String key = null;
-//        Object value = null;
-//        for (int i = 0; iterator.hasNext(); i++) {
-//        Map.Entry<String, Object> next = iterator.next();
-//        key = next.getKey();
-//        value = next.getValue();
-//        if (i == 0) {
-//        wheres.eq(key, value);
-//        } else {
-//        wheres.and().eq(key, value);
-//        }
-//        }
-//        }
-//        PreparedQuery<T> preparedQuery = queryBuilder.prepare();
-//        Dao<T, Integer> dao = getDao();
-//        DatabaseConnection databaseConnection = null;
-//        try {
-//        databaseConnection = dao.startThreadConnection();
-//        dao.setAutoCommit(databaseConnection, false);
-//        List<T> query = dao.query(preparedQuery);
-//        dao.commit(databaseConnection);
-//        return query;
-//        } catch (SQLException e) {
-//        dao.rollBack(databaseConnection);
-//        e.printStackTrace();
-//        } finally {
-//        dao.endThreadConnection(databaseConnection);
-//        }
-//        return null;
-//        }
+public abstract List<T> query(Map<String, Object> map) ;
 
 /**
  * 查，带事务操作
@@ -453,23 +156,7 @@ public abstract class BaseDao <T> {
  * @return 查询结果集合
  * @throws SQLException SQLException异常
  */
-//public T queryById(Integer id) throws SQLException {
-//        Dao<T, Integer> dao = getDao();
-//        DatabaseConnection databaseConnection = null;
-//        try {
-//        databaseConnection = dao.startThreadConnection();
-//        dao.setAutoCommit(databaseConnection, false);
-//        T t = dao.queryForId(id);
-//        dao.commit(databaseConnection);
-//        return t;
-//        } catch (SQLException e) {
-//        dao.rollBack(databaseConnection);
-//        e.printStackTrace();
-//        } finally {
-//        dao.endThreadConnection(databaseConnection);
-//        }
-//        return null;
-//        }
+public abstract T queryById(Integer id) ;
 
 /**
  * 判断表是否存在
@@ -477,9 +164,7 @@ public abstract class BaseDao <T> {
  * @return 表是否存在
  * @throws SQLException SQLException异常
  */
-//public boolean isTableExists() throws SQLException {
-//        return getDao().isTableExists();
-//        }
+public abstract boolean isTableExists() ;
 
 
 /**
@@ -488,23 +173,7 @@ public abstract class BaseDao <T> {
  * @return 记录数
  * @throws SQLException SQLException异常
  */
-//public long count() throws SQLException {
-//        Dao<T, Integer> dao = getDao();
-//        DatabaseConnection databaseConnection = null;
-//        try {
-//        databaseConnection = dao.startThreadConnection();
-//        dao.setAutoCommit(databaseConnection, false);
-//        long count = dao.countOf();
-//        dao.commit(databaseConnection);
-//        return count;
-//        } catch (SQLException e) {
-//        dao.rollBack(databaseConnection);
-//        e.printStackTrace();
-//        } finally {
-//        dao.endThreadConnection(databaseConnection);
-//        }
-//        return 0;
-//        }
+public abstract long count() ;
 
 /**
  * 获得记录数
@@ -513,23 +182,6 @@ public abstract class BaseDao <T> {
  * @return 记录数
  * @throws SQLException SQLException异常
  */
-//public long count(PreparedQuery<T> preparedQuery) throws SQLException {
-//        Dao<T, Integer> dao = getDao();
-//        DatabaseConnection databaseConnection = null;
-//        try {
-//        databaseConnection = dao.startThreadConnection();
-//        dao.setAutoCommit(databaseConnection, false);
-//
-//        long count = dao.countOf(preparedQuery);
-//        dao.commit(databaseConnection);
-//        return count;
-//        } catch (SQLException e) {
-//        dao.rollBack(databaseConnection);
-//        e.printStackTrace();
-//        } finally {
-//        dao.endThreadConnection(databaseConnection);
-//        }
-//        return 0;
-//        }
+//public abstract long count(PreparedQuery<T> preparedQuery);
 
 }

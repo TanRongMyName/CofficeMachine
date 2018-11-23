@@ -6,6 +6,9 @@ import android.content.Intent;
 
 import com.coffice.shengtao.cofficemachine.MainActivity;
 
+/**
+ * 监听开机事件  开机自启动 APP 使用
+ */
 public class BootBroadcastReceiver extends BroadcastReceiver {
     static final String ACTION = "android.intent.action.BOOT_COMPLETED";
 

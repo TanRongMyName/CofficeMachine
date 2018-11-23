@@ -86,6 +86,8 @@ public class MoreActivity extends BaseActivity {
                 "作为提供实时音视频业务的 PaaS（Platform as a Service）层，SD-RTN 专注为上层（SaaS）业务开放音视频业务的网络基础能力，解决开发者共性问题，营造友好的开发环境，实现敏捷开发，并为实时音视频业务打造“专网”级别沉浸式网络体验" ,
                 "https://www.agora.io/cn/network/",AgoraIVedioActivity.class));
 
-
+        list.add(new KnowPoint("APP共享数据",
+                "默认情况下，Android会给每个程序分配一个普通级别互不相同的Uid，如果应用之间要互相调用，只能是Uid相同才行，这就使得共享数据具有了一定安全性，每个软件之间是不能随意获得数据的。而同一个application只有一个Uid，所以application下的Activity之间不存在访问权限的问题。\n",
+                "https://blog.csdn.net/amlinsan/article/details/73292219||https://blog.csdn.net/wirelessqa/article/details/8581652",AppShareResourseActivity.class));
     }
 }

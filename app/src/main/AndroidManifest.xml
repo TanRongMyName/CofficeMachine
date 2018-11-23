@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.coffice.shengtao.cofficemachine">
-    <!--视频即时通讯 使用权限  网络和 摄像头 权限重复了取消掉了-->
+    package="com.coffice.shengtao.cofficemachine"
+    android:sharedUserId="shengtao.cofficemachine">
+
+    <!-- 视频即时通讯 使用权限  网络和 摄像头 权限重复了取消掉了 -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
 
-    <!--对于不同的屏幕加载的需求 -->
+    <!-- 对于不同的屏幕加载的需求 -->
     <supports-screens
         android:anyDensity="true"
         android:largeScreens="true"
@@ -70,6 +72,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:icon,android:theme">
+
+        <!-- android:process="shengtao.cofficemachine" -->
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -263,7 +267,8 @@
         <activity android:name=".activitys.SMS_AuthenticationActivity" />
         <activity android:name=".activitys.DataBaseControlActivity" />
         <activity android:name=".activitys.AgoraIVedioActivity" />
-        <activity android:name=".activitys.DataBaseUseDescripActivity"></activity>
+        <activity android:name=".activitys.DataBaseUseDescripActivity" />
+        <activity android:name=".activitys.AppShareResourseActivity"></activity>
     </application>
 
 </manifest>

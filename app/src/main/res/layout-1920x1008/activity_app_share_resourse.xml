@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activitys.AppShareResourseActivity">
+
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:layout_constraintVertical_bias="0.0">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="0dp"
+                android:text="如何实现两个应用uid共享？\n首先需要在两个应用的AndroidManifest.xml中都定义相同的sharedUserId，如：android:sharedUserId='com.test'；定义后可以通过adb shell cat data/system/packages.list（限于eng或userdebug版）进行确认两个应用的uid是否相同了，\n注意：shell cat data/system/packages.list  需要权限\n
+            实现方式\nContext thdContext = null;
+            \nthdContext= createPackageContext('com.example.testdatabase',Context.CONTEXT_IGNORE_SECURITY);
+            \n获取对方APP上下文就可以操作，该APP的资源文件了\nString dbPath = thdContext.getDatabasePath
+            ('BookStore.db').getAbsolutePath();\nResources res = thdContext.getResources();int menuIconId = res.getIdentifier('send_bg',
+            'drawable','com.example.testdatabase');
+            \n总结：
+            \n如果想要不同的APK之间共享数据需要满足以下条件：
+            \n1.APK的签名必须相同
+            \n2.android:shareUserId的值必须相同
+            \n3.如果想要运行在同一个进行当中，必须设置android:process的值相同。application设置应用程序的全部组件都运行在某个线程中
+            \n application  android:label=@string/app_name'android:theme='@style/AppTheme' android:process='wqa.com'
+            \n注意：如果使用 Android：process  会出现第一次加载程序崩溃，应为所用的资源共同在一个线程中，导致资源错乱。所以没有特殊要求不需要
+            \nandroid:sharedUserLabel
+            \n这个属性给共享的userid定义了一个用户可读的标签。这个标签必须用字符串资源来设置，不能使用原生的字符串。
+            \n这个属性在API Level 3中被引入，只有在sharedUserId属性被设置，这个属性才有意义。" />
+
+            <TextView
+                android:id="@+id/imagetitle"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_below="@+id/textView11"
+                android:text="效果图如下">
+
+            </TextView>
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imagetitle"
+                android:background="@mipmap/tarffickingversion"
+                android:scaleType="fitXY" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageView2"
+                android:background="@mipmap/maintenanceversion"
+                android:scaleType="fitXY" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageView3"
+                android:background="@mipmap/notdatabase"
+                android:scaleType="fitXY" />
+        </RelativeLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="APP之间共享资源"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+</android.support.constraint.ConstraintLayout>

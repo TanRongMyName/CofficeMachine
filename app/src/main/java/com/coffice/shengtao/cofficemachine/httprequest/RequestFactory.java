@@ -14,9 +14,9 @@ public class RequestFactory {
 
     public static IRequestManager getRequestManager(int NetRequestType) {
         if(NetRequestType==NetRequestType_OKHTTP){
-            return VolleyRequestManager.getInstance();
-        }else if(NetRequestType_VOLLEY==NetRequestType){
             return OkHttpRequestManager.getInstance();
+        }else if(NetRequestType_VOLLEY==NetRequestType){
+            return VolleyRequestManager.getInstance();
         }
          return null;
         //return OkHttpRequestManager.getInstance();

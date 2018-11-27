@@ -20,4 +20,6 @@ public interface IRequestManager {
     abstract void post(String url, String requestBodyJson, IRequestCallback requestCallback);
     abstract void put(String url, String requestBodyJson, IRequestCallback requestCallback);
     abstract void delete(String url, String requestBodyJson, IRequestCallback requestCallback);
+
+    void get2(String testAppUrl, IRequestCallback iRequestCallback);
 }

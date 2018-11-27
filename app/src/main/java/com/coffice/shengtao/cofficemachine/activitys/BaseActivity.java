@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
@@ -12,6 +14,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -20,6 +23,7 @@ import android.widget.EditText;
 
 import com.coffice.shengtao.cofficemachine.utils.LogUtils;
 
+import java.io.File;
 import java.util.List;
 
 import butterknife.ButterKnife;
@@ -169,5 +173,33 @@ public class BaseActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * 安装app 的方法 重写的原因是----7.0不能实现自动安装和启动
+     */
+    public void installAPP(File apkFile){
+        //同时配置XML 文件
+        if(Build.VERSION.SDK_INT>=24) {//判读版本是否在7.0以上
+            Uri apkUri = FileProvider.getUriForFile(this, "com.coffice.shengtao.cofficemachine.fileprovider", apkFile);//在AndroidManifest中的android:authorities值
+            Intent install = new Intent(Intent.ACTION_VIEW);
+            install.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            install.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);//添加一个FLAG_GRANT_READ_URI_PERMISSION来取得目标文件使用权限。
+            install.setDataAndType(apkUri, "application/vnd.android.package-archive");
+            startActivity(install);
+        } else{
+            Intent install = new Intent(Intent.ACTION_VIEW);
+            install.setDataAndType(Uri.fromFile(apkFile), "application/vnd.android.package-archive");
+            install.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(install);
+        }
+    }
+
+
+    /*******************权限使用的Activity 有****************************************/
+//    AutoInstall_Start7Activity
+//    DataBaseControl1Activity
+//    ApayStandboxActivity  没有抽象出来
+
+    //图片框架使用的位置是：GreenDaoActivity  使用的 图片加载
+    //网络使用的位置是：GPSAddressActivity  --- 根据URL 访问百度地图 当前的位置   下载文件使用 okhttp 可以直接接受 response 获取数据
 
 }

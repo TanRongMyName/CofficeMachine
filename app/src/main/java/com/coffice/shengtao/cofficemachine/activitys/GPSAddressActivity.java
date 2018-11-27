@@ -27,7 +27,10 @@ import com.coffice.shengtao.cofficemachine.utils.LocationUtils;
 import com.coffice.shengtao.cofficemachine.utils.LogUtils;
 import com.coffice.shengtao.cofficemachine.utils.ToastUtils;
 
+import java.io.IOException;
 import java.util.List;
+
+import okhttp3.Response;
 
 import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 
@@ -139,8 +142,6 @@ public class GPSAddressActivity extends BaseActivity {
             public void onSuccess(String response) {
                // Log.d(TAG, "onSuccess: " + response);
                 //修改UI试下
-                LogUtils.d(response);
-                addressinfo.setText(response);
                 //返回结果值
 //                {
 //                    "status":0,
@@ -161,6 +162,19 @@ public class GPSAddressActivity extends BaseActivity {
             @Override
             public void onFailure(Throwable throwable) {
                 throwable.printStackTrace();
+            }
+
+            @Override
+            public void onSuccess(Response response) {
+                String context= null;
+                try {
+                    context = response.body().string();
+                    LogUtils.d(context);
+                    addressinfo.setText(context);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
             }
         });
     }

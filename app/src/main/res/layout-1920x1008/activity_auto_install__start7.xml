@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activitys.AutoInstall_Start7Activity">
+
+    <Button
+        android:id="@+id/downloadbefore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="104dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="7.0前 DownLoadManger下载安装"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.085"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/downloadafter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="7.0后 OkHttp下载安装"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.085"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/downloadbefore"
+        app:layout_constraintVertical_bias="0.005" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="565dp"
+        android:layout_height="364dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="    项目中自动更新功能的功能，下载apk的文件后在android7.0系统中不能自动跳到安装界面，     \n    每个Android版本的发布，对于安全性问题的要求越来越高，也为Android程序员增加了额外的工作量。Android6.0引入动态权限控制(Runtime Permissions)，Android7.0引入私有目录被限制访问和StrictMode API 。私有目录被限制访问是指在Android7.0中为了提高应用的安全性，在7.0上应用私有目录将被限制访问，这与iOS的沙盒机制类似。StrictMode API是指禁止向你的应用外公开 file:// URI。 如果一项包含文件 file:// URI类型 的 Intent 离开你的应用，则会报出异常。 也就是说不能访问你应用私有的文件夹了     GOGOOLE自然提供了方法，那就是允许共享你私有目录下的一个文件夹，共享出去让大家访问，这样就可以访问你下载的apk来安装了\n      然后在8.0的系统上又遇到跳转到安装界面时闪退的问题,原因是8.0针对未知来源应用，在应用权限设置的“特殊访问权限”中，加入了“安装其他应用”的设置，这主要是为了防止应用内引导用户安装其他无关应用，特别是针对一些流氓应用会比较有效。添加下面权限后就可以正常跳转安装界面了,会有提示手动允许该应用安装未知来源应用 ---------------------  作者：duo_shine  来源：CSDN  原文：https://blog.csdn.net/duo_shine/article/details/79792346  版权声明：本文为博主原创文章，转载请附上博文链接！"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.886"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.494" />
+</android.support.constraint.ConstraintLayout>

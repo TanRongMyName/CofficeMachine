@@ -12,7 +12,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-
+import okhttp3.ResponseBody;
 
 
 public class OkHttpRequestManager implements IRequestManager {
@@ -48,7 +48,12 @@ public class OkHttpRequestManager implements IRequestManager {
                 .build();
         addCallBack(requestCallback, request);
     }
-
+    public void get2(String url, IRequestCallback requestCallback) {
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+        addCallBack(requestCallback, request);
+    }
     @Override
     public void post(String url, String requestBodyJson, IRequestCallback requestCallback) {
         RequestBody body = RequestBody.create(TYPE_JSON, requestBodyJson);
@@ -96,11 +101,22 @@ public class OkHttpRequestManager implements IRequestManager {
             @Override
             public void onResponse(final Call call, final Response response) throws IOException {
                 if (response.isSuccessful()) {
-                    final String json = response.body().string();
+                    //这是个坑啊 -----  body只能读取一次，读取完以后就关闭掉了。
+
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
-                            requestCallback.onSuccess(json);
+                            requestCallback.onSuccess(response);
+//                            String json = null;
+//                            try {
+//                                json = response.body().string();
+//                                requestCallback.onSuccess(json);
+//                            } catch (IOException e) {
+//                                e.printStackTrace();
+//                            }
+
+
+
                         }
                     });
                 } else {

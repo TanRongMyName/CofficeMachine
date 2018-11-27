@@ -57,6 +57,11 @@ public class VolleyRequestManager implements IRequestManager {
         requestWithBody(url, requestBodyJson, requestCallback, Request.Method.DELETE);
     }
 
+    @Override
+    public void get2(String testAppUrl, IRequestCallback iRequestCallback) {
+
+    }
+
     /**
      * 封装带请求体的请求方法
      *
@@ -78,6 +83,7 @@ public class VolleyRequestManager implements IRequestManager {
                     @Override
                     public void onResponse(JSONObject response) {
                         requestCallback.onSuccess(response != null ? response.toString() : null);
+
                     }
                 },
                 new Response.ErrorListener() {

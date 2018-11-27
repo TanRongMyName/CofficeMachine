@@ -1,5 +1,7 @@
 package com.coffice.shengtao.cofficemachine.httprequest;
 
+import okhttp3.Response;
+
 /**
  * Created by chenjianwei on 2016/12/11.
  * 请求返回成功/失败，成功时，把服务器返回的结果回调出去，失败时回调异常信息
@@ -8,5 +10,6 @@ package com.coffice.shengtao.cofficemachine.httprequest;
 public interface IRequestCallback {
     abstract void onSuccess(String response);
     abstract void onFailure(Throwable throwable);
+    abstract void onSuccess(Response response);
 
 }

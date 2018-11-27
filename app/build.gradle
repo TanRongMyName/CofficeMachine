@@ -16,7 +16,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.coffice.shengtao.cofficemachine"
-        minSdkVersion 16
+        minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -123,4 +123,5 @@ dependencies {
     implementation files('libs/agora-rtc-sdk.jar')
     implementation files('libs/jmessage-sdk-android-2.7.1.jar')
     implementation files('libs/jmrtc-sdk-android-1.0.2.jar')
+    implementation 'org.jetbrains:annotations-java5:15.0'
 }

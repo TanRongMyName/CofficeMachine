@@ -197,6 +197,7 @@ public class BaseActivity extends AppCompatActivity {
     /*******************权限使用的Activity 有****************************************/
 //    AutoInstall_Start7Activity
 //    DataBaseControl1Activity
+//    RxJava_RetrofitActivity
 //    ApayStandboxActivity  没有抽象出来
 
     //图片框架使用的位置是：GreenDaoActivity  使用的 图片加载

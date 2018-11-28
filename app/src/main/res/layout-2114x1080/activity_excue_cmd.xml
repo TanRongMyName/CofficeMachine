@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activitys.ExcueCmdActivity">
+
+    <Button
+        android:id="@+id/unistallSilent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="40dp"
+        android:text="静默卸载应用"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/copyfile" />
+
+    <Button
+        android:id="@+id/installlocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="8dp"
+        android:text="获取系统设置存储位置"
+        app:layout_constraintEnd_toStartOf="@+id/copyfile"
+        app:layout_constraintHorizontal_bias="0.407"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+    <Button
+        android:id="@+id/updatehosts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="8dp"
+        android:text="修改hosts 文件"
+        app:layout_constraintEnd_toStartOf="@+id/unistallSilent"
+        app:layout_constraintHorizontal_bias="0.355"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/installlocation" />
+
+    <Button
+        android:id="@+id/copyfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="40dp"
+        android:text="拷贝文件"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="320dp"
+        android:layout_height="262dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="8dp"
+        android:text="    Android开发板相关的开发需求的时候，我们有的时候需要去到Android系统的一个linux终端（adbshell）里面来执行一些命令，以便于查看部分文件内容或者修改部分文件权限等需求，通常我们可以使用Android studio自带的terminal工具运行先adb shell 命令来进行
+这样不好的就是我们可能有的操作就要每次设备重启的时候都要手动的敲一遍这样的代码，十分麻烦。那么怎么才能让app启动的时候自己来运行这些命令呢？
+    主要是使用到了java.lang.Process这个类，通过使用Runtime.getRuntime().exec(“su”);这个方法，我们就能获得Process的一个实例，通过这个Process的实例，我们就可以获取命令终端的输入输出流来提交命令和获取命令执行结果啦。
+"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.56"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</android.support.constraint.ConstraintLayout>

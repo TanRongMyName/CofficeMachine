@@ -124,4 +124,12 @@ dependencies {
     implementation files('libs/jmessage-sdk-android-2.7.1.jar')
     implementation files('libs/jmrtc-sdk-android-1.0.2.jar')
     implementation 'org.jetbrains:annotations-java5:15.0'
+
+    implementation 'com.squareup.retrofit2:retrofit:2.0.2'//retrofit2.0
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'//配合Rxjava 使用
+    implementation 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'//ConverterFactory的Gson:
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.8'//rxjava
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.5.0'//日志拦截器
+
 }

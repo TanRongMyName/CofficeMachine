@@ -100,6 +100,9 @@ public class MoreActivity extends BaseActivity {
                 "https://www.cnblogs.com/jerehedu/p/4377767.html",DownLoadMangerActivity.class));
         list.add(new KnowPoint("RxJava+Retrofit+okhttp",
                 "Retrofit是Square公司出品的基于OkHttp封装的一套RESTful（目前流行的一套api设计的风格）网络请求框架。它内部使用了大量的设计模式，以达到高度解耦的目的；它可以直接通过注解的方式配置请求；可以使用不同的Http客户端；还可以使用json Converter序列化数据，直接转换成你期望生成的实体bean；它还支持Rxjava等等等" + "\n",
-                "https://www.jianshu.com/p/b5546905ccbc",DownLoadMangerActivity.class));
+                "https://www.jianshu.com/p/b5546905ccbc",RxJava_RetrofitActivity.class));
+        list.add(new KnowPoint("android代码执行adb shell终端命令",
+                "最近在做项目的过程中，遇到了这么一个需求，需要在Android（4.2.2）启动时候执行以下命令，命令的具体含义不再解释：" + "\n",
+                "https://blog.csdn.net/fanenqian/article/details/55252109||https://blog.csdn.net/Z_HUALIN/article/details/77878609",ExcueCmdActivity.class));
     }
 }

@@ -99,4 +99,18 @@ public class GlobalData {
     /*极光推送的参数*/
     public static final String Aurora_AppKey="cc0b40d6fa8cc1172ae81bce";
     public static final String Aurora_Master_Secret="91b3d2ca31f7eb905fe0a46d";
+    //请求接口根地址   二维码  阿里
+    public static String QrCode_ALi = "http://v.juhe.cn/";
+    //                 二维码  微信
+    public static String QrCode_WeChat = "http://gank.io/";
+    //get 中传递参数----
+    //https://api.douban.com/v2/  book/search?q=%E9%87%91%E7%93%B6%E6%A2%85&tag=&start=0&count=1
+    public static String BOOK_HOST="https://api.douban.com/v2/";//豆瓣书籍网络
+    //https://www.sojson.com/open/api/weather/json.shtml?city="广州"  （@query("city")String city）
+    public static String WEATHER_HOST="https://www.sojson.com/";//网络天气情况
+    // 头条的信息 关键Key 不能变 http://v.juhe.cn/toutiao/index?type=top&key=597b4f9dcb50e051fd725a9ec54d6653
+    public static String NewsUrl = "http://v.juhe.cn/";
+    //http://gank.io/api/data/Android/10/{page}
+    public static String AndroidNews = "http://gank.io/";
+
 }

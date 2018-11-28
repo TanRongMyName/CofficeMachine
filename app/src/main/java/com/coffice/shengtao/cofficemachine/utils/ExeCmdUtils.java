@@ -9,7 +9,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 import static java.lang.Runtime.getRuntime;
 
-public class ExeCommand {
+public class ExeCmdUtils {
     //shell进程
     private Process process;
     //对应进程的3个流
@@ -31,14 +31,14 @@ public class ExeCommand {
      *
      * @param synchronous true：同步，false：异步
      */
-    public ExeCommand(boolean synchronous) {
+    public ExeCmdUtils(boolean synchronous) {
         bSynchronous = synchronous;
     }
 
     /**
      * 默认构造函数，默认是同步执行
      */
-    public ExeCommand() {
+    public ExeCmdUtils() {
         bSynchronous = true;
     }
 
@@ -74,14 +74,14 @@ public class ExeCommand {
      * @param maxTime 最大等待时间 (ms)
      * @return this
      */
-    public ExeCommand run(String command, final int maxTime) {
+    public ExeCmdUtils run(String command, final int maxTime) {
         LogUtils.i("auto", "run command:" + command + ",maxtime:" + maxTime);
         if (command == null || command.length() == 0) {
             return this;
         }
 
         try {
-            process = getRuntime().exec("sh");//看情况可能是su
+            process = getRuntime().exec("su");//看情况可能是su  public static final String COMMAND_SU       = "su";
         } catch (Exception e) {
             return this;
         }
@@ -209,12 +209,12 @@ public class ExeCommand {
 
     //读取目标文件（绝对路径）指定内容“#TrustedMACList ”的那一行
 //    String cmd3="sed -n '/#TrustedMACList /,//p' "+AAA_PATH;
-//    String str3 = new ExeCommand().run(cmd3, 10000).getResult();
+//    String str3 = new ExeCmdUtils().run(cmd3, 10000).getResult();
 //    Log.i("auto", str3+"button3");
 //    Toast.makeText(MainActivity.this, str3,Toast.LENGTH_SHORT).show();
 
 
-//    ExeCommand cmd = new ExeCommand(false).run("your cmd", 60000);
+//    ExeCmdUtils cmd = new ExeCmdUtils(false).run("your cmd", 60000);
 //    while(cmd.isRunning())
 //    {
 //        try {

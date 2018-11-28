@@ -301,7 +301,8 @@
             android:exported="false" />
 
         <activity android:name=".activitys.DownLoadMangerActivity" />
-        <activity android:name=".activitys.RxJava_RetrofitActivity"></activity>
+        <activity android:name=".activitys.RxJava_RetrofitActivity" />
+        <activity android:name=".activitys.ExcueCmdActivity"></activity>
     </application>
 
 </manifest>

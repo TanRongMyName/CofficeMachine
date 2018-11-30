@@ -1,13 +1,20 @@
 package com.coffice.shengtao.cofficemachine.interfacep;
 
+import com.coffice.shengtao.cofficemachine.data.model.Alipay_Trade_Pay_Return;
+import com.coffice.shengtao.cofficemachine.data.model.Alipay_Trade_Precreate_Return;
+
 import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface Request_Interface {
     @GET("api/data/福利/10/{pageNum}")  //传递参数   //在baseUrl 添加部分接口参数
     Observable<String> getCode(@Path("pageNum")double pageNum);//转化为被观察者，本来调用的时call方法
-
+    @GET("TestAliMy/TestAli")
+    Observable<Alipay_Trade_Precreate_Return>getPrecreateResult();
+    @GET("TestAliMy/TestAli")
+    Observable<Alipay_Trade_Pay_Return>getPrecreateResult(@Query("type") String type, @Query("code") String code);
 //    GET ----------查找资源（查）
 //    POST --------修改资源（改）
 //    PUT ----------上传文件（增）

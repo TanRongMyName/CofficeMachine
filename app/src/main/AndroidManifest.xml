@@ -302,7 +302,20 @@
 
         <activity android:name=".activitys.DownLoadMangerActivity" />
         <activity android:name=".activitys.RxJava_RetrofitActivity" />
-        <activity android:name=".activitys.ExcueCmdActivity"></activity>
+        <activity android:name=".activitys.ExcueCmdActivity" />
+        <!--<activity-->
+            <!--android:name=".wxapi.WXPayEntryActivity"-->
+            <!--android:exported="true"-->
+            <!--android:launchMode="singleTop">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.VIEW" />-->
+
+                <!--<category android:name="android.intent.category.DEFAULT" />-->
+
+                <!--<data android:scheme="selfWXAPPID" />-->
+            <!--</intent-filter>-->
+        <!--</activity>-->
+        <activity android:name=".wxapi.WXActivity"></activity>
     </application>
 
 </manifest>

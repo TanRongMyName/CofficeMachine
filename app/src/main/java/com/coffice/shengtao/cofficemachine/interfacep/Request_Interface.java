@@ -2,6 +2,9 @@ package com.coffice.shengtao.cofficemachine.interfacep;
 
 import com.coffice.shengtao.cofficemachine.data.model.Alipay_Trade_Pay_Return;
 import com.coffice.shengtao.cofficemachine.data.model.Alipay_Trade_Precreate_Return;
+import com.coffice.shengtao.cofficemachine.data.model.WX_OrderResult;
+import com.coffice.shengtao.cofficemachine.data.model.WX_PerOrderResult;
+import com.coffice.shengtao.cofficemachine.data.model.WX_ScanOrderResult;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
@@ -15,6 +18,13 @@ public interface Request_Interface {
     Observable<Alipay_Trade_Precreate_Return>getPrecreateResult();
     @GET("TestAliMy/TestAli")
     Observable<Alipay_Trade_Pay_Return>getPrecreateResult(@Query("type") String type, @Query("code") String code);
+    @GET("TestAliMy/WXPay")     //获取微信支付的二维码
+    Observable<WX_PerOrderResult>getWXOrderQRCODE(@Query("type") String type,@Query("out_trade_no")String out_trade_no);
+    @GET("TestAliMy/WXPay")     //条形码支付
+    Observable<WX_ScanOrderResult>getWXOrderPay(@Query("type") String type, @Query("auth_code") String auth_code, @Query("out_trade_no")String out_trade_no);
+    @GET("TestAliMy/WXPay")     //查询订单结果
+    Observable<WX_OrderResult>getWXOrderResult(@Query("type") String type, @Query("auth_code") String auth_code, @Query("out_trade_no")String out_trade_no);
+
 //    GET ----------查找资源（查）
 //    POST --------修改资源（改）
 //    PUT ----------上传文件（增）

@@ -36,6 +36,15 @@ android {
         ]
         //最多方法的拓展  因为应用的jar 越多或导致 方法数量越界
         multiDexEnabled true
+        //重复的jar 导致生成文件覆盖
+        packagingOptions {
+            exclude 'META-INF/DEPENDENCIES'
+            exclude 'META-INF/NOTICE'
+            exclude 'META-INF/LICENSE'
+            exclude 'META-INF/LICENSE.txt'
+            exclude 'META-INF/NOTICE.txt'
+        }
+
     }
     //greendao配置
     greendao {
@@ -78,45 +87,63 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
     /*litepal 数据库添加*/
     implementation files('libs/litepal-2.0.0-src.jar')
+
     /*支付宝sdk接入*/
     implementation files('libs/alipaySdk-20180601.jar')
+
     /*扫描二维码使用*/
     implementation 'com.github.maogedadada:qrphoto:0.0.6'
     implementation 'com.github.qingmei2:QrCodeScannerView-Android:1.1.2'
+
     /*百度地图的skd 接入*/
     implementation files('libs/BaiduLBS_Android.jar')
+
     /*网络框架的添加*/
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.squareup.okhttp3:okhttp:3.11.0'
     implementation 'com.android.volley:volley:1.1.0'
+
     /*butterknife 注解框架的使用*/
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
     /*侧滑使用空间*/
     implementation 'com.android.support:design:28.0.0'
+
     /*BottomNavigationBar 底部菜单实现的空间*/
     implementation 'com.ashokvarma.android:bottom-navigation-bar:0.9.5'
+
     /*实现在向下滚动的时候隐藏导航栏，而向上滚动可以使导航栏重新显现。*/
     implementation 'com.github.githubwing:ByeBurger:1.2.2'
+
     /** 采用悬浮按钮的方式 看效果：  **/
     implementation 'com.aurelhubert:ahbottomnavigation:2.1.0'
+
     /*LuseenBottomNavigation 实现底部菜单 lib*/
     implementation 'com.github.armcha:LuseenBottomNavigation:1.8.2'
+
     /*Bottombar 实现底部菜单栏  使用异常  很多 功能失效 同时只是 调用了Tab 没用切换Fragment*/
+
     //    implementation 'com.roughike:bottom-bar:2.3.1'
+
     //greendao依赖
     implementation 'org.greenrobot:greendao:3.2.0'
+
     /*greendao 加密使用*/
     implementation 'net.zetetic:android-database-sqlcipher:3.5.7@aar'
+
     /*glide 图片框架使用*/
     implementation 'com.github.bumptech.glide:glide:4.8.0'
+
     /*fresco:框架使用*/
     implementation 'com.facebook.fresco:webpsupport:1.11.0'
     implementation 'com.facebook.fresco:animated-webp:1.10.0'
     implementation 'com.facebook.fresco:animated-gif:1.10.0'
     implementation 'com.facebook.fresco:fresco:1.11.0'
+
     //极光推送的jar
     implementation files('libs/jpush-android-3.1.7.jar')
     implementation files('libs/jcore-android-1.2.6.jar')
@@ -124,12 +151,24 @@ dependencies {
     implementation files('libs/jmessage-sdk-android-2.7.1.jar')
     implementation files('libs/jmrtc-sdk-android-1.0.2.jar')
     implementation 'org.jetbrains:annotations-java5:15.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.0.2'
 
-    implementation 'com.squareup.retrofit2:retrofit:2.0.2'//retrofit2.0
-    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'//配合Rxjava 使用
-    implementation 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'//ConverterFactory的Gson:
-    implementation 'io.reactivex.rxjava2:rxjava:2.1.8'//rxjava
+    //retrofit2.0
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+
+    //配合Rxjava 使用
+    implementation 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'
+
+    //ConverterFactory的Gson:
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.8'
+
+    //rxjava
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
-    implementation 'com.squareup.okhttp3:logging-interceptor:3.5.0'//日志拦截器
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.5.0'
 
+    //日志拦截器
+
+    //微信支付 sdk  ----app需要签名啊----并且可能需要使用到--正式的手机 来模拟
+
+    //implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'
 }

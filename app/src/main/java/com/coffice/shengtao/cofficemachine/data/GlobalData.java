@@ -114,5 +114,8 @@ public class GlobalData {
     public static String AndroidNews = "http://gank.io/";
 
     public static String LocalHost="http://192.168.1.161:8080/";
+    public static String TYPE_PAY_QRCODE="typepayqrcode";
+    public static String TYPE_PAY="typepay";
+    public static String TYPE_CHECK_ORDER="typecheckorder";
 
 }

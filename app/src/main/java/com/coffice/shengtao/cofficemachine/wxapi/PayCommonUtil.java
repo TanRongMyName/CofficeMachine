@@ -36,55 +36,48 @@ import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-import javax.net.ssl.HttpsURLConnection;
-import javax.net.ssl.KeyManagerFactory;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLContextSpi;
-import javax.net.ssl.SSLSocketFactory;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-
-import okhttp3.OkHttpClient;
-
 public class PayCommonUtil {
     //判断签名是否正确
-    public static boolean isTenpaySign(String characterEncoding, SortedMap<Object, Object> packageParams, String API_KEY) {
-        StringBuffer sb = new StringBuffer();
-        Set es = packageParams.entrySet();
-        Iterator it = es.iterator();
-        while (it.hasNext()) {
-            Map.Entry entry = (Map.Entry) it.next();
-            String k = (String) entry.getKey();
-            String v = (String) entry.getValue();
-            if (!"sign".equals(k) && null != v && !"".equals(v)) {
-                sb.append(k + "=" + v + "&");
-            }
-        }
-        sb.append("key=" + API_KEY);
-        //算出摘要
-        String mysign = MD5Encode(sb.toString(), characterEncoding).toLowerCase();
-        String tenpaySign = ((String) packageParams.get("sign")).toLowerCase();
-        return tenpaySign.equals(mysign);
-    }
+//    public static boolean isTenpaySign(String characterEncoding, SortedMap<Object, Object> packageParams, String API_KEY) {
+//        StringBuffer sb = new StringBuffer();
+//        Set es = packageParams.entrySet();
+//        Iterator it = es.iterator();
+//        while (it.hasNext()) {
+//            Map.Entry entry = (Map.Entry) it.next();
+//            String k = (String) entry.getKey();
+//            String v = (String) entry.getValue();
+//            if (!"sign".equals(k) && null != v && !"".equals(v)) {
+//                sb.append(k + "=" + v + "&");
+//            }
+//        }
+//        sb.append("key=" + API_KEY);
+//        //算出摘要
+//        String mysign = MD5Encode(sb.toString(), characterEncoding).toLowerCase();
+//        String tenpaySign = ((String) packageParams.get("sign")).toLowerCase();
+//        return tenpaySign.equals(mysign);
+//    }
 
-    //生成签名
-    public static String createSign(String characterEncoding, SortedMap<String, Object> parameters) {
-        StringBuffer sb = new StringBuffer();
-        Set es = parameters.entrySet();
-        Iterator it = es.iterator();
-        while (it.hasNext()) {
-            Map.Entry entry = (Map.Entry) it.next();
-            String k = (String) entry.getKey();
-            Object v = entry.getValue();
-            if ( null!= v && !"".equals(v)
-                    && !"sign".equals(k) && !"key".equals(k)) {
-                sb.append(k + "=" + v + "&");
-            }
-        }
-        sb.append("key=" + Constent.VALUE_API_KEY);//Constent.VALUE_API_KEY
-        String sign = MD5Encode(sb.toString(), characterEncoding).toUpperCase();
-        return sign;
-    }
+//    //生成签名
+//    public static String createSign(String characterEncoding, SortedMap<String, Object> parameters) {
+//        StringBuffer sb = new StringBuffer();
+//        Set es = parameters.entrySet();
+//        Iterator it = es.iterator();
+//        while (it.hasNext()) {
+//            Map.Entry entry = (Map.Entry) it.next();
+//            String k = (String) entry.getKey();
+//            Object v = entry.getValue();
+//            if ( null!= v && !"".equals(v)
+//                    && !"sign".equals(k) && !"key".equals(k)) {
+//                sb.append(k + "=" + v + "&");
+//            }
+//        }
+//        sb.append("key=" + Constent.VALUE_API_KEY);//Constent.VALUE_API_KEY
+//        String sign = MD5Encode(sb.toString(), characterEncoding).toUpperCase();
+//        return sign;
+//    }
 
     private static final String hexDigits[] = {"0", "1", "2", "3", "4", "5",
             "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};

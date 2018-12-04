@@ -1,9 +1,7 @@
 package com.coffice.shengtao.cofficemachine.data;
 
 public class Constent {
-    public static final String  VALUE_API_KEY="CNs64SX97XUcBJJrsRQlecwoGlQQKOwE";
-    public static final String  VALUE_APPID="wx78d3b73edb0fd9c9";
-    public static final String  VALUE_MCH_ID="1509168241";
+
     //扫码支付的  预订单 接口
     public static final String  URL_unifiedorder="https://api.mch.weixin.qq.com/pay/unifiedorder";
     //退款请求的接口

@@ -1,9 +1,6 @@
 package com.coffice.shengtao.cofficemachine.wxapi;
 
 import android.content.Context;
-import android.content.res.AssetManager;
-
-import com.coffice.shengtao.cofficemachine.data.Constent;
 
 
 import org.w3c.dom.Node;
@@ -11,7 +8,7 @@ import org.w3c.dom.NodeList;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
-import java.io.DataOutputStream;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;

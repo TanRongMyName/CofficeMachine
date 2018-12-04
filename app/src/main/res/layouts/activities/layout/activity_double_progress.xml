@@ -6,4 +6,91 @@
     android:layout_height="match_parent"
     tools:context=".activitys.DoubleProgressActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/editText2"
+                android:layout_width="match_parent"
+                android:layout_height="800dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:editable="false"
+                android:enabled="false"
+                android:gravity="top"
+                android:inputType="textMultiLine"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:text="             双进程守护
+1.透明的activity  进程等级提高 activity 在前台 等级的优先级 最高提升进程优先级KeepLiveManger.getInstance().RegisterKeepLiverReceiver(this);
+2.通过设置前台Server   很多的情况下 步骤效果
+ startService(new Intent(this,ForegroundService.class));
+3.双进程拉活  --Java层---         startService(new Intent(this,LocalService.class));
+4.JobScheduler----- android 内部任务调动机制---  Android 5.0之后
+5.Ndk 双进程守护
+6.使用账户同步拉活  https://github.com/googlesamples/android-BasicSyncAdapter
+7.workManger---" />
+
+            <Button
+                android:id="@+id/doubleone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="450dp"
+                android:layout_marginLeft="50dp"
+                android:text="透明的Activity" />
+
+            <Button
+                android:id="@+id/doubletwo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="450dp"
+                android:layout_marginRight="50dp"
+                android:layout_alignParentRight="true"
+                android:text="前台服务"
+                />
+
+            <Button
+                android:id="@+id/doublethree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_below="@+id/doubleone"
+                android:layout_marginTop="50dp"
+                android:text="双进程"
+                 />
+
+            <Button
+                android:id="@+id/doublefour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/doubletwo"
+                android:text="JobScheduler任务调度"
+                android:layout_marginRight="50dp"
+                android:layout_marginTop="50dp"
+                android:layout_alignParentRight="true"
+                />
+        </RelativeLayout>
+    </ScrollView>
+
+
+
+
 </android.support.constraint.ConstraintLayout>

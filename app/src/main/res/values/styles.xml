@@ -46,5 +46,10 @@
         <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
         <item name="android:backgroundDimEnabled">true</item>
     </style>
-
+    <!--透明的activity -->
+    <!--activity 设置窗口为透明-->
+    <style name="TransparentTheme" parent="AppTheme">
+        <item name="android:windowBackground">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
 </resources>

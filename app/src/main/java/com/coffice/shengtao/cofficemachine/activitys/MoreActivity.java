@@ -104,5 +104,8 @@ public class MoreActivity extends BaseActivity {
         list.add(new KnowPoint("android代码执行adb shell终端命令",
                 "最近在做项目的过程中，遇到了这么一个需求，需要在Android（4.2.2）启动时候执行以下命令，命令的具体含义不再解释：" + "\n",
                 "https://blog.csdn.net/fanenqian/article/details/55252109||https://blog.csdn.net/Z_HUALIN/article/details/77878609",ExcueCmdActivity.class));
+        list.add(new KnowPoint("android 8种对话框（Dialog）使用方法汇总",
+                "Android提供了丰富的Dialog函数，本文介绍最常用的8种对话框的使用方法，包括普通（包含提示消息和按钮）、列表、单选、多选、等待、进度条、编辑、自定义等多种形式.",
+                "https://www.cnblogs.com/gzdaijie/p/5222191.html",NormalDialogActivity.class));
     }
 }

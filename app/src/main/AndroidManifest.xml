@@ -63,6 +63,10 @@
         tools:ignore="ProtectedPermissions" />
     <!-- 原因是8.0针对未知来源应用，在应用权限设置的“特殊访问权限”中，加入了“安装其他应用”的设置 -->
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <!-- 解锁屏幕需要的权限 -->
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <!-- 申请电源锁需要的权限 -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE " />
 
     <!-- <uses-permission android:name="android.permission.WRITE_SETTINGS" -->
     <!-- tools:ignore="ProtectedPermissions" /> -->
@@ -282,6 +286,8 @@
         <service
             android:name=".service.JobHandlerService"
             android:permission="android.permission.BIND_JOB_SERVICE" />
+        <service android:name=".service.ForegroundService" />
+        <service android:name=".service.ForegroundService$InnerService" />
 
         <activity android:name=".activitys.AutoInstall_Start7Activity" />
 
@@ -303,19 +309,29 @@
         <activity android:name=".activitys.DownLoadMangerActivity" />
         <activity android:name=".activitys.RxJava_RetrofitActivity" />
         <activity android:name=".activitys.ExcueCmdActivity" />
-        <!--<activity-->
-            <!--android:name=".wxapi.WXPayEntryActivity"-->
-            <!--android:exported="true"-->
-            <!--android:launchMode="singleTop">-->
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.VIEW" />-->
+        <!-- <activity -->
+        <!-- android:name=".wxapi.WXPayEntryActivity" -->
+        <!-- android:exported="true" -->
+        <!-- android:launchMode="singleTop"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.VIEW" /> -->
 
-                <!--<category android:name="android.intent.category.DEFAULT" />-->
 
-                <!--<data android:scheme="selfWXAPPID" />-->
-            <!--</intent-filter>-->
-        <!--</activity>-->
-        <activity android:name=".wxapi.WXActivity"></activity>
+        <!-- <category android:name="android.intent.category.DEFAULT" /> -->
+
+
+        <!-- <data android:scheme="selfWXAPPID" /> -->
+        <!-- </intent-filter> -->
+        <!-- </activity> -->
+        <activity android:name=".wxapi.WXActivity" />
+        <activity
+            android:name=".activitys.TransparentActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:finishOnTaskLaunch="false"
+            android:launchMode="singleInstance"
+            android:theme="@style/TransparentTheme" />
+        <activity android:name=".activitys.NormalDialogActivity"></activity>
     </application>
 
 </manifest>

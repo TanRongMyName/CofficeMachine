@@ -31,7 +31,7 @@ public class RemoteService extends Service {
         LogUtils.d("远程进程启动");
         Intent intents = new Intent();
         intents.setClass(this, LocalService.class);
-        bindService(intents, conn, Context.BIND_IMPORTANT);
+        bindService(intents, conn, Context.BIND_AUTO_CREATE);
         return START_STICKY;
     }
 
@@ -70,7 +70,7 @@ public class RemoteService extends Service {
             RemoteService.this.startService(new Intent(RemoteService.this,
                     LocalService.class));
             RemoteService.this.bindService(new Intent(RemoteService.this,
-                    LocalService.class), conn, Context.BIND_IMPORTANT);
+                    LocalService.class), conn, Context.BIND_AUTO_CREATE);
         }
     }
 }

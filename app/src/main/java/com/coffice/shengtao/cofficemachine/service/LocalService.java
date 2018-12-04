@@ -41,7 +41,7 @@ public class LocalService extends Service {
         LogUtils.d("本地进程启动");
         Intent intents = new Intent();
         intents.setClass(this, RemoteService.class);
-        bindService(intents, conn, Context.BIND_IMPORTANT);
+        bindService(intents, conn, Context.BIND_AUTO_CREATE);
         return START_STICKY;
     }
 
@@ -68,7 +68,7 @@ public class LocalService extends Service {
             LocalService.this.startService(new Intent(LocalService.this,
                     RemoteService.class));
             LocalService.this.bindService(new Intent(LocalService.this,
-                    RemoteService.class), conn, Context.BIND_IMPORTANT);
+                    RemoteService.class), conn, Context.BIND_AUTO_CREATE);
 
         }
 

@@ -8,25 +8,30 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.PersistableBundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
+import com.coffice.shengtao.cofficemachine.broadcast.TypeFaceChangeReceiver;
+import com.coffice.shengtao.cofficemachine.data.GlobalData;
 import com.coffice.shengtao.cofficemachine.utils.LogUtils;
+import com.coffice.shengtao.cofficemachine.utils.SPUtils;
+import com.coffice.shengtao.cofficemachine.utils.TypefaceUtils;
 
 import java.io.File;
 import java.util.List;
 
-import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 public class BaseActivity extends AppCompatActivity {
@@ -42,6 +47,8 @@ public class BaseActivity extends AppCompatActivity {
 
     }
     public Unbinder binder;
+    //字体变化检测的广播  改变字体
+    public TypeFaceChangeReceiver receiver;
     //对权限的申请
     /**
      * 请求权限
@@ -194,6 +201,8 @@ public class BaseActivity extends AppCompatActivity {
     }
 
 
+
+
     /*******************权限使用的Activity 有****************************************/
 //    AutoInstall_Start7Activity
 //    DataBaseControl1Activity
@@ -202,5 +211,34 @@ public class BaseActivity extends AppCompatActivity {
 
     //图片框架使用的位置是：GreenDaoActivity  使用的 图片加载
     //网络使用的位置是：GPSAddressActivity  --- 根据URL 访问百度地图 当前的位置   下载文件使用 okhttp 可以直接接受 response 获取数据
+
+
+
+    //*****************************检测字体变化的广播设置**** 未使用*************************************
+//    @Override
+//    protected void onCreate(@Nullable Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        receiver=new TypeFaceChangeReceiver();
+//        receiver.registerReceiver(this);
+//        onTypefaceChange((String) SPUtils.get(this,GlobalData.FONTTYPE_PATH_KEY,""));
+//    }
+//
+//    @Override
+//    protected void onDestroy() {
+//        super.onDestroy();
+//        receiver.unRegisterReceiver(this);
+//    }
+//    /**
+//     * 设置当前activity的layout
+//     * @return 当前界面的布局id
+//     */
+//    protected abstract int getLayout();//将布局设置到 TypeFontUtils 上可以使用对其的View 进行遍历
+//
+//    /**
+//     * 字体改变
+//     */
+//    public void onTypefaceChange(String typeface){
+//        TypefaceUtils.replaceFont(this, typeface);
+//    }
 
 }

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="FontTextView">
+        <!--字体的文件位置-->
+        <attr name="fontPath" />
+    </declare-styleable>
+</resources>

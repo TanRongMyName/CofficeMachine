@@ -107,5 +107,11 @@ public class MoreActivity extends BaseActivity {
         list.add(new KnowPoint("android 8种对话框（Dialog）使用方法汇总",
                 "Android提供了丰富的Dialog函数，本文介绍最常用的8种对话框的使用方法，包括普通（包含提示消息和按钮）、列表、单选、多选、等待、进度条、编辑、自定义等多种形式.",
                 "https://www.cnblogs.com/gzdaijie/p/5222191.html",NormalDialogActivity.class));
+        list.add(new KnowPoint("Android最简便使用漂亮的对话框",
+                "android原生的dialog太生硬了，之前看到了这个效果非常不错但是没有用过.网上有很多相关的博客，但是介绍啰嗦，用法复杂。今天给大家介绍一种最简单的实现方法。sweet-alert-dialog",
+                "https://blog.csdn.net/taa1007/article/details/79551928",SweetAlertDialogActivity.class));
+        list.add(new KnowPoint("Android修改全局字体,整个APP字体",
+                "Android里面对字体的支持少得可怜，TextView  的 typeface 属性支持 \"Sans\"，\"serif\"，\"monospace\" 这三种字体，没有指定字体的情况下，系统缺省会使用 \"Sans\" 作为文本显示的字体。",
+                "https://blog.csdn.net/gold_brick/article/details/52865369",FontLibActivity.class));
     }
 }

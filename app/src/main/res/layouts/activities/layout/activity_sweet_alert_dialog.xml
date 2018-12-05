@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activitys.SweetAlertDialogActivity">
+    <Button
+        android:id="@+id/showtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="94dp"
+        android:text="显示标题" />
+
+    <Button
+        android:id="@+id/showtitle_context"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/showtitle"
+        android:layout_marginEnd="77dp"
+        android:text="显示标题和内容" />
+
+    <Button
+        android:id="@+id/model_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/showtitle"
+        android:layout_marginTop="194dp"
+        android:text="异常模式" />
+
+    <Button
+        android:id="@+id/model_alert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/showtitle_context"
+        android:layout_alignTop="@+id/model_error"
+        android:text="警告模式" />
+
+    <Button
+        android:id="@+id/model_success"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/showtitle"
+        android:layout_marginTop="300dp"
+        android:text="完成模式" />
+
+    <Button
+        android:id="@+id/custom_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/showtitle_context"
+        android:layout_alignTop="@+id/model_success"
+        android:text="自定义头像" />
+
+    <Button
+        android:id="@+id/addsubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/showtitle"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginBottom="140dp"
+        android:text="确认事件绑定" />
+
+    <Button
+        android:id="@+id/addcancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/showtitle_context"
+        android:layout_alignTop="@+id/addsubmit"
+        android:text="取消事件绑定" />
+
+    <Button
+        android:id="@+id/changestytle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/showtitle"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-2dp"
+        android:layout_marginBottom="247dp"
+        android:text="确认后切换样式" />
+
+    <Button
+        android:id="@+id/progressdialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/showtitle_context"
+        android:layout_alignTop="@+id/changestytle"
+        android:text="进度条对话框" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
+        android:text="sweet_alert_dialog" />
+</RelativeLayout>

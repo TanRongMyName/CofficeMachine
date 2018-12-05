@@ -30,4 +30,28 @@
 
     <!-- Tutorial Step 1 音视频的APPId 测试-->
     <string name="agora_app_id">f0813715aacf40d4a61097d5f356ccef</string>
+    <!--字体库-->
+    <array name="fontlib">
+        <item >喵呜体</item>
+        <item >静蕾体</item>
+        <item >卡通简体</item>
+        <item >胖头鱼体</item>
+        <item >少女体</item>
+        <item >娃娃体</item>
+        <item >明兰体</item>
+        <item >苹果黧黑</item>
+        <item >霹雳体</item>
+    </array>
+    <!--字体库-->
+    <array name="fontlibpath">
+        <item >font/mwfont.ttf</item>
+        <item >font/jljfont.ttf</item>
+        <item >font/ctfont.ttf</item>
+        <item >font/fhffont.ttf</item>
+        <item >font/lgfont.ttf</item>
+        <item >font/wwfont.ttf</item>
+        <item >font/mlfont.ttf</item>
+        <item >font/abfont.ttf</item>
+        <item >font/tbfont.ttf</item>
+    </array>
 </resources>

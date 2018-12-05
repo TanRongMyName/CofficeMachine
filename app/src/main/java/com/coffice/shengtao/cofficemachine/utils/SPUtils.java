@@ -58,7 +58,7 @@ public class SPUtils {
      *
      * @param context
      * @param key
-     * @param defaultObject
+     * @param defaultObject  不能为NULL 必须使用类型
      * @return
      */
     public static Object get(Context context, String key, Object defaultObject)

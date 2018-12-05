@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:lee="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:textAlignment="center"
+    tools:context=".activitys.FontLibActivity">
+
+
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:layout_centerHorizontal="true"
+        android:text="字体库设置"
+        />
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="62dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="36dp"
+        android:layout_below="@+id/textView16"
+        android:text="字体库"
+        android:gravity="center"
+        android:textAlignment="center"
+ />
+<!--有两种显示的模式 一种是对话框 一种是下拉列表-->
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="209dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginLeft="80dp"
+        android:layout_alignLeft="@+id/textView13"
+        android:layout_below="@+id/textView16"
+        android:layout_alignParentRight="true"
+        android:spinnerMode="dropdown"
+        android:layout_marginRight="24dp"
+        />
+
+    <Button
+        android:id="@+id/fontlibseletcdialog"
+        android:layout_width="171dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView13"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="单选对话框选择字体库" />
+    <Button
+        android:id="@+id/apptextfont"
+        android:layout_width="118dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/fontlibseletcdialog"
+        android:layout_below="@+id/textView13"
+        android:layout_marginTop="24dp"
+        android:layout_marginLeft="200dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="24dp"
+        android:text="app字体"
+        />
+
+    <TextView
+        android:id="@+id/textchangefont"
+        android:layout_width="match_parent"
+        android:layout_height="135dp"
+        android:inputType="textMultiLine"
+        android:singleLine="false"
+        android:layout_marginTop="18dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:gravity="center"
+
+        android:layout_below="@+id/apptextfont"
+        android:text="            Android应用反射设置全局字体\n
+通过改变App的系统字体替换App内部所有控件的字体(TextView,Button,EditText,CheckBox,RadioButton等)\n
+ 需要修改style样式为monospace：\n
+ 代码中引用只需要在BaseApplication的onCreate里设置"
+
+        />
+
+
+    <com.coffice.shengtao.cofficemachine.selfview.FontTextView
+        android:id="@+id/selfsetfont"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textchangefont"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="24dp"
+        android:singleLine="false"
+        android:gravity="center"
+        lee:fontPath="font/wwfont.ttf"
+        android:text="  方法1：自定义控件 FontTextView
+  优点：使用简单方便，不需要额外的工作。
+  缺点：只能替换一类控件的字体，如果需要替换Button或EditText控件的字体，需要以相同的方式自定义这些控件，这样工作量大。
+  方法2：递归批量替换某个View及其子View的字体
+  优点：不需要修改XML布局文件，不需要重写控件，可以批量替换所有继承自TextView的控件的字体，适合需要批量替换字体的场合，如程序的默认字体。
+  缺点：如果要替换整个App的所有字体，需要在每个有界面的地方批量替换一次，页面多了还是有些工作量的，不过可以在Activity和Fragment的基类中完成这个工作。其次，性能可能差一点，毕竟要递归遍历所有子节点（不过实际使用中没有明显的性能下降程序依然流畅）。
+  方法3：通过反射替换默认字体
+  优点：方式2的优点+更加简洁
+  缺点：字体文件一般比较大，加载时间长而且占内存（不过实际使用中没有明显的性能下降程序依然流畅）。
+  个人中心设置
+  我一般都是用第2，3种，简洁高效，现在说一下如何在个人设置里边改变你的app字体：
+  经实践，第2种方法是最好的，可以实时更新页面。而第三种需要返回重新进入到activity才会看到效果。
+ 方法4
+  先在BaseActivity注册一个字体改变监听的广播
+  使用注意：
+  1.如果字体文件比较大，当设置后可能并不会立即生效，有1~2s的延迟，具体还依据类中控件的数量来定。
+  2.至关重要，所有的Activity请务必要继承BaseActivity。" />
+</RelativeLayout>

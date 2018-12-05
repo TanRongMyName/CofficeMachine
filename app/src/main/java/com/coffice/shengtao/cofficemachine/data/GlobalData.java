@@ -117,5 +117,7 @@ public class GlobalData {
     public static String TYPE_PAY_QRCODE="typepayqrcode";
     public static String TYPE_PAY="typepay";
     public static String TYPE_CHECK_ORDER="typecheckorder";
-
+    //字体库文件路径的位置---保存在shareperfence
+    public static String FONTTYPE_PATH_KEY="typefontpath";
+    public static String TYPEFACECHANGEACTION="com.tanrong.typefacechange.action";//字体发生变化的广播
 }

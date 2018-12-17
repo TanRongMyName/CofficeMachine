@@ -80,7 +80,9 @@
         tools:replace="android:icon,android:theme,android:allowBackup">
 
         <!-- android:process="shengtao.cofficemachine" -->
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -338,7 +340,12 @@
         <receiver
             android:name=".broadcast.TypeFaceChangeReceiver"
             android:enabled="true"
-            android:exported="true"></receiver>
+            android:exported="true" />
+        <!-- //这个为解决方法 -->
+        <activity
+            android:name=".activitys.ChangeStyleByTimeActivity"
+            android:theme="@style/Theme.MyTheme" />
+        <activity android:name=".activitys.PickerViewActivity"></activity>
     </application>
 
 </manifest>

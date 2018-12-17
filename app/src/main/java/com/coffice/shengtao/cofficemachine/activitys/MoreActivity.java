@@ -11,7 +11,10 @@ import com.coffice.shengtao.cofficemachine.MainActivity;
 import com.coffice.shengtao.cofficemachine.R;
 import com.coffice.shengtao.cofficemachine.adapter.BaseRecyclerHoder;
 import com.coffice.shengtao.cofficemachine.adapter.RecycleDataBaseAdapter;
+import com.coffice.shengtao.cofficemachine.data.GlobalData;
 import com.coffice.shengtao.cofficemachine.data.model.KnowPoint;
+import com.coffice.shengtao.cofficemachine.utils.LogUtils;
+import com.coffice.shengtao.cofficemachine.utils.SPUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +30,14 @@ public class MoreActivity extends BaseActivity {
     private List<KnowPoint> list;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        LogUtils.d("SharePreference===THEME===="+SPUtils.get(this, GlobalData.THEME_KEY, GlobalData.THEME_DAY));
+//        if (SPUtils.get(this, GlobalData.THEME_KEY, GlobalData.THEME_DAY).equals(GlobalData.THEME_DAY)) {
+//            //默認是白天主題
+//            setTheme(R.style.BaseAppThemeLight);
+//        } else {
+//            //否则是晚上主題
+//            setTheme(R.style.BaseAppThemeNight);
+//        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_more);
         binder = ButterKnife.bind(this);
@@ -113,5 +124,11 @@ public class MoreActivity extends BaseActivity {
         list.add(new KnowPoint("Android修改全局字体,整个APP字体",
                 "Android里面对字体的支持少得可怜，TextView  的 typeface 属性支持 \"Sans\"，\"serif\"，\"monospace\" 这三种字体，没有指定字体的情况下，系统缺省会使用 \"Sans\" 作为文本显示的字体。",
                 "https://blog.csdn.net/gold_brick/article/details/52865369",FontLibActivity.class));
+        list.add(new KnowPoint("Android切换主题样式--换肤准备",
+                "现在市面上有很多 APP 有切换主题和皮肤的功能！特别是阅读类的 APP！。",
+                "https://blog.csdn.net/gold_brick/article/details/52865369",ChangeStyleByTimeActivity.class));
+        list.add(new KnowPoint("Android时间选择器，省市区三级联动",
+                "这是一款仿iOS的PickerView控件TimePickerView 时间选择器，支持年月日时分，年月日，年月，时分等格式。OptionsPickerView 选项选择器，支持一，二，三级选项选择，并且可以设置是否联动 。",
+                "https://github.com/Bigkoo/Android-PickerView",PickerViewActivity.class));
     }
 }

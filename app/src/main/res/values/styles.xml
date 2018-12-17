@@ -53,4 +53,32 @@
         <item name="android:windowBackground">@null</item>
         <item name="android:windowIsTranslucent">true</item>
     </style>
+
+         <!--白天主题-->
+         <style name="BaseAppThemeLight" parent="Theme.AppCompat.NoActionBar">
+               <item name="colorPrimary">@color/colorPrimary</item>
+               <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+               <item name="android:background">@android:color/transparent</item>
+               <item name="android:windowIsTranslucent">true</item>
+               <item name="android:windowBackground">@android:color/transparent</item>
+               <item name="textLight">@android:color/black</item>
+               <item name="appbg">@android:color/white</item>
+               <item name="textNight">@color/gray</item>
+         </style>
+
+         <!--夜间主题-->
+         <style name="BaseAppThemeNight" parent="Theme.AppCompat.NoActionBar">
+             <item name="colorPrimary">@color/colorPrimaryNight</item>
+             <item name="colorPrimaryDark">@color/colorPrimaryDarkNight</item>
+             <item name="android:background">@android:color/transparent</item>
+             <item name="android:windowIsTranslucent">true</item>
+             <item name="android:windowBackground">@android:color/transparent</item>
+             <item name="textLight">@android:color/white</item>
+             <item name="appbg">@android:color/black</item>
+             <item name="textNight">@color/gray</item>
+         </style>
+        <style name="Theme.MyTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
+            <!-- This disables the black preview screen -->
+            <item name="android:windowDisablePreview">true</item>//主要是这个
+        </style>
 </resources>

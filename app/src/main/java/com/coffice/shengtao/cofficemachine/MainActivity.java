@@ -21,8 +21,10 @@ import com.coffice.shengtao.cofficemachine.activitys.ScanCodeActivity;
 import com.coffice.shengtao.cofficemachine.activitys.ApayStandboxActivity;
 import com.coffice.shengtao.cofficemachine.activitys.SlinMenuActivity;
 import com.coffice.shengtao.cofficemachine.activitys.exitActivitys;
+import com.coffice.shengtao.cofficemachine.data.GlobalData;
 import com.coffice.shengtao.cofficemachine.utils.ExampleUtil;
 import com.coffice.shengtao.cofficemachine.utils.LogUtils;
+import com.coffice.shengtao.cofficemachine.utils.SPUtils;
 import com.coffice.shengtao.cofficemachine.utils.ScreenUtils;
 import com.coffice.shengtao.cofficemachine.utils.ToastUtils;
 
@@ -32,6 +34,17 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     public static boolean isForeground = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        LogUtils.d("SharePreference===THEME===="+SPUtils.get(this, GlobalData.THEME_KEY, GlobalData.THEME_DAY));
+//        if (SPUtils.get(this, GlobalData.THEME_KEY, GlobalData.THEME_DAY).equals(GlobalData.THEME_DAY)) {
+//            //默認是白天主題
+//            LogUtils.d("SharePreference===THEME===="+SPUtils.get(this, GlobalData.THEME_KEY, GlobalData.THEME_DAY).equals(GlobalData.THEME_DAY));
+//            setTheme(R.style.BaseAppThemeLight);
+//        } else {
+//            //否则是晚上主題
+//            LogUtils.d("SharePreference===THEME===="+SPUtils.get(this, GlobalData.THEME_KEY, GlobalData.THEME_DAY).equals(GlobalData.THEME_DAY));
+//            setTheme(R.style.BaseAppThemeNight);
+//
+//        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();

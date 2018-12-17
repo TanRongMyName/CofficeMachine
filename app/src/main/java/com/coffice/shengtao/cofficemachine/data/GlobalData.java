@@ -120,4 +120,8 @@ public class GlobalData {
     //字体库文件路径的位置---保存在shareperfence
     public static String FONTTYPE_PATH_KEY="typefontpath";
     public static String TYPEFACECHANGEACTION="com.tanrong.typefacechange.action";//字体发生变化的广播
+    /*样式切换----SharePerfence 关键字*/
+    public static String THEME_KEY="THEME";
+    public static String THEME_DAY="DAYTHEME";
+    public static String THEME_NIGHT="NIGHTTHEME";
 }

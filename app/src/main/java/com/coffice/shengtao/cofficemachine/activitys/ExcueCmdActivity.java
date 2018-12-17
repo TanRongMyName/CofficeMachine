@@ -13,6 +13,7 @@ import com.coffice.shengtao.cofficemachine.utils.ToastUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
 //开机的时候 也可以在MyApplication 中执行cmd 命令 指定操作 工具
 //httpsblog.csdn.netZ_HUALINarticledetails77878609 adb 命令行
 //在做Android开发板相关的开发需求的时候，我们有的时候需要去到Android系统的一个linux终端（adbshell）、
@@ -29,6 +30,8 @@ public class ExcueCmdActivity extends BaseActivity {
     Button updatehosts;
     @BindView(R.id.copyfile)
     Button copyfile;
+    @BindView(R.id.echo)
+    Button echo;
 
 
     //需要root 权限
@@ -45,7 +48,7 @@ public class ExcueCmdActivity extends BaseActivity {
         super.onDestroy();
     }
 
-    @OnClick({R.id.unistallSilent, R.id.installlocation, R.id.updatehosts, R.id.copyfile})
+    @OnClick({R.id.unistallSilent, R.id.installlocation, R.id.updatehosts, R.id.copyfile,R.id.echo})
     public void onViewClicked(final View view) {
         String cmd3 = null;
         String result = null;
@@ -78,6 +81,9 @@ public class ExcueCmdActivity extends BaseActivity {
                 //mount -o remount rw  /system
                 //chmod 777 test.apk 文件授权
                 break;
+            case R.id.echo:
+                cmd3="echo -n 'A1#' > /dev/ttyUSB5";
+                break;
         }
         final String finalCmd = cmd3;
         new Thread(new Runnable() {
@@ -86,12 +92,12 @@ public class ExcueCmdActivity extends BaseActivity {
                 String str3 = new ExeCmdUtils().run(finalCmd, 10000).getResult();
                 LogUtils.d("result==" + str3);
                 if (view.getId() == R.id.installlocation) {
-                    if(str3!=null&&str3.length()>0) {
+                    if (str3 != null && str3.length() > 0) {
                         str3 = str3.substring(0, 1);
                         LogUtils.d("result==" + str3);
                         str3 = (Integer.getInteger(str3) == 0 ? "制动安装" : (Integer.getInteger(str3) == 1 ? "安装在内部" : "安装在sd卡"));
-                    }else{
-                        str3= "制动安装";
+                    } else {
+                        str3 = "制动安装";
                     }
                 }
                 RunOnUi(str3);
@@ -109,8 +115,11 @@ public class ExcueCmdActivity extends BaseActivity {
         });
 
     }
-}
 
+    @OnClick(R.id.echo)
+    public void onViewClicked() {
+    }
+}
 
 
 //         安装APK：

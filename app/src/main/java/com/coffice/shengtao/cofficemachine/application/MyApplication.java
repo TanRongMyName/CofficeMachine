@@ -25,6 +25,9 @@ import org.litepal.LitePalApplication;
 import org.litepal.util.SharedUtil;
 
 import cn.jpush.android.api.JPushInterface;
+import skin.support.SkinCompatManager;
+import skin.support.app.SkinCardViewInflater;
+import skin.support.design.app.SkinMaterialViewInflater;
 
 public class MyApplication extends Application {
     private static MyApplication context;
@@ -51,7 +54,19 @@ public class MyApplication extends Application {
         initHttp();
         initJPush();
         initTypeFace();
+        initSkinLib();
 
+    }
+    //初始化 换肤框架的数据
+    private void initSkinLib() {
+        SkinCompatManager.withoutActivity(this)                         // 基础控件换肤初始化
+                .addInflater(new SkinMaterialViewInflater())            // material design 控件换肤初始化[可选]
+                .addInflater(new SkinCardViewInflater())                // CardView v7 控件换肤初始化[可选]
+                .setSkinStatusBarColorEnable(true)                      //切换状态栏颜色
+//                .setSkinStatusBarColorEnable(false)                     // 关闭状态栏换肤，默认打开[可选]
+//                .setSkinWindowBackgroundEnable(false)                   // 关闭windowBackground换肤，默认打开[可选]
+                .loadSkin();
+        LogUtils.d("初始化----内部换肤--");
     }
 
     private void initTypeFace() {

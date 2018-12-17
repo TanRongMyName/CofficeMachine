@@ -67,8 +67,10 @@ android {
                             'src/main/res/layouts/activities',
                             'src/main/res/layout/fragments',
                             'src/main/res/layout',
-                            'src/main/res'
+                            'src/main/res',
+                            'src/main/res-night'
                     ]
+            assets.srcDirs = ['src/main/assets', 'src/main/assets/skin']
         }
     }
 }
@@ -173,4 +175,12 @@ dependencies {
     //implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'
     /*sweet-alert-dialog*/
     implementation 'com.github.f0ris.sweetalert:library:1.5.1'
+    //换肤框架
+    implementation 'skin.support:skin-support:3.1.0-beta1'
+    // skin-support 基础控件支持
+    implementation 'skin.support:skin-support-design:3.1.0-beta1'
+    // skin-support-design material design 控件支持[可选]
+    implementation 'skin.support:skin-support-cardview:3.1.0-beta1'
+    //时间 --三级联动 选择器
+    implementation 'com.contrarywind:Android-PickerView:4.1.6'
 }

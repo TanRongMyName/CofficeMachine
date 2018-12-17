@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activitys.PickerViewActivity"
+    android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <Button
+                    android:id="@+id/btn_lunar"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="10dp"
+                    android:text="公农历切换" />
+
+                <Button
+                    android:id="@+id/btn_Time"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="10dp"
+                    android:text="时间选择器" />
+
+                <Button
+                    android:id="@+id/btn_Options"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/tvTime"
+                    android:layout_margin="10dp"
+                    android:text="条件选择器" />
+
+                <Button
+                    android:id="@+id/btn_CustomTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/tvTime"
+                    android:layout_margin="10dp"
+                    android:text="时间选择器自定义布局" />
+
+                <Button
+                    android:id="@+id/btn_CustomOptions"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/tvTime"
+                    android:layout_margin="10dp"
+                    android:text="条件选择器自定义布局" />
+
+                <Button
+                    android:id="@+id/btn_no_linkage"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/tvTime"
+                    android:layout_margin="10dp"
+                    android:text="条件选择器(不联动)" />
+
+                <Button
+                    android:id="@+id/btn_GotoJsonData"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/tvTime"
+                    android:layout_margin="10dp"
+                    android:text="省市区Json文件解析示例" />
+
+                <Button
+                    android:id="@+id/btn_fragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/tvTime"
+                    android:layout_margin="10dp"
+                    android:text="自定义父容器" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+
+
